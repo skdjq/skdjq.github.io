@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>我的第一篇个人博客</title>
-      <link href="/2020/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2020/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-      
-        <content type="html"><![CDATA[<h1 id="这是我的第一篇个人博客"><a href="#这是我的第一篇个人博客" class="headerlink" title="这是我的第一篇个人博客"></a>这是我的第一篇个人博客</h1><p>由于第一次搭建的博客的加载速度过慢，这次我用了Hexo来重新搭建一个访问速度比较快的博客。</p><h2 id="这是测试"><a href="#这是测试" class="headerlink" title="这是测试"></a>这是测试</h2><h3 id="歌曲测试"><a href="#歌曲测试" class="headerlink" title="歌曲测试"></a>歌曲测试</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1428598981&auto=1&height=66"></iframe><p>由于本网页不支持嵌入iframe，测试失败。</p><h4 id="代码测试"><a href="#代码测试" class="headerlink" title="代码测试"></a>代码测试</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>hexo cleanhexo ghexo shexo d</code></pre><h4 id="图片测试"><a href="#图片测试" class="headerlink" title="图片测试"></a>图片测试</h4><p><img src="https://gitee.com//skdjq/image/raw/master/img/32.jpg" alt=""></p><h2 id="ok-测试完毕-准备起飞"><a href="#ok-测试完毕-准备起飞" class="headerlink" title="ok 测试完毕 准备起飞"></a>ok 测试完毕 准备起飞</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>网络编程</title>
       <link href="/2020/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
       <url>/2020/05/23/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</url>
