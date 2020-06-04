@@ -344,17 +344,20 @@
     #articleContent :focus {
         outline: none;
     }
-
+    
     .toc-fixed {
         position: fixed;
         top: 64px;
     }
-
+    
     .toc-widget {
         width: 345px;
         padding-left: 20px;
+        background-color: rgb(255, 255, 255,0.7);
+            border-radius: 10px;
+            box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
     }
-
+    
     .toc-widget .toc-title {
         margin: 35px 0 15px 0;
         padding-left: 17px;
@@ -362,44 +365,44 @@
         font-weight: bold;
         line-height: 1.5rem;
     }
-
+    
     .toc-widget ol {
         padding: 0;
         list-style: none;
     }
-
+    
     #toc-content {
         height: calc(100vh - 250px);
         overflow: auto;
     }
-
+    
     #toc-content ol {
         padding-left: 10px;
     }
-
+    
     #toc-content ol li {
         padding-left: 10px;
     }
-
+    
     #toc-content .toc-link:hover {
         color: #42b983;
         font-weight: 700;
         text-decoration: underline;
     }
-
+    
     #toc-content .toc-link::before {
         background-color: transparent;
         max-height: 25px;
-
+    
         position: absolute;
         right: 23.5vw;
         display: block;
     }
-
+    
     #toc-content .is-active-link {
         color: #42b983;
     }
-
+    
     #floating-toc-btn {
         position: fixed;
         right: 15px;
@@ -408,12 +411,12 @@
         margin-bottom: 0;
         z-index: 998;
     }
-
+    
     #floating-toc-btn .btn-floating {
         width: 48px;
         height: 48px;
     }
-
+    
     #floating-toc-btn .btn-floating i {
         line-height: 48px;
         font-size: 1.4rem;
@@ -921,13 +924,13 @@
         $('#toc-content a').each(function () {
             $(this).attr('href', '#' + tocHeading + (++i));
         });
-
+    
         // modify the heading title id to support Chinese.
         i = 0;
         $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
-
+    
         // Set scroll toc fixed.
         let tocHeight = parseInt($(window).height() * 0.4 - 64);
         let $tocWidget = $('.toc-widget');
@@ -940,7 +943,7 @@
                 $tocWidget.removeClass('toc-fixed');
             }
         });
-
+    
         
         /* 修复文章卡片 div 的宽度. */
         let fixPostCardWidth = function (srcId, targetId) {
@@ -948,7 +951,7 @@
             if (srcDiv.length === 0) {
                 return;
             }
-
+    
             let w = srcDiv.width();
             if (w >= 450) {
                 w = w + 21;
@@ -961,7 +964,7 @@
             }
             $('#' + targetId).width(w);
         };
-
+    
         // 切换TOC目录展开收缩的相关操作.
         const expandedClass = 'expanded';
         let $tocAside = $('#toc-aside');

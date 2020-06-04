@@ -344,17 +344,20 @@
     #articleContent :focus {
         outline: none;
     }
-
+    
     .toc-fixed {
         position: fixed;
         top: 64px;
     }
-
+    
     .toc-widget {
         width: 345px;
         padding-left: 20px;
+        background-color: rgb(255, 255, 255,0.7);
+            border-radius: 10px;
+            box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
     }
-
+    
     .toc-widget .toc-title {
         margin: 35px 0 15px 0;
         padding-left: 17px;
@@ -362,44 +365,44 @@
         font-weight: bold;
         line-height: 1.5rem;
     }
-
+    
     .toc-widget ol {
         padding: 0;
         list-style: none;
     }
-
+    
     #toc-content {
         height: calc(100vh - 250px);
         overflow: auto;
     }
-
+    
     #toc-content ol {
         padding-left: 10px;
     }
-
+    
     #toc-content ol li {
         padding-left: 10px;
     }
-
+    
     #toc-content .toc-link:hover {
         color: #42b983;
         font-weight: 700;
         text-decoration: underline;
     }
-
+    
     #toc-content .toc-link::before {
         background-color: transparent;
         max-height: 25px;
-
+    
         position: absolute;
         right: 23.5vw;
         display: block;
     }
-
+    
     #toc-content .is-active-link {
         color: #42b983;
     }
-
+    
     #floating-toc-btn {
         position: fixed;
         right: 15px;
@@ -408,12 +411,12 @@
         margin-bottom: 0;
         z-index: 998;
     }
-
+    
     #floating-toc-btn .btn-floating {
         width: 48px;
         height: 48px;
     }
-
+    
     #floating-toc-btn .btn-floating i {
         line-height: 48px;
         font-size: 1.4rem;
@@ -968,41 +971,29 @@ BServlet</code></pre><h4 id="快捷重定向"><a href="#快捷重定向" class="
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/04/request%E5%92%8Cresponse/">
+                <a href="/2020/06/04/JSP%E8%AF%A6%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="request和response">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="JSP详解">
                         
-                        <span class="card-title">request和response</span>
+                        <span class="card-title">JSP详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            请求响应流程图
-request对象和response对象都是由服务器创建的！
-responseresponse 对象是用来对客户端进行响应的。
-response对象的功能分为以下四种：
-
-设置响应头信息
-
-发送状态码
-
-设置响应正文
-
-重定
+                            
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-04
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1015,7 +1006,6 @@ response对象的功能分为以下四种：
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1181,13 +1171,13 @@ response对象的功能分为以下四种：
         $('#toc-content a').each(function () {
             $(this).attr('href', '#' + tocHeading + (++i));
         });
-
+    
         // modify the heading title id to support Chinese.
         i = 0;
         $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
-
+    
         // Set scroll toc fixed.
         let tocHeight = parseInt($(window).height() * 0.4 - 64);
         let $tocWidget = $('.toc-widget');
@@ -1200,7 +1190,7 @@ response对象的功能分为以下四种：
                 $tocWidget.removeClass('toc-fixed');
             }
         });
-
+    
         
         /* 修复文章卡片 div 的宽度. */
         let fixPostCardWidth = function (srcId, targetId) {
@@ -1208,7 +1198,7 @@ response对象的功能分为以下四种：
             if (srcDiv.length === 0) {
                 return;
             }
-
+    
             let w = srcDiv.width();
             if (w >= 450) {
                 w = w + 21;
@@ -1221,7 +1211,7 @@ response对象的功能分为以下四种：
             }
             $('#' + targetId).width(w);
         };
-
+    
         // 切换TOC目录展开收缩的相关操作.
         const expandedClass = 'expanded';
         let $tocAside = $('#toc-aside');
