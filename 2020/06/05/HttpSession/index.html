@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="异常, 岩哩岩哩 ( ゜- ゜)つロ 干杯~">
+    <meta name="keywords" content="HttpSession, 岩哩岩哩 ( ゜- ゜)つロ 干杯~">
     <meta name="description" content="专注于分享学习经验">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>异常 | 岩哩岩哩 ( ゜- ゜)つロ 干杯~</title>
+    <title>HttpSession | 岩哩岩哩 ( ゜- ゜)つロ 干杯~</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">异常</h1>
+                    <h1 class="description center-align post-title">HttpSession</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/Java-Web/">
+                                <span class="chip bg-color">Java Web</span>
                             </a>
                         
                     </div>
@@ -442,8 +442,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category">
-                                Java
+                            <a href="/categories/Java-Web/" class="post-category">
+                                Java Web
                             </a>
                         
                     </div>
@@ -455,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-16
+                    2020-06-05
                 </div>
                 
 
@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    938
                 </div>
                 
 
@@ -476,116 +476,134 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>程序的异常：Throwable</p>
+                <h1 id="HttpSession"><a href="#HttpSession" class="headerlink" title="HttpSession"></a>HttpSession</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>在WEB开发中，服务器可以为每个用户浏览器创建一个会话对象（session对象），<strong>注意：一个浏览器独占一个session对象(默认情况下)。</strong>因此，在需要保存用户数据时，服务器程序可以把用户数据写到用户浏览器独占的session中，当用户使用浏览器访问其它程序时，其它程序可以从用户的session中取出该用户的数据，为用户服务。</p>
+</blockquote>
 <ul>
-<li>严重问题：Error                我们不处理，一般出现就是很严重的问题，比如内存溢出</li>
-<li>问题：Exception<ul>
-<li>编译期问题：不是 RuntimeException 的异常</li>
-<li>运行期问题： RuntimeException       我们也不处理，这个问题必然是我们自己的代码出了问题，需要修改代码</li>
+<li>HttpSession是由JavaWeb提供的，用来会话跟踪的类。<strong>session是服务器端对象，保存在服务器端！！！</strong></li>
+<li>HttpSession是Servlet三大域对象之一(request、session、application(ServletContext))，所以它也有setAttribute()、getAttribute()、removeAttribute()方法<ul>
+<li>（<strong>getAttribute()返回的是Object类型，必须强制转换！</strong>）</li>
 </ul>
 </li>
+<li><strong>HttpSession底层依赖Cookie，或是URL重写！</strong></li>
 </ul>
-<p><img src="https://gitee.com//skdjq/image/raw/master/img/u=2736300872,3816552502&fm=173&app=49&f=JPEG.jpg" alt=""></p>
-<p>编译期异常和运行期异常的区别</p>
-<p>编译期异常：Java 程序必须显式处理，否则程序就会发生错误，无法通过编译。</p>
-<p>运行期异常：无需显式处理，也可以和编译时异常一样处理。</p>
-<p>关键字：<code>Exception</code> <code>try</code>  <code>catch</code>  <code>finally</code> <code>throw</code> <code>throws</code> </p>
-<p>检测异常一条龙：</p>
-<p>try{</p>
-<p>}catch(){</p>
-<p>}finally{</p>
-<p>}</p>
-<p><strong>注意：</strong></p>
-<ul>
-<li><strong>try 里面的代码越少越好！</strong></li>
-<li><strong>catch 里面必须有内容！</strong></li>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ul>
+<li><p>会话范围：会话范围是某个用户从首次访问服务器开始，到该用户关闭浏览器结束！</p>
+<blockquote>
+<p>会话：<strong>一个用户对服务器的多次连贯性请求！</strong></p>
+<p>所谓连贯性请求，就是该用户多次请求中间<strong>没有关闭浏览器！</strong></p>
+</blockquote>
+</li>
+<li><p>服务器会为每个客户端创建一个session对象，session就好比客户在服务器端的账户，它们被服务器保存到一个Map中，这个Map被称之为session缓存！</p>
+<blockquote>
+<p><strong>Servlet中得到session对象：<code>HttpSession session = request.getSession();</code></strong><br><strong>Jsp中得到session对象：session是jsp内置对象之下，不用创建就可以直接使用！</strong></p>
+</blockquote>
+</li>
+<li><p>session域相关方法：</p>
+<blockquote>
+<p><code>void setAttribute(String name, Object value);</code><br><code>Object getAttribute(String name);</code><br><code>void removeAttribute(String name);</code></p>
+</blockquote>
+</li>
 </ul>
-<p><strong>过程</strong>：在 try 里面发现问题后，JVM 会帮我们生成一个异常对象，然后把这个对象抛出，和 catch 里面的类进行匹配。如果该对象是某个类型的，就会执行该 catch 里面的处理信息。</p>
-<pre class=" language-java"><code class="language-java">如：
-<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">try</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">//try 监控区域</span>
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token operator">/</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">//catch 捕获异常</span>
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"程序出现异常！b的值不能为0！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">finally</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">//用于善后操作</span>
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"finally~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h2 id="session实现原理"><a href="#session实现原理" class="headerlink" title="session实现原理"></a>session实现原理</h2><p>服务器创建session出来后，会把session的id号，以cookie的形式回写给客户机，这样，只要客户机的浏览器不关，再去访问服务器时，都会带着session的id号去，服务器发现客户机浏览器带session id过来了，就会使用内存中与之对应的session为之服务。</p>
+<h3 id="网站登录"><a href="#网站登录" class="headerlink" title="网站登录"></a>网站登录</h3><p>功能：用户输入用户名和密码，当用户名中不含“zhaoyan”字样时（无论大小写！）登陆成功，进入登陆成功页面，如果用户未经登录或用户名包含了“zhaoyan”字样，登陆失败，并返回至登陆页面。</p>
+<p><em>login页面：</em></p>
+<pre class=" language-jsp"><code class="language-jsp"><html>
+<head>
+    <title>Login</title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<body>
+<%
+    String ck = "";
+    Cookie[] cookies = request.getCookies();
+    if(cookies != null){
+        for(Cookie ck1 : cookies){
+            if("ck1".equals("uname")){
+                ck = ck1.getValue();
+            }
+
+        }
+    }
+%>
+<form action="/day11/Servlet" method="post" >
+    用户名：<input type="text" name="username" value="<%= ck %>"/><br/>
+    密码：<input type="password" name="password"/><br/>
+    <input type="submit" value="提交"/><br/>
+</form>
+<%
+    String s = (String)request.getAttribute("wrong");
+    String message = "";
+    if(s != null){
+        message = s;
+    }
+%>
+
+<p1><%= message %></p1>
+</body>
+</html>
+<%-- 本页面提供登录信息及错误信息 --%></code></pre>
+<p><em>Servlet页面：</em></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Servlet</span> <span class="token keyword">extends</span> <span class="token class-name">HttpServlet</span> <span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doPost</span><span class="token punctuation">(</span>HttpServletRequest request<span class="token punctuation">,</span> HttpServletResponse response<span class="token punctuation">)</span> <span class="token keyword">throws</span> ServletException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/*
+         * 获取表单数据
+         * */</span>
+        <span class="token comment" spellcheck="true">//处理中文问题</span>
+        request<span class="token punctuation">.</span><span class="token function">setCharacterEncoding</span><span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//获取表单数据</span>
+        String username <span class="token operator">=</span> <span class="token punctuation">(</span>String<span class="token punctuation">)</span> request<span class="token punctuation">.</span><span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String password <span class="token operator">=</span> <span class="token punctuation">(</span>String<span class="token punctuation">)</span> request<span class="token punctuation">.</span><span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token string">"password"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//String.equalsIgnoreCase()方法用法实例教程, 比较字符串到另一个字符串，忽略大小写因素。</span>
+        <span class="token comment" spellcheck="true">//如果用户名不为zhaoyan，则成功，否则失败</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token string">"zhaoyan"</span><span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span>username<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">/*
+             * 如果成功，保存地址到session,并把数据保存到Cookie中
+             * 重定向到succ1.jsp
+             * */</span>
+            Cookie cookie <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cookie</span><span class="token punctuation">(</span><span class="token string">"uname"</span><span class="token punctuation">,</span>username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cookie<span class="token punctuation">.</span><span class="token function">setMaxAge</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token operator">*</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            response<span class="token punctuation">.</span><span class="token function">addCookie</span><span class="token punctuation">(</span>cookie<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            HttpSession session <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            session<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">,</span> <span class="token string">"password"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span><span class="token string">"/day11/session2/succ1.jsp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">/*
+             * 如果失败，保存错误信息到request，转发到login.jsp
+             * */</span>
+            request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"wrong"</span><span class="token punctuation">,</span> <span class="token string">"错误信息!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            request<span class="token punctuation">.</span><span class="token function">getRequestDispatcher</span><span class="token punctuation">(</span><span class="token string">"/session2/login.jsp"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forward</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
-<p>输出结果为：</p>
-<pre class=" language-java"><code class="language-java">程序出现异常！b的值不能为<span class="token number">0</span>！
-<span class="token keyword">finally</span><span class="token operator">~</span></code></pre>
-<h3 id="throw处理异常"><a href="#throw处理异常" class="headerlink" title="throw处理异常"></a>throw处理异常</h3><p><code>throw</code>主动抛出异常，常用在方法中：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">demo1</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        demo1 demo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">demo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        demo<span class="token punctuation">.</span><span class="token function">test01</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test01</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ArithmeticException</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p>输出结果为：</p>
-<pre class=" language-java"><code class="language-java">Exception in thread <span class="token string">"main"</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>ArithmeticException
-    at demo02<span class="token punctuation">.</span>demo1<span class="token punctuation">.</span><span class="token function">test01</span><span class="token punctuation">(</span>demo1<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">)</span>
-    at demo02<span class="token punctuation">.</span>demo1<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>demo1<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span></code></pre>
-<p>主动抛出了异常。</p>
-<h3 id="throws-处理异常"><a href="#throws-处理异常" class="headerlink" title="throws 处理异常"></a>throws 处理异常</h3><p>格式：</p>
-<p>(修饰符)](返回值类型)(方法名)([参数列表])[throws  (异常类名)]{……}</p>
-<p>如：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> ArithmeticException <span class="token punctuation">{</span>
-<span class="token punctuation">}</span></code></pre>
-<p>注意：尽量不要在 main 方法上抛出异常。</p>
-<h3 id="throw与throws的比较"><a href="#throw与throws的比较" class="headerlink" title="throw与throws的比较"></a>throw与throws的比较</h3><p>1、throws出现在方法函数头；而throw出现在函数体。</p>
-<p>2、throws表示出现异常的一种可能性，并不一定会发生这些异常；throw则是抛出了异常，执行throw则一定抛出了某种异常对象。</p>
-<p>3、两者都是消极处理异常的方式（这里的消极并不是说这种方式不好），只是抛出或者可能抛出异常，但是不会由函数去处理异常，真正的处理异常由函数的上层调用处理。</p>
-<p>好的编程习惯：</p>
-<p>1.在写程序时，对可能会出现异常的部分通常要用try{…}catch{…}去捕捉它并对它进行处理；</p>
-<p>2.用try{…}catch{…}捕捉了异常之后一定要对在catch{…}中对其进行处理，那怕是最简单的一句输出语句，或栈输出e.printStackTrace();</p>
-<p>3.如果是捕捉IO输入输出流中的异常，一定要在try{…}catch{…}后加finally{…}把输入输出流关闭；</p>
-<p>4.如果在函数体内用throw抛出了某种异常，最好要在函数名中加throws抛异常声明，然后交给调用它的上层函数进行处理。</p>
-<h3 id="catch嵌套"><a href="#catch嵌套" class="headerlink" title="catch嵌套"></a>catch嵌套</h3><p>多重 <code>catch</code> 只会执行一次 <code>catch</code> 在使用多重 <code>catch</code> 时，最好在最下面一层 <code>catch</code> 加上一个 <code>catch(Exception)</code> 来处理可能遗漏的异常。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">try</span><span class="token punctuation">{</span>
-
-<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>异常类名    变量名<span class="token punctuation">)</span><span class="token punctuation">{</span>
-
-<span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>异常类名    变量名<span class="token punctuation">)</span><span class="token punctuation">{</span>
-
-<span class="token punctuation">}</span>
-<span class="token keyword">catch</span><span class="token punctuation">(</span>Exception 变量名<span class="token punctuation">)</span><span class="token punctuation">{</span>
-
-<span class="token punctuation">}</span></code></pre>
-<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h3><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//类1</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExceptionDemo1</span> <span class="token keyword">extends</span> <span class="token class-name">Exception</span><span class="token punctuation">{</span>
-
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//类2</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Teacher</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">score</span><span class="token punctuation">(</span><span class="token keyword">int</span> score<span class="token punctuation">)</span> <span class="token keyword">throws</span> ExceptionDemo1 <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>score<span class="token operator">></span><span class="token number">100</span> <span class="token operator">||</span> score<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ExceptionDemo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li><p>子类重写父类的方法时，子类的方法必须抛出相同的异常或父类异常的子类。（如父类抛出Exception异常，子类只能抛出Exception及Exception的子类异常）</p>
-</li>
-<li><p>如果父类抛出了多个异常，子类重写父类时，只能抛出相同的异常或者是它的子集，子类不能抛出父类没有的异常</p>
-</li>
-<li><p>如果被重写的方法没有异常抛出，那么子类的方法绝对不可以抛出异常，如果子类方法内有异常发生，那么子类只能try，不能throws</p>
-</li>
-</ul>
-<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h4 id="final-finally-和-finalize-的区别"><a href="#final-finally-和-finalize-的区别" class="headerlink" title="final, finally 和 finalize 的区别"></a>final, finally 和 finalize 的区别</h4><p>final：可以修饰类，成员变量，成员方法。</p>
+<p><em>登陆成功页面：</em></p>
+<pre class=" language-jsp"><code class="language-jsp"><html>
+<head>
+    <title>success1</title>
+</head>
+<body>
+<%
+    String name = (String)session.getAttribute("username");
+    if(name == null){
+        request.setAttribute("wrong","请您先登录！");
+        request.getRequestDispatcher("/session2/login.jsp").forward(request,response);
+        return;
+    }else{
+        out.print("欢迎！");
+    }
+%>
+</body>
+</html></code></pre>
+<h2 id="session和cookie的区别"><a href="#session和cookie的区别" class="headerlink" title="session和cookie的区别"></a>session和cookie的区别</h2><p>Cookie是把用户的数据写到用户的浏览器；</p>
+<p>Session是把用户的数据写到用户独占的Session中；</p>
 <ul>
-<li>修饰类，类不能被继承</li>
-<li>修饰变量，变量是常量</li>
-<li>修饰方法，方法不能被重写</li>
+<li>session 在服务器端，cookie 在客户端（浏览器）</li>
+<li>session 默认被存在在服务器的一个文件里（不是内存）</li>
+<li><strong>session 的运行依赖 session id，而 session id 是存在 cookie 中的</strong>，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 session_id）</li>
+<li>session 可以放在 文件、数据库、或内存中都可以。</li>
+<li>用户验证这种场合一般会用 session</li>
 </ul>
-<p>finally：是异常处理的一部分，用于释放资源。</p>
-<p>一般来说，代码肯定会执行 finally 语句；特殊情况：在执行到 finally 之前 JVM 退出了。</p>
-<p>finalize：是 Object 类的一个方法，用于垃圾回收。</p>
+<p>因此，维持一个会话的核心就是客户端的唯一标识，即 session id</p>
 
             </div>
             <hr/>
@@ -611,7 +629,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/05/16/%E5%BC%82%E5%B8%B8/">http://yoursite.com/2020/05/16/%E5%BC%82%E5%B8%B8/</a>
+                    <a href="http://yoursite.com/2020/06/05/HttpSession/">http://yoursite.com/2020/06/05/HttpSession/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -649,8 +667,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/Java-Web/">
+                                    <span class="chip bg-color">Java Web</span>
                                 </a>
                             
                         </div>
@@ -840,50 +858,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/16/Java%E5%86%85%E9%83%A8%E7%B1%BB/">
+                <a href="/2020/06/05/HttpSession/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="Java内部类">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="HttpSession">
                         
-                        <span class="card-title">Java内部类</span>
+                        <span class="card-title">HttpSession</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            内部类
-将类写在其他类的内部，可以写在其他类的成员位置和局部位置，这时写在其他类内部的类就称之为内部类，其他类称之为外部类。在描述事物的时候，若一个事物内部还包含其他可能包含的事物，这时，就可以使用内部类来进行描述。
-
-如：
-class 汽
+                            HttpSession概述
+在WEB开发中，服务器可以为每个用户浏览器创建一个会话对象（session对象），注意：一个浏览器独占一个session对象(默认情况下)。因此，在需要保存用户数据时，服务器程序可以把用户数据写到用户浏览器独占的
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/Java-Web/" class="post-category">
+                                    Java Web
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/Java-Web/">
+                        <span class="chip bg-color">Java Web</span>
                     </a>
                     
                 </div>
@@ -897,36 +914,40 @@ class 汽
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/16/Java%E6%8E%A5%E5%8F%A3/">
+                <a href="/2020/06/05/Cookie/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200605223725.png" class="responsive-img" alt="Cookie">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="Java接口">
-                        
-                        <span class="card-title">Java接口</span>
+                        <span class="card-title">Cookie</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            抽象类abstract   抽象类
-public abstract class Person{
-    public static void main(String[] args){
+                            使用Cookie便捷方式：
 
-    }
-    public abstract v
+使用 repsonse.addCookie() 方法向浏览器保存 Cookie
+
+使用 request.getCookies() 方法获取浏览器归还的 Cookie
+
+返回的是 Cookie 数组
+
+
+
+案例：
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/Java-Web/" class="post-category">
+                                    Java Web
                                 </a>
                             
                             
@@ -936,8 +957,8 @@ public abstract class Person{
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/Java-Web/">
+                        <span class="chip bg-color">Java Web</span>
                     </a>
                     
                 </div>

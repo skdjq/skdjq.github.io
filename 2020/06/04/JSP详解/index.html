@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    371
+                    547
                 </div>
                 
 
@@ -501,8 +501,53 @@
 </ul>
 <p><strong>Servlet：</strong></p>
 <ul>
-<li>作为请求中<strong>处理数据</strong>的环节。</li>
+<li>作为请求中<strong>处理数据</strong>的环节</li>
 </ul>
+<h4 id="分工案例"><a href="#分工案例" class="headerlink" title="分工案例"></a>分工案例</h4><pre class=" language-jsp"><code class="language-jsp">//这是请求发起的jsp页面
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>form</title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<body>
+<p1>This is a JSP!</p1><br/>
+<form action="/day11/AServlet" method="post">
+    整数1：<input type="text" name="num1"/><br/>
+    整数2：<input type="text" name="num2"><br/>
+    <input type="submit" value="提交"/>
+</form>
+</body>
+</html></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//这是Servlet处理数据的页面</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AServlet</span> <span class="token keyword">extends</span> <span class="token class-name">HttpServlet</span> <span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doPost</span><span class="token punctuation">(</span>HttpServletRequest request<span class="token punctuation">,</span> HttpServletResponse response<span class="token punctuation">)</span> <span class="token keyword">throws</span> ServletException<span class="token punctuation">,</span> IOException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//获取参数</span>
+        String s1 <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token string">"num1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String s2 <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token string">"num2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//转换成int类型</span>
+        <span class="token keyword">int</span> num1 <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> num2 <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//运算</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//把结果保存到result域中</span>
+        request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">,</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//转换到result.jsp</span>
+        request<span class="token punctuation">.</span><span class="token function">getRequestDispatcher</span><span class="token punctuation">(</span><span class="token string">"/result.jsp"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forward</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class=" language-jsp"><code class="language-jsp">//这是请求结束的jsp页面
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>result</title>
+</head>
+<body>
+<%
+    Integer result = (Integer)request.getAttribute("result");
+%>
+<%= result %>
+</body>
+</html></code></pre>
 <h2 id="jsp的组成"><a href="#jsp的组成" class="headerlink" title="jsp的组成"></a>jsp的组成</h2><ul>
 <li>jsp = html + java脚本 + jsp标签(指令)</li>
 <li>jsp 中无需创建即可使用的对象一共有9个，被称之为9大内置对象。例如：request对象、out对象</li>
@@ -517,7 +562,7 @@
 <pre class=" language-jsp"><code class="language-jsp"><html>
   <head>
     <title>JSP初探</title>
-  <meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+  </head>
   <body>
   <p1>This is a JSP!</p1><br/>
    <%
@@ -528,6 +573,8 @@
   <%= a %>                //效果和 <% out.print(a) %> 相同
   </body>
 </html></code></pre>
+<h3 id="访问jsp"><a href="#访问jsp" class="headerlink" title="访问jsp"></a>访问jsp</h3><p><img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200605105710.jpg" alt="第一次访问jsp"></p>
+<p>在第二次以后访问的时候，服务器就直接调用 service() 方法了，因此第一次访问称作第一次惩罚，访问比较慢，第二次以后就很快了。</p>
 
             </div>
             <hr/>
@@ -782,34 +829,38 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/04/JSP%E8%AF%A6%E8%A7%A3/">
+                <a href="/2020/06/05/Cookie/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200605223725.png" class="responsive-img" alt="Cookie">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="JSP详解">
-                        
-                        <span class="card-title">JSP详解</span>
+                        <span class="card-title">Cookie</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JSP详解虽然现在 JSP 已经过时了，但我们仍需要了解一下 JSP 的一些知识，以备日后对其他框架的理解和使用。
-jsp的作用
-Servlet：
+                            使用Cookie便捷方式：
 
-缺点：不适合设置html响应体，需要大量的 response.getWriter().pr
+使用 repsonse.addCookie() 方法向浏览器保存 Cookie
+
+使用 request.getCookies() 方法获取浏览器归还的 Cookie
+
+返回的是 Cookie 数组
+
+
+
+案例：
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -822,7 +873,6 @@ Servlet：
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1073,7 +1123,7 @@ response对象的功能分为以下四种：
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34.3k</span>&nbsp;字
+                class="white-color">35.8k</span>&nbsp;字
             
             
             

@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.1k
                 </div>
                 
 
@@ -555,7 +555,7 @@ BServlet</code></pre><h4 id="快捷重定向"><a href="#快捷重定向" class="
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"AServlet"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">//response.setStatus(302);</span>
         <span class="token comment" spellcheck="true">//response.setHeader("Location","/day09_request/BServlet");</span>
-        response<span class="token punctuation">.</span><span class="token function">setRedirect</span><span class="token punctuation">(</span><span class="token string">"/day09_request/BServlet"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span><span class="token string">"/day09_request/BServlet"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
@@ -703,16 +703,12 @@ BServlet</code></pre><h4 id="快捷重定向"><a href="#快捷重定向" class="
 </li>
 </ul>
 <h3 id="请求转发与重定向比较"><a href="#请求转发与重定向比较" class="headerlink" title="请求转发与重定向比较"></a>请求转发与重定向比较</h3><ul>
-<li><p>请求转发是一个请求，而重定向是两个请求</p>
-</li>
-<li><p>请求转发后浏览器地址栏不会有变化，而重定向会有变化，因为重定向是两个请求</p>
-</li>
-<li><p>请求转发的目标只能是本应用中的资源，重定向的目标可以是其他应用</p>
-</li>
-<li><p>请求转发对 AServlet 和 BServlet 的请求方法是相同的，即要么都是 GET，要么都是 POST，因为请求转发是一个请求</p>
-</li>
-<li><p>重定向的第二个请求一定是 GET</p>
-</li>
+<li>请求转发是一个请求，而重定向是两个请求</li>
+<li>请求转发后浏览器地址栏不会有变化，而重定向会有变化，因为重定向是两个请求</li>
+<li>请求转发的目标只能是本应用中的资源，重定向的目标可以是其他应用</li>
+<li>请求转发对 AServlet 和 BServlet 的请求方法是相同的，即要么都是 GET，要么都是 POST，因为请求转发是一个请求</li>
+<li>重定向的第二个请求一定是 GET</li>
+<li><strong>请求转发的URL地址可以没有项目名，重定向必须有项目名！</strong></li>
 </ul>
 
             </div>
@@ -1250,7 +1246,7 @@ Servlet：
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34.3k</span>&nbsp;字
+                class="white-color">35.8k</span>&nbsp;字
             
             
             
