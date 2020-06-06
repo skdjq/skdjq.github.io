@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git学习经验（二）, ZY的小站">
+    <meta name="keywords" content="MySQL, ZY的小站">
     <meta name="description" content="专注于分享学习经验与技术">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git学习经验（二） | ZY的小站</title>
+    <title>MySQL | ZY的小站</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/libs/awesome/css/all.css">
@@ -330,12 +330,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223833.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git学习经验（二）</h1>
+                    <h1 class="description center-align post-title">MySQL</h1>
                 </div>
             </div>
         </div>
@@ -452,8 +452,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
                     </div>
@@ -464,8 +464,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Git/" class="post-category">
-                                Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
                             </a>
                         
                     </div>
@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-11
+                    2020-06-06
                 </div>
                 
 
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    486
+                    1.3k
                 </div>
                 
 
@@ -498,67 +498,231 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Git学习经验总结（二）"><a href="#Git学习经验总结（二）" class="headerlink" title="Git学习经验总结（二）"></a>Git学习经验总结（二）</h1><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/896954074659008" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600/896954074659008</a></p>
-<p>上为廖雪峰Git教程，本页内容均为学习上述教程后所写。</p>
-<h2 id="查看修改内容"><a href="#查看修改内容" class="headerlink" title="查看修改内容"></a>查看修改内容</h2><p>在上次的学习中，我们学习到了如何创建一个版本库，并学会了如何添加文件并编辑此文件，本次我们就来学习修改文件并用一些指令查看修改的记录。</p>
-<p>我们已经成功地添加并提交了一个<code>readme.txt</code>文件，现在，是时候继续工作了，于是，我们继续修改<code>readme.txt</code>文件，改成如下内容：</p>
-<pre class=" language-bash"><code class="language-bash">Git is a distributed version control system.
-
-Git is <span class="token function">free</span> software.</code></pre>
-<p>首先我们使用<code>$vi readme.txt</code>进入编辑页面进行修改，修改完成后保存并退出。</p>
-<p>然后我们使用<code>git status</code>命令查看当前仓库的状态：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> status
-
-On branch master
-
-Changes not staged <span class="token keyword">for</span> commit:
-
-  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span>
-
-  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
-
-​        modified:   readme.txt
-
-
-
-no changes added to commit <span class="token punctuation">(</span>use <span class="token string">"git add"</span> and/or <span class="token string">"git commit -a"</span><span class="token punctuation">)</span></code></pre>
-<p>此时我们再采用<code>git diff</code>命令来查看我们修改了什么内容：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> <span class="token function">diff</span>
-
-warning: LF will be replaced by CRLF <span class="token keyword">in</span> readme.txt.
-
-The <span class="token function">file</span> will have its original line endings <span class="token keyword">in</span> your working directory
-
-<span class="token function">diff</span> --git a/readme.txt b/readme.txt
-
-index 1155e7d<span class="token punctuation">..</span>a5fc558 100644
-
---- a/readme.txt
-
-+++ b/readme.txt
-
-@@ -1,4 +1,3 @@
-
--Git
-
--is a distributed <span class="token function">free</span> software
-
--learn <span class="token function">git</span> of day2.
-
-+Git is a distributed version control system.
-
-+Git is <span class="token function">free</span> software.</code></pre>
-<p>之后我们把修改后的文件提交到仓库，步骤和第一节课一样，使用<code>git add &lt;文件名&gt;</code> 和<code>git commit -m &quot;xxxx&quot;</code>。</p>
-<p>我们再次使用<code>git status</code>：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> status
-
-On branch master
-
-nothing to commit, working tree clean</code></pre>
-<p>Git告诉我们当前没有需要提交的修改，而且，工作目录是干净（working tree clean）的。</p>
-<p><strong>小结</strong></p>
-<p>1.要随时掌握工作区的状态，使用<code>git status</code>命令。</p>
-<p>2.如果<code>git status</code>告诉你有文件被修改过，用<code>git diff</code>可以查看修改内容。</p>
+                <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="MySQL的基本命令"><a href="#MySQL的基本命令" class="headerlink" title="MySQL的基本命令"></a>MySQL的基本命令</h2><p>启动和关闭 MySQL <strong>服务器</strong></p>
+<ul>
+<li><p>启动：net start mysql</p>
+</li>
+<li><p>关闭：net stop mysql</p>
+</li>
+</ul>
+<p>mysqld.exe是 MySQL 服务器程序。</p>
+<p><strong>客户端</strong>登入退出 MySQL：</p>
+<ul>
+<li>登录：mysql -u用户名 -p密码<ul>
+<li>例如：mysql -uroot -p123456</li>
+</ul>
+</li>
+<li>退出：quit 或 exit</li>
+</ul>
+<p>mysql.exe是客户端程序。</p>
+<h2 id="SQL语句分类"><a href="#SQL语句分类" class="headerlink" title="SQL语句分类"></a>SQL语句分类</h2><p><strong>DDL</strong>：数据库或表的<strong>结构</strong>操作</p>
+<ul>
+<li>创建、删除、修改：库和表的<strong>结构</strong>！</li>
+</ul>
+<p><strong>DML</strong>：<strong>对表的记录进行更新（增、删、改）</strong></p>
+<p><strong>DQL</strong>：<strong>对表的记录进行查询</strong></p>
+<p>DCL:对用户的创建及授权</p>
+<h2 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h2><p><strong>注意：所有MySQL语句后一定要以一个<code>;</code>结尾！</strong></p>
+<p><strong>查看所有数据库</strong>：<code>show databases;</code></p>
+<p><strong>查看所有表</strong>：<code>show tables;</code></p>
+<p><strong>切换数据库</strong>：use 数据库名; 如<code>use mydb1;</code>表示切换到mydb1数据库</p>
+<p><strong>创建数据库</strong>：<code>create database (if not exists) 数据库名;</code></p>
+<p>（最好加上if not exists，可以避免由于已存在该数据库而报错）</p>
+<p><strong>删除数据库</strong>：<code>drop database (if exists) 数据库名;</code></p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>MySQL中数据类型主要应用在列上。</p>
+<p><strong>int</strong>：整型</p>
+<p><strong>double</strong>：浮点型，例如double(5,2)表示最多5位，其中必须有2位小数，即最大值为999.99；</p>
+<p><strong>decimal</strong>：泛型型，在表单钱方面使用该类型，因为不会出现精度缺失问题；</p>
+<p><strong>char</strong>：固定长度字符串类型；                如：<strong>char(50)  必须是括号！</strong></p>
+<p><strong>varchar</strong>：可变长度字符串类型；            如：<strong>varchar(50)         必须是括号！</strong></p>
+<p><strong>text</strong>：字符串类型；</p>
+<p><strong>blob</strong>：字节类型；</p>
+<p><strong>date</strong>：日期类型，格式为：yyyy-MM-dd；</p>
+<p><strong>time</strong>：时间类型，格式为：hh:mm:ss</p>
+<p><strong>timestamp</strong>：时间戳类型；</p>
+<p><strong>在数据库中所有的字符串类型，必须使用单引号，不能使用双引号。</strong></p>
+<h3 id="操作表"><a href="#操作表" class="headerlink" title="操作表"></a>操作表</h3><p>创建表：</p>
+<pre class=" language-mysql"><code class="language-mysql">create table 表名(
+    列名  列类型,
+    列名  列类型,
+    ...
+    列名  列类型
+);</code></pre>
+<p>例如：</p>
+<pre class=" language-mysql"><code class="language-mysql">create table stu(
+    number        char(10),
+    name    varchar(50),
+    age        int,
+    gender    varchar(10) 
+);</code></pre>
+<ul>
+<li><p><strong>查看当前数据库中所有表名称</strong>：<code>show tables;</code></p>
+</li>
+<li><p><strong>查看指定表的创建语句</strong>：<code>show create table 表名;</code>，查看表的创建语句</p>
+</li>
+<li><p><strong>查看表结构</strong>：<code>desc 表名;</code>，查看表结构</p>
+</li>
+<li><p><strong>删除表</strong>：<code>drop table 表名;</code>，删除表</p>
+</li>
+</ul>
+<p><strong>修改表</strong>：</p>
+<ul>
+<li><strong>添加列：add</strong>，给stu表添加classname列：</li>
+</ul>
+<p><code>alter table stu add (classname varchar(100));</code></p>
+<ul>
+<li><strong>修改列类型：modify</strong>，修改stu表的gender列类型为CHAR(2)：</li>
+</ul>
+<p><code>alter table stu modify gender char(2);</code></p>
+<ul>
+<li><strong>修改列名：change</strong>，修改stu表的gender列名为sex：</li>
+</ul>
+<p><code>alter table stu change gender sex char(2);</code></p>
+<ul>
+<li><strong>删除列：drop</strong>，删除stu表的classname列：</li>
+</ul>
+<p><code>alter table stu drop classname;</code></p>
+<ul>
+<li><strong>修改表名称：rename</strong>，修改stu表名称为student：</li>
+</ul>
+<p><code>alter table stu rename to student;</code></p>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><p><code>select * from 表名</code>：查询表所有的列。</p>
+<p>语法：</p>
+<p>insert into 表名(列名1,列名2, …) values(值1, 值2)</p>
+<pre class=" language-mysql"><code class="language-mysql">insert into xxx(
+    number,age,sex
+)values(
+    '1111',18,'man'
+);</code></pre>
+<p><strong>注意：插入的列名必须是表结构中已有的！且所有字符串必须使用单引号！</strong></p>
+<p>如：</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> desc stu1;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| name   | varchar(50) | YES  |     | NULL    |       |
+| age    | int(11)     | YES  |     | NULL    |       |
+| gender | varchar(50) | YES  |     | NULL    |       |
+| ID     | char(16)    | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+</code></pre>
+<p>如果此时插入number，原表结构没有number这一列，那么就会<strong>出错</strong>：</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> insert into stu1(
+    -> number,age,gender,ID)
+    -> values('aaaa1111',18,'bbbb','123456');
+---------------------------------------------------------
+ERROR 1054 (42S22): Unknown column 'number' in 'field list'</code></pre>
+<p>正确的插入方法应该是：</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> insert into stu1(
+    -> name,age,gender,ID)
+    -> values('aaaa1111',18,'bbbb','123456');
+---------------------------------------------------------
+Query OK, 1 row affected (0.00 sec)</code></pre>
+<p>检查表中的列：</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> select * from stu1;
++----------+------+--------+--------+
+| name     | age  | gender | ID     |
++----------+------+--------+--------+
+| aaaa1111 |   18 | bbbb   | 123456 |
++----------+------+--------+--------+</code></pre>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><p>语法：</p>
+<p>update 表名 set 列名1=值1,…,列名n=值n (where 条件)</p>
+<p>条件(条件可选的)：</p>
+<p>条件必须是一个boolean类型的值或表达式.<br>运算符：</p>
+<ul>
+<li><p>=、!=、&lt;&gt;、&gt;、&lt;、&gt;=、&lt;=、</p>
+</li>
+<li><p>between…and、in(…)、<strong>is null</strong>、not、or、and</p>
+</li>
+</ul>
+<p>例如：</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> select * from stu1;
++----------+------+--------+--------+
+| name     | age  | gender | ID     |
++----------+------+--------+--------+
+| aaaa1111 |   18 | bbbb   | 123456 |
+| zhangsan |   28 | nan    | 1111   |
+| lisi     |   28 | nan    | 2222   |
++----------+------+--------+--------+
+3 rows in set (0.00 sec)</code></pre>
+<p>我们想让name为zhangsan或者ID为2222的人的gender变为nv：</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> update stu1 set gender='nv'
+    -> where name='zhangsan' or ID='2222';</code></pre>
+<p>结果为：</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> select * from stu1;
++----------+------+--------+--------+
+| name     | age  | gender | ID     |
++----------+------+--------+--------+
+| aaaa1111 |   18 | bbbb   | 123456 |
+| zhangsan |   28 | nv     | 1111   |
+| lisi     |   28 | nv     | 2222   |
++----------+------+--------+--------+
+3 rows in set (0.00 sec)</code></pre>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><p>语法：</p>
+<p>delete from 表名 (where 条件)        <strong>最好加上条件</strong></p>
+<h2 id="DCL（了解就行）"><a href="#DCL（了解就行）" class="headerlink" title="DCL（了解就行）"></a>DCL（了解就行）</h2><blockquote>
+<p>一个项目创建一个用户！一个项目对应的数据库只有一个！</p>
+</blockquote>
+<blockquote>
+<p>这个用户只能对这个数据库有权限，其他数据库你就操作不了了</p>
+</blockquote>
+<ol>
+<li><p>创建用户</p>
+<ul>
+<li><p>create user  用户名@IP地址 identified by ‘密码’;</p>
+<blockquote>
+<p>用户只能在指定的IP地址上登录</p>
+</blockquote>
+</li>
+<li><p>create user  用户名@’%’ identified by ‘密码’;</p>
+<blockquote>
+<p>用户可以在任意IP地址上登录</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>给用户授权</p>
+<ul>
+<li><p>grant 权限1, … , 权限n on 数据库.* to 用户名@IP地址</p>
+<blockquote>
+<p>权限、用户、数据库<br>给用户分派在指定的数据库上的指定的权限<br>例如；grant create,alter,drop,insert,update,delete,select on mydb1.* to user1@localhost;</p>
+<ul>
+<li>给user1用户分派在mydb1数据库上的create、alter、drop、insert、update、delete、select权限</li>
+</ul>
+</blockquote>
+</li>
+<li><p>grant all on 数据库.* to 用户名@IP地址;</p>
+<blockquote>
+<p>给用户分派指定数据库上的所有权限</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>撤销授权</p>
+<ul>
+<li>revoke 权限1, … , 权限n on 数据库.* from 用户名@IP地址;<blockquote>
+<p>撤消指定用户在指定数据库上的指定权限<br>例如；revoke create,alter,drop on mydb1.* from user1@localhost;</p>
+<ul>
+<li>撤消user1用户在mydb1数据库上的create、alter、drop权限</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>查看权限</p>
+<ul>
+<li><p>show grants for 用户名@IP地址</p>
+<blockquote>
+<p>查看指定用户的权限</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>删除用户</p>
+<ul>
+<li>drop user 用户名@IP地址</li>
+</ul>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -584,7 +748,7 @@ nothing to commit, working tree clean</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/04/11/Git%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C%EF%BC%88%E4%BA%8C%EF%BC%89/">http://yoursite.com/2020/04/11/Git%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C%EF%BC%88%E4%BA%8C%EF%BC%89/</a>
+                    <a href="http://yoursite.com/2020/06/06/MySQL/">http://yoursite.com/2020/06/06/MySQL/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -622,8 +786,8 @@ nothing to commit, working tree clean</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
                         </div>
@@ -813,48 +977,57 @@ nothing to commit, working tree clean</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/11/Git%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C%EF%BC%88%E4%B8%89%EF%BC%89/">
+                <a href="/2020/06/06/MySQL/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223833.jpg" class="responsive-img" alt="MySQL">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="Git学习经验（三）">
-                        
-                        <span class="card-title">Git学习经验（三）</span>
+                        <span class="card-title">MySQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Git学习经验（三）https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192
-上为廖雪峰Git教程，本页内容均为学习上述教程后所写。
-版本回退在上次的教程里我们学习了如
+                            MySQLMySQL的基本命令启动和关闭 MySQL 服务器
+
+启动：net start mysql
+
+关闭：net stop mysql
+
+
+mysqld.exe是 MySQL 服务器程序。
+客户端登入退出 MySQL：
+
+登录：mysq
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
@@ -868,33 +1041,31 @@ nothing to commit, working tree clean</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/11/Git%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C%EF%BC%88%E4%B8%80%EF%BC%89/">
+                <a href="/2020/06/05/HttpSession/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606114143.png" class="responsive-img" alt="HttpSession">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="Git学习经验（一）">
-                        
-                        <span class="card-title">Git学习经验（一）</span>
+                        <span class="card-title">HttpSession</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Git学习经验（一）https://www.liaoxuefeng.com/wiki/896043488029600/896067008724000
-上为廖雪峰Git教程，本页内容均为学习上述教程后所写。
-一、什么是GitGit是目前世界上
+                            HttpSession概述
+在WEB开发中，服务器可以为每个用户浏览器创建一个会话对象（session对象），注意：一个浏览器独占一个session对象(默认情况下)。因此，在需要保存用户数据时，服务器程序可以把用户数据写到用户浏览器独占的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
+                            <a href="/categories/Java-Web/" class="post-category">
+                                    Java Web
                                 </a>
                             
                             
@@ -904,8 +1075,8 @@ nothing to commit, working tree clean</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/Java-Web/">
+                        <span class="chip bg-color">Java Web</span>
                     </a>
                     
                 </div>
