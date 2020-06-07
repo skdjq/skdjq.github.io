@@ -586,8 +586,7 @@
 <li><strong>修改表名称：rename</strong>，修改stu表名称为student：</li>
 </ul>
 <p><code>alter table stu rename to student;</code></p>
-<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><p><code>select * from 表名</code>：查询表所有的列。</p>
-<p>语法：</p>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><p>语法：</p>
 <p>insert into 表名(列名1,列名2, …) values(值1, 值2)</p>
 <pre class=" language-mysql"><code class="language-mysql">insert into xxx(
     number,age,sex
@@ -723,6 +722,7 @@ Query OK, 1 row affected (0.00 sec)</code></pre>
 </ul>
 </li>
 </ol>
+<h2 id="DQL"><a href="#DQL" class="headerlink" title="DQL"></a>DQL</h2><p>由于DQL比较重要，我把它单独放在一篇博客里面进行讲解，详情请点击。</p>
 
             </div>
             <hr/>
@@ -977,39 +977,37 @@ Query OK, 1 row affected (0.00 sec)</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/06/MySQL/">
+                <a href="/2020/06/07/MySQL%E4%B9%8BDQL/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223833.jpg" class="responsive-img" alt="MySQL">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223907.jpg" class="responsive-img" alt="MySQL之DQL">
                         
-                        <span class="card-title">MySQL</span>
+                        <span class="card-title">MySQL之DQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MySQLMySQL的基本命令启动和关闭 MySQL 服务器
+                            
+DQL—-数据查询语言，查询不会修改数据库表记录！
 
-启动：net start mysql
+基本查询字段（列）控制
+查询所有列：select * from 表名;
+其中*表示查询所有列。
 
-关闭：net stop mysql
+查询指定列：select 列1（,列2,...,列n）from 表名;
 
-
-mysqld.exe是 MySQL 服务器程序。
-客户端登入退出 MySQL：
-
-登录：mysq
+完全重复的记
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1022,7 +1020,6 @@ mysqld.exe是 MySQL 服务器程序。
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1262,7 +1259,7 @@ mysqld.exe是 MySQL 服务器程序。
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37.1k</span>&nbsp;字
+                class="white-color">37.2k</span>&nbsp;字
             
             
             

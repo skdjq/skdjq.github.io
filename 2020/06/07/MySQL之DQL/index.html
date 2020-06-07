@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git学习经验（三）, ZY的小站">
+    <meta name="keywords" content="MySQL之DQL, ZY的小站">
     <meta name="description" content="专注于分享学习经验与技术">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git学习经验（三） | ZY的小站</title>
+    <title>MySQL之DQL | ZY的小站</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/libs/awesome/css/all.css">
@@ -330,12 +330,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223907.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git学习经验（三）</h1>
+                    <h1 class="description center-align post-title">MySQL之DQL</h1>
                 </div>
             </div>
         </div>
@@ -452,8 +452,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
                     </div>
@@ -464,8 +464,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Git/" class="post-category">
-                                Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
                             </a>
                         
                     </div>
@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-11
+                    2020-06-07
                 </div>
                 
 
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    101
                 </div>
                 
 
@@ -498,173 +498,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Git学习经验（三）"><a href="#Git学习经验（三）" class="headerlink" title="Git学习经验（三）"></a>Git学习经验（三）</h1><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192</a></p>
-<p>上为廖雪峰Git教程，本页内容均为学习上述教程后所写。</p>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><p>在上次的教程里我们学习了如何修改文件并查看修改记录，那么当我们想回到修改之前的版本到时候应该怎么办呢？这一次我们来学习版本回退的操作。</p>
-<p>在实际工作中，我们脑子里怎么可能记得一个几千行的文件每次都改了什么内容，不然要版本控制系统干什么。版本控制系统肯定有某个命令可以告诉我们历史记录，在Git中，我们用<code>git log</code>命令查看：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> log
-
-commit db22f57d103cd4eddaea4fec227650e2807555bd <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span>
-
-Author: Yan <span class="token operator">&lt;</span>724520362@qq.com<span class="token operator">></span>
-
-Date:   Fri Apr 10 16:06:35 2020 +0800
-
-
-
-​    append GPL
-
-
-
-commit 9044832eec8e32a8b9b81f2ef4997cc07b2b3a67
-
-Author: Yan <span class="token operator">&lt;</span>724520362@qq.com<span class="token operator">></span>
-
-Date:   Fri Apr 10 11:32:54 2020 +0800
-
-
-
-​    add aaaa
-
-
-
-commit c7bf32e5622ddc3ebea5bd0b4501866145673f4a
-
-Author: Yan <span class="token operator">&lt;</span>724520362@qq.com<span class="token operator">></span>
-
-Date:   Fri Apr 10 11:28:08 2020 +0800
-
-
-
-​    add some words
-
-
-
-commit 29d317524c72a5d14bd5c8b0c75cbca1ccdc88b6
-
-Author: Yan <span class="token operator">&lt;</span>724520362@qq.com<span class="token operator">></span>
-
-Date:   Fri Apr 10 11:15:33 2020 +0800
-
-
-
-​    add <span class="token function">more</span> words
-
-<span class="token keyword">:</span></code></pre>
-<p>```</p>
-<p>注：Windows系统在执行这一步后可能会出现无法操作的情况，解决方法——按下键盘上的<code>q</code>即可。</p>
-<p>好了，现在我们启动时光穿梭机，准备把<code>readme.txt</code>回退到上一个版本，也就是<code>aaaa</code>的那个版本，怎么做呢？</p>
-<p>首先，Git必须知道当前版本是哪个版本，在Git中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>db22f57d...</code>（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
-<p>现在，我们要把当前版本<code>append GPL</code>回退到上一个版本<code>aaaa</code>，就可以使用<code>git reset</code>命令：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> reset --hard HEAD^
-
-HEAD is now at 9044832 add aaaa</code></pre>
-<p><code>--hard</code>参数有啥意义？这个后面再讲，现在你先放心使用。</p>
-<p>看看<code>readme.txt</code>的内容是不是版本<code>aaaa</code>：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cat</span> readme.txt
-
-Git is a distributed version control system.
-
-Git is <span class="token function">free</span> software.
-
-aaaa.</code></pre>
-<p>果然被还原了。</p>
-<p>还可以继续回退到上一个版本<code>add some words</code>，不过且慢，然我们用<code>git log</code>再看看现在版本库的状态：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> log
-
-commit 9044832eec8e32a8b9b81f2ef4997cc07b2b3a67 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span>
-
-Author: Yan <span class="token operator">&lt;</span>724520362@qq.com<span class="token operator">></span>
-
-Date:   Fri Apr 10 11:32:54 2020 +0800
-
-
-
-​    add aaaa
-
-
-
-commit c7bf32e5622ddc3ebea5bd0b4501866145673f4a
-
-Author: Yan <span class="token operator">&lt;</span>724520362@qq.com<span class="token operator">></span>
-
-Date:   Fri Apr 10 11:28:08 2020 +0800
-
-
-
-​    add some words
-
-
-
-commit 29d317524c72a5d14bd5c8b0c75cbca1ccdc88b6
-
-Author: Yan <span class="token operator">&lt;</span>724520362@qq.com<span class="token operator">></span>
-
-Date:   Fri Apr 10 11:15:33 2020 +0800
-
-
-
-​    add <span class="token function">more</span> words
-
-
-
-commit 5f392d660b9df89b781f06a8e8c929ac952c2b6e
-
-Author: Yan <span class="token operator">&lt;</span>724520362@qq.com<span class="token operator">></span>
-
-Date:   Fri Apr 10 11:12:25 2020 +0800
-
-
-
-​    add a passage
-
-<span class="token keyword">:</span></code></pre>
-<p>最新的那个版本<code>append GPL</code>已经看不到了！好比你从21世纪坐时光穿梭机来到了19世纪，想再回去已经回不去了，肿么办？</p>
-<p>办法其实还是有的，只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个<code>append GPL</code>的<code>commit id</code>是<code>db22f57d</code>，于是就可以指定回到未来的某个版本：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> reset --hard db22
-
-HEAD is now at db22f57 append GPL</code></pre>
-<p>版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。</p>
-<p>再小心翼翼地看看readme.txt的内容：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">cat</span> readme.txt
-
-Git is a distributed version control system.
-
-Git is <span class="token function">free</span> software.
-
-aaaa.
-
-帅的嘛就不谈</code></pre>
-<p>果然，<code>append GPL</code>版本又回来了。</p>
-<p>现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的<code>commit id</code>怎么办？</p>
-<p>在Git中，总是有后悔药可以吃的。当你用<code>$ git reset --hard HEAD^</code>回退到<code>aaaa</code>版本时，再想恢复到<code>append GPL</code>，就必须找到<code>append GPL</code>的<code>commit id</code>。Git提供了一个命令<code>git reflog</code>用来记录你的每一次命令：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> reflog
-
-db22f57 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> HEAD@<span class="token punctuation">{</span>0<span class="token punctuation">}</span>: reset: moving to db22
-
-9044832 HEAD@<span class="token punctuation">{</span>1<span class="token punctuation">}</span>: reset: moving to HEAD^
-
-db22f57 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> HEAD@<span class="token punctuation">{</span>2<span class="token punctuation">}</span>: reset: moving to db22
-
-9044832 HEAD@<span class="token punctuation">{</span>3<span class="token punctuation">}</span>: reset: moving to HEAD^
-
-db22f57 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> HEAD@<span class="token punctuation">{</span>4<span class="token punctuation">}</span>: commit: append GPL
-
-9044832 HEAD@<span class="token punctuation">{</span>5<span class="token punctuation">}</span>: commit: add aaaa
-
-c7bf32e HEAD@<span class="token punctuation">{</span>6<span class="token punctuation">}</span>: commit: add some words
-
-29d3175 HEAD@<span class="token punctuation">{</span>7<span class="token punctuation">}</span>: commit: add <span class="token function">more</span> words
-
-5f392d6 HEAD@<span class="token punctuation">{</span>8<span class="token punctuation">}</span>: commit: add a passage
-
-ea0ac46 HEAD@<span class="token punctuation">{</span>9<span class="token punctuation">}</span>: commit <span class="token punctuation">(</span>initial<span class="token punctuation">)</span>: wrote a <span class="token function">file</span></code></pre>
-<p>终于舒了口气，从输出可知，<code>append GPL</code>的<code>commit id</code>是<code>db22f57</code>，现在，你又可以乘坐时光机回到未来了。</p>
-<p><strong>小结</strong></p>
-<p>现在总结一下：</p>
-<p><code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。</p>
-<p>穿梭前，用<code>git log</code>可以<strong>查看提交历史</strong>，以便<strong>确定要回退到哪个版本</strong>。</p>
-<p>要重返未来，用<code>git reflog</code><strong>查看命令历史</strong>，以便<strong>确定要回到未来的哪个版本</strong>。</p>
+                <blockquote>
+<p>DQL—-数据查询语言，查询不会修改数据库表记录！</p>
+</blockquote>
+<h2 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h2><h3 id="字段（列）控制"><a href="#字段（列）控制" class="headerlink" title="字段（列）控制"></a>字段（列）控制</h3><ul>
+<li><p><strong>查询所有列</strong>：<code>select * from 表名;</code></p>
+<p>其中<code>*</code>表示查询所有列。</p>
+</li>
+<li><p><strong>查询指定列</strong>：<code>select 列1（,列2,...,列n）from 表名;</code></p>
+</li>
+<li><p><strong>完全重复的记录只一次</strong>：<code>select distinct * 列1（,列2,...,列N）from 表名;</code></p>
+</li>
+<li><p><strong>列运算</strong>:<code>select 列名 运算 from 表名;</code> </p>
+<p>例如：<code>select sal*1.5 from emp;</code></p>
+</li>
+<li></li>
+</ul>
 
             </div>
             <hr/>
@@ -690,7 +539,7 @@ ea0ac46 HEAD@<span class="token punctuation">{</span>9<span class="token punctua
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/04/11/Git%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C%EF%BC%88%E4%B8%89%EF%BC%89/">http://yoursite.com/2020/04/11/Git%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C%EF%BC%88%E4%B8%89%EF%BC%89/</a>
+                    <a href="http://yoursite.com/2020/06/07/MySQL%E4%B9%8BDQL/">http://yoursite.com/2020/06/07/MySQL%E4%B9%8BDQL/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -728,8 +577,8 @@ ea0ac46 HEAD@<span class="token punctuation">{</span>9<span class="token punctua
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
                         </div>
@@ -919,44 +768,56 @@ ea0ac46 HEAD@<span class="token punctuation">{</span>9<span class="token punctua
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/13/%E8%B4%A1%E7%8C%AE%E5%A2%99/">
+                <a href="/2020/06/07/MySQL%E4%B9%8BDQL/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223907.jpg" class="responsive-img" alt="MySQL之DQL">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="贡献墙">
-                        
-                        <span class="card-title">贡献墙</span>
+                        <span class="card-title">MySQL之DQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            贡献墙感谢以下老板们对作者的支持杨总：1.66元滕总：0.21元唐总：0.1元
-你们的赏识是我更新的动力，奥里给！！！
+                            
+DQL—-数据查询语言，查询不会修改数据库表记录！
 
+基本查询字段（列）控制
+查询所有列：select * from 表名;
+其中*表示查询所有列。
+
+查询指定列：select 列1（,列2,...,列n）from 表名;
+
+完全重复的记
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            skdjq
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%85%B6%E4%BB%96/">
-                        <span class="chip bg-color">其他</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
@@ -970,33 +831,40 @@ ea0ac46 HEAD@<span class="token punctuation">{</span>9<span class="token punctua
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/11/Git%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                <a href="/2020/06/06/MySQL/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223833.jpg" class="responsive-img" alt="MySQL">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="Git学习经验（二）">
-                        
-                        <span class="card-title">Git学习经验（二）</span>
+                        <span class="card-title">MySQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Git学习经验总结（二）https://www.liaoxuefeng.com/wiki/896043488029600/896954074659008
-上为廖雪峰Git教程，本页内容均为学习上述教程后所写。
-查看修改内容在上次的学习中，我
+                            MySQLMySQL的基本命令启动和关闭 MySQL 服务器
+
+启动：net start mysql
+
+关闭：net stop mysql
+
+
+mysqld.exe是 MySQL 服务器程序。
+客户端登入退出 MySQL：
+
+登录：mysq
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
@@ -1006,8 +874,8 @@ ea0ac46 HEAD@<span class="token punctuation">{</span>9<span class="token punctua
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
