@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    101
+                    851
                 </div>
                 
 
@@ -499,7 +499,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>DQL—-数据查询语言，查询不会修改数据库表记录！</p>
+<p>DQL—-数据查询语言，<strong>查询不会修改数据库表记录！</strong></p>
+<p><strong>本文所有内容均不会修改数据库表记录！</strong></p>
 </blockquote>
 <h2 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h2><h3 id="字段（列）控制"><a href="#字段（列）控制" class="headerlink" title="字段（列）控制"></a>字段（列）控制</h3><ul>
 <li><p><strong>查询所有列</strong>：<code>select * from 表名;</code></p>
@@ -509,11 +510,68 @@
 </li>
 <li><p><strong>完全重复的记录只一次</strong>：<code>select distinct * 列1（,列2,...,列N）from 表名;</code></p>
 </li>
-<li><p><strong>列运算</strong>:<code>select 列名 运算 from 表名;</code> </p>
+<li><p><strong>列运算</strong>:</p>
+<ul>
+<li><p>加减乘除：<code>select (*) 列名 运算 from 表名;</code> </p>
 <p>例如：<code>select sal*1.5 from emp;</code></p>
+<p>带上<code>*</code>是显示所有的列，如果不带<code>*</code>则只显示修改的列。</p>
 </li>
-<li></li>
+<li><p>字符串类型的连续运算：<code>select concat(列名1，列名2,...) from 表名;</code></p>
+</li>
 </ul>
+</li>
+</ul>
+<p><strong>起别名：</strong> <strong>列名后加as加别名（as可以省略）</strong></p>
+<p>如：name (as) 姓名</p>
+<h3 id="条件控制"><a href="#条件控制" class="headerlink" title="条件控制"></a>条件控制</h3><h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h4><p>与前面介绍的update和delete语句一样，select语句也可以使用where子句来控制记录。</p>
+<p>例如：select name,sal,comm from emp <strong>where</strong> sal &gt; 10000 and comm is not null;</p>
+<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4><p>关键字：<code>like</code></p>
+<p>当你想查询姓张，并且姓名一共两个字的员工时，这时就可以使用模糊查询：<code>select * from emp where name like &#39;张_&#39;;</code></p>
+<p>当你想查询姓张的所有员工，无论名字几个字时，这时就可以：<code>select * from emp where name like &#39;张%&#39;;</code></p>
+<p><strong>注意：一个下划线<code>_</code>只能代表一个字符，而一个<code>%</code>却能代表从0至n个字符。</strong></p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>关键字：<code>order by</code></p>
+<p>升序：<code>asc</code></p>
+<p>降序：<code>desc</code></p>
+<hr>
+<p>升序<br><code>select * from where emp order by sal asc;</code></p>
+<ul>
+<li>按sal排序，升序！</li>
+<li>其中asc是可以省略的</li>
+</ul>
+<p>降序<br><code>select * from where emp order by comm desc;</code></p>
+<ul>
+<li>按comm排序，降序！</li>
+<li>其中desc不能省略</li>
+</ul>
+<p>使用多列作为排序条件<br><code>select from where emp order by sal asc, comm desc;</code></p>
+<ul>
+<li>使用sal升序排，如果sal相同时，使用comm的降序排</li>
+</ul>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><blockquote>
+<p> 聚合函数用来做某列的纵向运算。</p>
+</blockquote>
+<p>1.<strong>count</strong><br>select count (*) from emp;<br>  –&gt; 计算emp表中所有列都不为NULL的记录的行数<br>select count (comm) from emp;<br>  –&gt; 计算emp表中comm列不为NULL的记录的行数</p>
+<p>2.<strong>max</strong><br>select max (sal) from emp;<br>  –&gt; 查询最高工资<br>3.<strong>min</strong><br>select min (sal) from emp;<br>  –&gt; 查询最低工资<br>4.<strong>sum</strong><br>  select sum (sal) from emp;<br>  –&gt; 查询工资合<br>5.<strong>avg</strong><br>  select avg (sal) from emp;<br>  –&gt; 查询平均工资</p>
+<h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><p>分组查询是把记录使用某一列进行分组，然后查询组信息。</p>
+<p>关键字：<code>group by</code></p>
+<p>例如：查看所有部门的记录数。</p>
+<p>select deptno, count(<em>) from emp *</em>group by** deptno;<br>–&gt; 使用deptno分组，查询部门编号和每个部门的记录数</p>
+<p>select job, max(sal) from emp <strong>group by</strong> job;<br>–&gt; 使用job分组，查询每种工作的最高工资</p>
+<p><strong>组条件</strong>:</p>
+<p>关键字：<code>having</code></p>
+<p>以部门分组，查询每组记录数。条件为记录数大于3<br>select deptno,count(<em>) from emp group by deptno having count(</em>) &gt; 3;</p>
+<p>关键字出现的顺序：</p>
+<p>select      from      where      group by      having      order by</p>
+<h2 id="limit子句-方言"><a href="#limit子句-方言" class="headerlink" title="limit子句(方言)"></a>limit子句(方言)</h2><p><strong>limit用来限定查询结果的起始行，以及总行数。</strong></p>
+<p>例如：查询起始行为第5行，一共查询3行记录<br>select * from emp <strong>limit</strong> 4, 3;<br>–&gt; 其中<strong>4表示从第5行开始</strong>，其中3表示一共查询3行。即第5、6、7行记录。</p>
+<ul>
+<li><strong>查询第N页</strong></li>
+<li><strong>每页记录数：M行</strong></li>
+</ul>
+<p><strong>公式：limit (当前页-1) * 每页记录数，每页记录数</strong></p>
+<p>如：</p>
+<p>查询第三页，每页十行：limit (3-1) * 10,10</p>
+<p>查询第17页，每页8行：limit (17-1) * 8, 8</p>
 
             </div>
             <hr/>
@@ -768,38 +826,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/07/MySQL%E4%B9%8BDQL/">
+                <a href="/2020/06/07/MySQL%E8%BF%9B%E9%98%B6/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223907.jpg" class="responsive-img" alt="MySQL之DQL">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223841.jpg" class="responsive-img" alt="MySQL进阶">
                         
-                        <span class="card-title">MySQL之DQL</span>
+                        <span class="card-title">MySQL进阶</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
-DQL—-数据查询语言，查询不会修改数据库表记录！
-
-基本查询字段（列）控制
-查询所有列：select * from 表名;
-其中*表示查询所有列。
-
-查询指定列：select 列1（,列2,...,列n）from 表名;
-
-完全重复的记
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -812,7 +860,6 @@ DQL—-数据查询语言，查询不会修改数据库表记录！
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -831,28 +878,21 @@ DQL—-数据查询语言，查询不会修改数据库表记录！
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/06/MySQL/">
+                <a href="/2020/06/06/MySQL%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223833.jpg" class="responsive-img" alt="MySQL">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223833.jpg" class="responsive-img" alt="MySQL基础">
                         
-                        <span class="card-title">MySQL</span>
+                        <span class="card-title">MySQL基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MySQLMySQL的基本命令启动和关闭 MySQL 服务器
-
-启动：net start mysql
-
-关闭：net stop mysql
-
-
-mysqld.exe是 MySQL 服务器程序。
-客户端登入退出 MySQL：
-
-登录：mysq
+                            MySQLMySQL数据的备份与恢复备份的是数据库内容，并不是备份数据库！
+数据库导出SQL脚本：
+mysqldump -u用户名 -p密码 数据库名&gt;生成的脚本文件的路径
+例如：mysqldump -uroot -p123456 m
                         
                     </div>
                     <div class="publish-info">
@@ -1061,7 +1101,7 @@ mysqld.exe是 MySQL 服务器程序。
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37.2k</span>&nbsp;字
+                class="white-color">38.1k</span>&nbsp;字
             
             
             
