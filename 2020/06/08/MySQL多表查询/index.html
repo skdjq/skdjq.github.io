@@ -883,7 +883,7 @@ ERROR 1366 (HY000): Incorrect string value: '\xE6\x96\xB0\xE9\x97\xBB...' for co
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/07/MySQL%E4%B9%8B%E7%BA%A6%E6%9D%9F/">
+                <a href="/2020/06/07/MySQL%E8%BF%9B%E9%98%B6/">
                     <div class="card-image">
                         
                         <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223841.jpg" class="responsive-img" alt="MySQL之约束">
@@ -894,7 +894,16 @@ ERROR 1366 (HY000): Incorrect string value: '\xE6\x96\xB0\xE9\x97\xBB...' for co
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            主键约束主键约束的特点：
+
+非空
+唯一
+被引用
+
+当表的某一列被指定为主键后，该列就不能为空，不能有重复值出现。
+指定主键第一种方式：
+create table stu(
+    sid        char(6)   **primary
                         
                     </div>
                     <div class="publish-info">
