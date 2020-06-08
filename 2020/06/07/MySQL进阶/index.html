@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL进阶, ZY的小站">
+    <meta name="keywords" content="MySQL之约束, ZY的小站">
     <meta name="description" content="专注于分享学习经验与技术">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MySQL进阶 | ZY的小站</title>
+    <title>MySQL之约束 | ZY的小站</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/libs/awesome/css/all.css">
@@ -335,7 +335,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MySQL进阶</h1>
+                    <h1 class="description center-align post-title">MySQL之约束</h1>
                 </div>
             </div>
         </div>
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.4k
                 </div>
                 
 
@@ -498,7 +498,204 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h2><p>主键约束的特点：</p>
+<ul>
+<li>非空</li>
+<li>唯一</li>
+<li>被引用</li>
+</ul>
+<p>当表的某一列被指定为主键后，该列就不能为空，不能有重复值出现。</p>
+<h3 id="指定主键"><a href="#指定主键" class="headerlink" title="指定主键"></a>指定主键</h3><p>第一种方式：</p>
+<pre class=" language-mysql"><code class="language-mysql">create table stu(
+    sid        char(6)   **primary key,**
+    sname    varchar(20),
+    age        int,
+    gender    varchar(10) 
+);</code></pre>
+<p>第二种方式：</p>
+<pre class=" language-mysql"><code class="language-mysql">create table stu(
+    sid        char(6),
+    sname    varchar(20),
+    age        int,
+    gender    varchar(10),
+    primary key(sid)
+);</code></pre>
+<p><strong>修改表时指定主键</strong>：<code>alter table stu add primary key(sid);</code></p>
+<p><strong>删除主键</strong>：<code>alter table stu drop primary key;</code></p>
+<h3 id="主键自增长"><a href="#主键自增长" class="headerlink" title="主键自增长"></a>主键自增长</h3><ul>
+<li><p>因为主键列的特性是：必须唯一、不能为空，所以我们通常会指定主键类为整型，然后设置其自动增长，这样可以保证在插入数据时主键列的唯一和非空特性。</p>
+</li>
+<li><p>创建表时指定主键自增长</p>
+<pre class=" language-mysql"><code class="language-mysql">CREATE TABLE stu(
+    sid INT PRIMARY KEY AUTO_INCREMENT,
+    sname    VARCHAR(20),
+    age        INT,
+    gender    VARCHAR(10)
+);</code></pre>
+<pre><code></code></pre></li>
+<li><p>修改表时设置主键自增长：<code>alter table  stu change sid sid int auto_increment;</code></p>
+</li>
+<li><p>修改表时删除主键自增长：<code>alter table stu change sid sid int;</code></p>
+</li>
+</ul>
+<h2 id="非空和唯一约束"><a href="#非空和唯一约束" class="headerlink" title="非空和唯一约束"></a>非空和唯一约束</h2><p><strong>非空约束</strong></p>
+<ul>
+<li>因为某些列不能设置为NULL值，所以可以对列添加非空约束。</li>
+<li>例如：<br>CREATE TABLE stu(<pre><code>sid INT PRIMARY KEY AUTO_INCREMENT,
+sname    VARCHAR(20) **NOT NULL**,
+age        INT,
+gender    VARCHAR(10)</code></pre>);</li>
+<li>对sname列设置了非空约束</li>
+</ul>
+<p><strong>唯一约束</strong></p>
+<ul>
+<li>车库某些列不能设置重复的值，所以可以对列添加唯一约束。</li>
+<li>例如：<br>CREATE TABLE stu(<pre><code>sid INT PRIMARY KEY AUTO_INCREMENT,
+sname    VARCHAR(20) NOT NULL UNIQUE,
+age        INT,
+gender    VARCHAR(10)</code></pre>);</li>
+<li>对sname列设置了非空约束</li>
+</ul>
+<h2 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h2><p><strong>对象模型</strong>：可以双向关联，而且引用的是对象，而不是一个主键！</p>
+<p><strong>关系模型</strong>：只能多方引用一方，而且引用的只是主键，而不是一整行记录。</p>
+<h2 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h2><ul>
+<li><p>外键必须是另一表的主键的值(外键要引用主键！)</p>
+</li>
+<li><p>外键可以重复</p>
+</li>
+<li><p>外键可以为空</p>
+</li>
+<li><p>一张表中可以有多个外键！</p>
+<p>概念模型在数据库中成为表<br>数据库表中的多对一关系，只需要在多方使用一个独立的列来引用1方的主键即可<br>员工表</p>
+</li>
+</ul>
+<pre class=" language-mysql"><code class="language-mysql">create talbe emp (
+  empno int primary key,       //员工编号
+  ...
+  deptno int                              //所属部门的编号
+);</code></pre>
+<p>部门表</p>
+<p>​```mysql<br>create table dept (<br>  deptno int  primary key,      //部门编号<br>  …<br>);</p>
+<pre><code>
+
+
+emp表中的deptno列的值表示当前员工所从属的部门编号。也就是说emp.deptno必须在dept表中是真实存在！
+但是我们必须要去对它进行约束，不然可能会出现员工所属的部门编号是不存在的。这种约束就是外键约束。
+我们需要给emp.deptno添加外键约束，约束它的值必须在dept.deptno中存在。**外键必须是另一个表的主键！**
+
+语法：
+
+**constraint 约束名称 foreign key (外键列名) references 关联表(关联表的主键)** 
+
+**外键列名是一个与关联表主键类型相同的列**
+
+
+
+### 一对多
+
+创建表时指定外键约束
+
+```mysql
+ select * from dept;
++----+--------+
+| id | name   |
++----+--------+
+| 10 | 人力部 |
+| 20 | 研发部 |
+| 30 | 财务部 |
++----+--------+
+----------------------------------------------------------
+mysql&gt; create table emp(
+    -&gt; empno int primary key auto_increment,
+    -&gt; name varchar(50),
+    -&gt; uid int,
+    -&gt; constraint fk_rmp_dept foreign key(uid) references dept(id));                //一对多</code></pre><p> <strong>当插入 uid 的值不是dept表里面的id值时，报错。</strong></p>
+<p> 修改表时添加外键约束<br>  alter table emp<br>  add constraint fk_emp_deptno foreign key(deptno) references dept(deptno);</p>
+<p>  修改表时删除外键约束<br>  alter table emp<br>  drop foreign key fk_emp_deptno;                //约束名称</p>
+<h3 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h3><p>一对一约束简单来说就是<strong>从表的主键就是外键。</strong></p>
+<pre class=" language-mysql"><code class="language-mysql">create table husband(
+    hid int PRIMARY KEY,
+    ...
+);
+---------------------------------------------------------- 
+create table wife(
+    wid int PRIMARY KEY,
+    ...
+    constraint fk_wife_wid foreign key (wid) references husband(hid)
+  );
+</code></pre>
+<p><strong>其中wife表的wid即是主键，又是相对husband表的外键！</strong><br>  husband.hid是主键，不能重复！<br>  wife.wid是主键，不能重复，又是外键，必须来自husband.hid。<br>  所以如果在wife表中有一条记录的wid为1，那么wife表中的其他记录的wid就不能再是1了，因为它是主键。<br>  同时在husband.hid中必须存在1这个值，因为wid是外键。这就完成了一对一关系。</p>
+<h3 id="多对多关系"><a href="#多对多关系" class="headerlink" title="多对多关系"></a>多对多关系</h3><p>在表中建立多对多关系需要使用中间表，即<strong>需要三张表</strong>，<strong>在中间表中使用两个外键，分别引用其他两个表的主键。</strong></p>
+<pre class=" language-mysql"><code class="language-mysql">create table student(
+    sid int PRIMARY KEY,
+    ...
+);
+create table teacher(
+    tid int PRIMARY KEY,
+    ...
+);
+create table stu_tea(
+  sid int,
+  tid int,
+  CONSTRAINT fk_stu_tea_sid FOREIGN KEY(sid) REFERENCES student(sid),
+  CONSTRAINT fk_stu_tea_tid FOREIGN KEY(tid) REFERENCES teacher(tid)
+);</code></pre>
+<p>这时在stu_tea这个中间表中的每条记录都是来说明student和teacher表的关系.<br>例如在stu_tea表中的记录：sid为1001，tid为2001，这说明编号为1001的学生有一个编号为2001的老师<br>  sid    tid<br>  101    201         <em>编号为101的学生有一个编号为201的老师</em>/<br>  101    202         <em>编号为101的学生有一个编号为202的老师</em>/<br>  101    203         <em>编号为101的学生有一个编号为203的老师</em>/<br>  102    201         <em>编号为102的学生有一个编号为201的老师</em>/<br>  102    204         <em>编号为102的学生有一个编号为204的老师</em>/</p>
+<h2 id="关于数据库引擎"><a href="#关于数据库引擎" class="headerlink" title="关于数据库引擎"></a>关于数据库引擎</h2><p><strong>MyISAM 和 InnoDB 的区别：</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>MyISAM</th>
+<th>InnoDB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>事务支持</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>数据行锁定</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>外键约束</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>表空间的大小</td>
+<td>较小</td>
+<td>较大，约为2倍</td>
+</tr>
+</tbody></table>
+<p>常规使用操作：</p>
+<ul>
+<li><strong>MyISAM</strong>：节约空间，速度较快</li>
+<li><strong>InnoDB</strong> ：安全性高，事物的处理，多表多用户操作</li>
+</ul>
+<blockquote>
+<p>在物理空间存在的位置</p>
+</blockquote>
+<p>所有的数据库文件都存在data目录下，本质上还是文件的存储！</p>
+<p>MySQL引擎在物理文件上的区别：</p>
+<ul>
+<li><strong>InnoDB</strong> 数据库表中只有一个<code>*.frm</code>文件，以及上级目录下的 <code>ibdata1</code>文件</li>
+<li><strong>MyISAM</strong> 对应文件：<ul>
+<li><code>*.frm</code>        表结构的定义文件</li>
+<li><code>*.MYD</code>        数据文件(data)</li>
+<li><code>*.MYI</code>        索引文件(index)</li>
+</ul>
+</li>
+</ul>
+
             </div>
             <hr/>
 
@@ -752,17 +949,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/07/MySQL%E8%BF%9B%E9%98%B6/">
+                <a href="/2020/06/07/MySQL%E4%B9%8B%E7%BA%A6%E6%9D%9F/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223841.jpg" class="responsive-img" alt="MySQL进阶">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223841.jpg" class="responsive-img" alt="MySQL之约束">
                         
-                        <span class="card-title">MySQL进阶</span>
+                        <span class="card-title">MySQL之约束</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -772,9 +968,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -787,7 +983,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1034,7 +1229,7 @@ DQL—-数据查询语言，查询不会修改数据库表记录！
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">38.1k</span>&nbsp;字
+                class="white-color">41.1k</span>&nbsp;字
             
             
             
