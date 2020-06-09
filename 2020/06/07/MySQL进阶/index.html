@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.6k
                 </div>
                 
 
@@ -575,45 +575,35 @@ gender    VARCHAR(10)</code></pre>);</li>
   deptno int                              //所属部门的编号
 );</code></pre>
 <p>部门表</p>
-<p>​```mysql<br>create table dept (<br>  deptno int  primary key,      //部门编号<br>  …<br>);</p>
+<pre class=" language-mysql"><code class="language-mysql">create table dept (
+  deptno int  primary key,      //部门编号
+  ...
+);</code></pre>
+<p>emp表中的deptno列的值表示当前员工所从属的部门编号。也就是说emp.deptno必须在dept表中是真实存在！<br>但是我们必须要去对它进行约束，不然可能会出现员工所属的部门编号是不存在的。这种约束就是外键约束。<br>我们需要给emp.deptno添加外键约束，约束它的值必须在dept.deptno中存在。<strong>外键必须是另一个表的主键！</strong></p>
+<p>语法：</p>
+<p><strong>constraint 约束名称 foreign key (外键列名) references 关联表(关联表的主键)</strong> </p>
+<p><strong>外键列名是一个与关联表主键类型相同的列</strong></p>
+<h3 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h3><p>创建表时指定外键约束</p>
+<p>​```mysql<br> select * from dept;<br>+—-+——–+<br>| id | name   |<br>+—-+——–+<br>| 10 | 人力部 |<br>| 20 | 研发部 |<br>| 30 | 财务部 |<br>+—-+——–+</p>
+<hr>
+<p>mysql&gt; create table emp(<br>    -&gt; empno int primary key auto_increment,<br>    -&gt; name varchar(50),<br>    -&gt; uid int,<br>    -&gt; constraint fk_rmp_dept foreign key(uid) references dept(id));                //一对多</p>
 <pre><code>
+ **当插入 uid 的值不是dept表里面的id值时，报错。**
 
+ 修改表时添加外键约束
+  alter table emp
+  add constraint fk_emp_deptno foreign key(deptno) references dept(deptno);
 
-emp表中的deptno列的值表示当前员工所从属的部门编号。也就是说emp.deptno必须在dept表中是真实存在！
-但是我们必须要去对它进行约束，不然可能会出现员工所属的部门编号是不存在的。这种约束就是外键约束。
-我们需要给emp.deptno添加外键约束，约束它的值必须在dept.deptno中存在。**外键必须是另一个表的主键！**
+  修改表时删除外键约束
+  alter table emp
+  drop foreign key fk_emp_deptno;                //约束名称
 
-语法：
+### 一对一
 
-**constraint 约束名称 foreign key (外键列名) references 关联表(关联表的主键)** 
-
-**外键列名是一个与关联表主键类型相同的列**
-
-
-
-### 一对多
-
-创建表时指定外键约束
+一对一约束简单来说就是**从表的主键就是外键。**
 
 ```mysql
- select * from dept;
-+----+--------+
-| id | name   |
-+----+--------+
-| 10 | 人力部 |
-| 20 | 研发部 |
-| 30 | 财务部 |
-+----+--------+
-----------------------------------------------------------
-mysql&gt; create table emp(
-    -&gt; empno int primary key auto_increment,
-    -&gt; name varchar(50),
-    -&gt; uid int,
-    -&gt; constraint fk_rmp_dept foreign key(uid) references dept(id));                //一对多</code></pre><p> <strong>当插入 uid 的值不是dept表里面的id值时，报错。</strong></p>
-<p> 修改表时添加外键约束<br>  alter table emp<br>  add constraint fk_emp_deptno foreign key(deptno) references dept(deptno);</p>
-<p>  修改表时删除外键约束<br>  alter table emp<br>  drop foreign key fk_emp_deptno;                //约束名称</p>
-<h3 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h3><p>一对一约束简单来说就是<strong>从表的主键就是外键。</strong></p>
-<pre class=" language-mysql"><code class="language-mysql">create table husband(
+create table husband(
     hid int PRIMARY KEY,
     ...
 );
@@ -623,8 +613,7 @@ create table wife(
     ...
     constraint fk_wife_wid foreign key (wid) references husband(hid)
   );
-</code></pre>
-<p><strong>其中wife表的wid即是主键，又是相对husband表的外键！</strong><br>  husband.hid是主键，不能重复！<br>  wife.wid是主键，不能重复，又是外键，必须来自husband.hid。<br>  所以如果在wife表中有一条记录的wid为1，那么wife表中的其他记录的wid就不能再是1了，因为它是主键。<br>  同时在husband.hid中必须存在1这个值，因为wid是外键。这就完成了一对一关系。</p>
+</code></pre><p><strong>其中wife表的wid即是主键，又是相对husband表的外键！</strong><br>  husband.hid是主键，不能重复！<br>  wife.wid是主键，不能重复，又是外键，必须来自husband.hid。<br>  所以如果在wife表中有一条记录的wid为1，那么wife表中的其他记录的wid就不能再是1了，因为它是主键。<br>  同时在husband.hid中必须存在1这个值，因为wid是外键。这就完成了一对一关系。</p>
 <h3 id="多对多关系"><a href="#多对多关系" class="headerlink" title="多对多关系"></a>多对多关系</h3><p>在表中建立多对多关系需要使用中间表，即<strong>需要三张表</strong>，<strong>在中间表中使用两个外键，分别引用其他两个表的主键。</strong></p>
 <pre class=" language-mysql"><code class="language-mysql">create table student(
     sid int PRIMARY KEY,
@@ -694,6 +683,28 @@ create table stu_tea(
 <li><code>*.MYI</code>        索引文件(index)</li>
 </ul>
 </li>
+</ul>
+<h2 id="三大范式"><a href="#三大范式" class="headerlink" title="三大范式"></a>三大范式</h2><p><strong>第一范式</strong></p>
+<blockquote>
+<p>原子性：<strong>保证每一列不可再分</strong>。</p>
+</blockquote>
+<p><strong>第二范式</strong></p>
+<blockquote>
+<p>前提：满足第一范式。</p>
+<p><strong>每张表只描述一件事情。</strong></p>
+</blockquote>
+<p><strong>第三范式</strong></p>
+<blockquote>
+<p>前提：满足第二范式和第一范式。</p>
+<p>确保数据表中的<strong>每一列数据都和主键直接相关</strong>，而不能间接相关。</p>
+</blockquote>
+<p><strong>规范性和性能的问题：</strong></p>
+<p>关联查询的表不得超过三张表</p>
+<ul>
+<li>考虑商业化的需求和目标，数据库的性能更加重要</li>
+<li>在规范性能问题的时候需要适当考虑一下规范性</li>
+<li>故意给某些表增加一些冗余的字段。（从多表查询变为单表查询）</li>
+<li>故意增加一些计算列（从大数据量降低为小数据量的查询：索引）</li>
 </ul>
 
             </div>
@@ -1243,7 +1254,7 @@ DQL—-数据查询语言，查询不会修改数据库表记录！
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.5k</span>&nbsp;字
+                class="white-color">43.4k</span>&nbsp;字
             
             
             
