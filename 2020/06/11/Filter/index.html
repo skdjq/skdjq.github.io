@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Set集合, ZY的小站">
+    <meta name="keywords" content="Filter, ZY的小站">
     <meta name="description" content="专注于分享学习经验与技术">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Set集合 | ZY的小站</title>
+    <title>Filter | ZY的小站</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/libs/awesome/css/all.css">
@@ -330,12 +330,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200611195446.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Set集合</h1>
+                    <h1 class="description center-align post-title">Filter</h1>
                 </div>
             </div>
         </div>
@@ -452,8 +452,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/Java-Web/">
+                                <span class="chip bg-color">Java Web</span>
                             </a>
                         
                     </div>
@@ -464,8 +464,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category">
-                                Java
+                            <a href="/categories/Java-Web/" class="post-category">
+                                Java Web
                             </a>
                         
                     </div>
@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-16
+                    2020-06-11
                 </div>
                 
 
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    635
+                    847
                 </div>
                 
 
@@ -498,86 +498,86 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h3><blockquote>
-<p>Set 集合里面存储的是无序的<strong>不重复元素</strong>，没有索引，可以采用迭代器和增强for来获取元素，Set 常用的子类有 HashSet、LinkedHashSet 集合，可以通过 equals 方法来判断是否为重复元素。</p>
+                <h1 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Filter 过滤器是 JavaWeb 的三大组件之一。</p>
+<p>三大组件： Servlet 程序、 Listener 监听器、 Filter 过滤器</p>
+<p>Filter 过滤器是 JavaEE 的规范。 也就是接口 </p>
+<p>Filter 过滤器的作用：拦截请求， 过滤响应。  </p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>下面这个案例可以帮我们很好的理解Filter过滤器：</p>
+<blockquote>
+<p>要求：在你的 web 工程下， 有一个 admin 目录。 这个 admin 目录下的所有资源（html 页面、 jpg 图片、 jsp 文件、 等等） 都必须是用户登录成功之后才允许访问  </p>
 </blockquote>
-<h4 id="HashSet-集合"><a href="#HashSet-集合" class="headerlink" title="HashSet 集合"></a>HashSet 集合</h4><p>HashSet 类实现 Set 接口，由哈希表支持（实际上是一个 HashMap 集合），HashSet 集合不能保证迭代顺序与元素存储顺序相同，采用哈希表结构存储数据结构，保证元素唯一性的方式依赖于：<strong>hashCode() 和 equals()</strong> 方法。</p>
-<ul>
-<li>特点：无序集合，存储和取出的顺序不同，没有索引，不存储重复元素</li>
-<li>在代码编写上和 ArrayList 完全一致</li>
-<li>存储、取出数据都比较快</li>
-<li>线程不安全，运行速度快</li>
-<li>底层数据结构为哈希表（链表数组结合体）</li>
-</ul>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">demo6</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Set<span class="token operator">&lt;</span>String<span class="token operator">></span> S <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        S<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        S<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"bcd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        S<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"cde"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        S<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//不会被添加，因为前面有了 "abc" 这个字符串，而Set不存储重复的元素。</span>
-        <span class="token comment" spellcheck="true">//增强for</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span>String s <span class="token operator">:</span> S<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"====================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//迭代器</span>
-        Iterator it <span class="token operator">=</span> S<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            String s <span class="token operator">=</span> <span class="token punctuation">(</span>String<span class="token punctuation">)</span>it<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Filter代码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AdminFilter</span> <span class="token keyword">implements</span> <span class="token class-name">Filter</span> <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">/**
+* doFilter 方法， 专门用于拦截请求。 可以做权限检查
+*/</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doFilter</span><span class="token punctuation">(</span>ServletRequest servletRequest<span class="token punctuation">,</span> ServletResponse servletResponse<span class="token punctuation">,</span> FilterChain filterChain<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">,</span> ServletException <span class="token punctuation">{</span>
+        HttpServletRequest httpServletRequest <span class="token operator">=</span> <span class="token punctuation">(</span>HttpServletRequest<span class="token punctuation">)</span> servletRequest<span class="token punctuation">;</span>
+        HttpSession session <span class="token operator">=</span> httpServletRequest<span class="token punctuation">.</span><span class="token function">getSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Object user <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 如果等于 null， 说明还没有登录</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>user <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>            servletRequest<span class="token punctuation">.</span><span class="token function">getRequestDispatcher</span><span class="token punctuation">(</span><span class="token string">"/login.jsp"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forward</span><span class="token punctuation">(</span>servletRequest<span class="token punctuation">,</span>servletResponse<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 让程序继续往下访问用户的目标资源</span>
+        filterChain<span class="token punctuation">.</span><span class="token function">doFilter</span><span class="token punctuation">(</span>servletRequest<span class="token punctuation">,</span>servletResponse<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h4 id="保证元素唯一性的方法"><a href="#保证元素唯一性的方法" class="headerlink" title="保证元素唯一性的方法"></a>保证元素唯一性的方法</h4><p>HashSet存储字符串的时候，为什么字符串相同的只存储了一个呢？</p>
-<p>通过查看源码，我们知道这个方法底层依赖了两个方法：<strong>hashCode()和equals()。</strong></p>
-<p>步骤：</p>
+<p>web.xml中的配置：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">></span></span>adminFilter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-class</span><span class="token punctuation">></span></span>filter.adminFilter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-class</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-mapping</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter-name</span><span class="token punctuation">></span></span>adminFilter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-name</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!--"/"表示http://localhost:8001/工程路径/--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/admin/*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter-mapping</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="Filter的生命周期"><a href="#Filter的生命周期" class="headerlink" title="Filter的生命周期"></a>Filter的生命周期</h2><p>Filter 的生命周期包含几个方法：</p>
+<p>1、 <strong>构造器方法</strong><br>2、 <strong>init 初始化方法</strong></p>
+<blockquote>
+<p>第 1， 2 步， 在 web 工程启动的时候执行（Filter 已经创建）</p>
+</blockquote>
+<p>3、 <strong>doFilter 过滤方法</strong></p>
+<blockquote>
+<p>第 3 步， 每次拦截到请求， 就会执行</p>
+</blockquote>
+<p>4、 <strong>destroy 销毁</strong> </p>
+<blockquote>
+<p>第 4 步， 停止 web 工程的时候， 就会执行（停止 web 工程， 也会销毁 Filter 过滤器）  </p>
+</blockquote>
+<h2 id="FilterConfig-类"><a href="#FilterConfig-类" class="headerlink" title="FilterConfig 类"></a>FilterConfig 类</h2><p>FilterConfig 类见名知义， 它是 Filter 过滤器的配置文件类。</p>
+<p>Tomcat 每次创建 Filter 的时候， 也会同时创建一个 FilterConfig 类， 这里包含了 Filter 配置文件的配置信息。</p>
+<p>FilterConfig 类的作用是<strong>获取 filter 过滤器的配置内容</strong>：</p>
 <ul>
-<li>首先比较哈希值</li>
-<li>如果相同，继续比较地址值或者走equals() 方法</li>
-<li>如果不同，直接添加到集合中</li>
+<li>获取 Filter 的名称 <code>filter-name</code> 的内容</li>
+<li>获取在 Filter 中配置的 <code>init-param</code> 初始化参数</li>
+<li>获取 <code>ServletContext</code> 对象  </li>
 </ul>
-<p>add方法的具体步骤：</p>
+<p>如：<code>filterConfig.getFilterName()</code>，其中，filterConfig为FilterConfig 的实例化对象。</p>
+<h2 id="FilterChain-过滤器链"><a href="#FilterChain-过滤器链" class="headerlink" title="FilterChain 过滤器链"></a>FilterChain 过滤器链</h2><p>FilterChain 就是过滤器链（<strong>多个过滤器如何一起工作</strong>）</p>
+<p>运行顺序如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200611191108.png" alt=""></p>
+<p><strong>FilterChain.doFilter方法的作用：</strong></p>
 <ul>
-<li>先看hashCode() 值是否相同<ul>
-<li>相同：继续走equals() 方法<ul>
-<li>返回true：说明元素重复，就不添加</li>
-<li>返回false：说明元素不重复，就添加到集合</li>
+<li>如果有下一个Filter，执行下一个Filter过滤器</li>
+<li>如果后面没有Filter，执行目标资源</li>
 </ul>
-</li>
-<li>不同：直接把元素添加到集合</li>
-</ul>
-</li>
-</ul>
-<p>String 类重写了hashCode()和equals()方法，所以它可以把内容相同的字符串去掉，只留下一个。</p>
-<p>使用自定义类对象时，一定要重写hashCode()和equals()方法（使用快捷键 <code>alt + shift + s</code>），否则根本不会进行hashCode()判断！</p>
-<h4 id="TreeSet集合"><a href="#TreeSet集合" class="headerlink" title="TreeSet集合"></a>TreeSet集合</h4><p>能够对元素按照某种规则进行排序。</p>
-<p>排序有两种方式：</p>
+<p><strong>多个Filter过滤器执行的特点：</strong></p>
 <ul>
-<li>自然排序</li>
-<li>比较器排序</li>
+<li>所有的Filter和目标资源默认都执行在<strong>同一个线程</strong>中</li>
+<li>多个Filter共同执行的时候，他们共同使用<strong>同一个Request对象</strong></li>
 </ul>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TreeSetDemo</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//自然顺序排序</span>
-        TreeSet<span class="token operator">&lt;</span>Integer<span class="token operator">></span> t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeSet</span><span class="token operator">&lt;</span>Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">38</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        t<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span>Integer i <span class="token operator">:</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>打印结果为：</p>
-<pre class=" language-Java"><code class="language-Java">1
-8
-18
-28
-38</code></pre>
+<p><strong>如何判断多个Filter的先后顺序呢？</strong></p>
+<p>在多个Filter过滤器执行的时候，他们的先后顺序取决于<code>web.xml</code>文件中Filter配置文件的<strong>上下顺序</strong>，<strong>在上面配置的Filter先执行。</strong></p>
+<h2 id="Filter-的拦截路径"><a href="#Filter-的拦截路径" class="headerlink" title="Filter 的拦截路径"></a>Filter 的拦截路径</h2><h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><p><url-pattern>/target.jsp</url-pattern><br>以上配置的路径， 表示请求地址必须为： <a href="http://ip:port/工程路径/target.jsp">http://ip:port/工程路径/target.jsp</a></p>
+<h3 id="目录匹配"><a href="#目录匹配" class="headerlink" title="目录匹配"></a>目录匹配</h3><p><url-pattern>/admin/<em>*</url-pattern><br>以上配置的路径， 表示请求地址必须为： <a href="http://ip:port/工程路径/admin/">http://ip:port/工程路径/admin/</a></em></p>
+<p>所有在admin目录下的资源都会被匹配到。</p>
+<h3 id="后缀名匹配"><a href="#后缀名匹配" class="headerlink" title="后缀名匹配"></a>后缀名匹配</h3><p><url-pattern><em>*.html</url-pattern><br>以上配置的路径， 表示请求地址必须以.html 结尾才会拦截到</em></p>
+<p><url-pattern>*.action</url-pattern><br>以上配置的路径， 表示请求地址必须以.action 结尾才会拦截到</p>
+<p><strong>Filter 过滤器它只关心请求的地址是否匹配， 不关心请求的资源是否存在！ ！ ！</strong>  </p>
 
             </div>
             <hr/>
@@ -603,7 +603,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/05/16/Set%E9%9B%86%E5%90%88/">http://yoursite.com/2020/05/16/Set%E9%9B%86%E5%90%88/</a>
+                    <a href="http://yoursite.com/2020/06/11/Filter/">http://yoursite.com/2020/06/11/Filter/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -641,8 +641,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/Java-Web/">
+                                    <span class="chip bg-color">Java Web</span>
                                 </a>
                             
                         </div>
@@ -832,48 +832,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/16/Java%E5%B8%B8%E7%94%A8%E7%B1%BB/">
+                <a href="/2020/06/11/Filter/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200611195446.jpg" class="responsive-img" alt="Filter">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="Java常用类">
-                        
-                        <span class="card-title">Java常用类</span>
+                        <span class="card-title">Filter</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java常用类Object类toString方法源码分析：
-public String toString() {
-    return getClass().getName() + "@" + Integer.toHexString(has
+                            Filter概述Filter 过滤器是 JavaWeb 的三大组件之一。
+三大组件： Servlet 程序、 Listener 监听器、 Filter 过滤器
+Filter 过滤器是 JavaEE 的规范。 也就是接口 
+Filter 过滤
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/Java-Web/" class="post-category">
+                                    Java Web
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/Java-Web/">
+                        <span class="chip bg-color">Java Web</span>
                     </a>
                     
                 </div>
@@ -887,37 +889,35 @@ public String toString() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/16/Map%E9%9B%86%E5%90%88/">
+                <a href="/2020/06/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AE%97%E6%B3%95%E9%A2%98/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200610102013.png" class="responsive-img" alt="二叉树算法题">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="Map集合">
-                        
-                        <span class="card-title">Map集合</span>
+                        <span class="card-title">二叉树算法题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Map集合Map集合的特点
-每个元素成对存在，由键和值两部分组成，通过键可以找到对应的值
+                            590. N叉树的后序遍历给定一个 N 叉树，返回其节点值的后序遍历。
+例如，给定一个 3叉树 :
 
-键（key值）不可重复，值（value）可以重复，一个value值可以和
-很多key值形成对应关系，每个建最多只能映射到一个值
-
-两个 Map 接口
+返回其后序遍历: [5,6,3,2,4,1].
+思路： 
+后序遍历即根节点在最后，我们可以使用LinkedList的addFirst()方
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/LeetCode/" class="post-category">
+                                    LeetCode
                                 </a>
                             
                             
@@ -927,8 +927,8 @@ public String toString() {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
