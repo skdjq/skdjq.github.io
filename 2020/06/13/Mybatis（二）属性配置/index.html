@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL中Truncate的用法, ZY的小站">
+    <meta name="keywords" content="Mybatis（一）属性配置, ZY的小站">
     <meta name="description" content="专注于分享学习经验与技术">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MySQL中Truncate的用法 | ZY的小站</title>
+    <title>Mybatis（一）属性配置 | ZY的小站</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/libs/awesome/css/all.css">
@@ -330,12 +330,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223910.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200613225242.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MySQL中Truncate的用法</h1>
+                    <h1 class="description center-align post-title">Mybatis（一）属性配置</h1>
                 </div>
             </div>
         </div>
@@ -452,8 +452,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/Mybatis/">
+                                <span class="chip bg-color">Mybatis</span>
                             </a>
                         
                     </div>
@@ -464,8 +464,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/categories/Mybatis/" class="post-category">
+                                Mybatis
                             </a>
                         
                     </div>
@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-08
+                    2020-06-13
                 </div>
                 
 
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    711
+                    813
                 </div>
                 
 
@@ -498,44 +498,110 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>Truncate是一个能够快速清空资料表内所有资料的SQL语法。并且能针对具有自动递增值的字段，做计数重置归零重新计算的作用。</p>
-</blockquote>
-<h2 id="Delete-和-Truncate的区别"><a href="#Delete-和-Truncate的区别" class="headerlink" title="Delete 和 Truncate的区别"></a>Delete 和 Truncate的区别</h2><ul>
-<li>相同点：都能删除数据，都不会删除表结构</li>
-<li>不同点：<ul>
-<li><strong>truncate 重新设置自增列，计数器归零</strong></li>
-<li><strong>truncate 不会影响事务</strong></li>
-<li><strong>truncate 比 delete 速度快，且使用的系统和事务日志资源少。</strong></li>
-</ul>
-</li>
-</ul>
-<p>使用方式:</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> xxx<span class="token punctuation">;</span>
-<span class="token keyword">truncate</span> <span class="token keyword">table</span> xxx<span class="token punctuation">;</span></code></pre>
-<p>总结：<strong>当你不再需要该表时， 用 drop；当你仍要保留该表，但要删除所有记录时， 用 truncate；当你要删除部分记录时（always with a WHERE clause), 用 delete。</strong></p>
-<hr>
-<p><strong>不能对以下表使用 TRUNCATE TABLE</strong>：</p>
+                <h2 id="Mybatis配置解析"><a href="#Mybatis配置解析" class="headerlink" title="Mybatis配置解析"></a>Mybatis配置解析</h2><p>核心配置文件：<code>mybatis-config.xml</code></p>
+<h3 id="属性-properties"><a href="#属性-properties" class="headerlink" title="属性(properties)"></a>属性(properties)</h3><p>在resources目录下新建一个<code>properties</code>文件：</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">driver</span><span class="token punctuation">=</span><span class="token attr-value">com.mysql.jdbc.Driver</span>
+<span class="token attr-name">url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:mysql://localhost:3306/mybatis?useSSL=false&amp;amp;useUnicode=true&amp;amp;characterEncoding=UTF8</span>
+<span class="token attr-name">username</span><span class="token punctuation">=</span><span class="token attr-value">root</span>
+<span class="token attr-name">password</span><span class="token punctuation">=</span><span class="token attr-value">123456</span></code></pre>
+<p>在核心配置文件中引入：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>db.properties<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span></code></pre>
+<p>这样一来，我们的配置就可以写成这样：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>db.properties<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>environments</span> <span class="token attr-name">default</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>development<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>environment</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>development<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transactionManager</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>JDBC<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dataSource</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>POOLED<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>driver<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${driver}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${url}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${username}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${password}<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dataSource</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>environment</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>environments</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mappers</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapper</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com/skdjq/Dao/UserMapper.xml<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mappers</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></code></pre>
+<p>看到区别没？我们的value后面可以直接使用<code>${}</code>从properties文件中读取到相关参数。</p>
+<p>在引入<properties></properties>时，我们也可以这样：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>db.properties<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>root<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>123456<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span></code></pre>
+<p>只不过这里重复属性最后生效的值是<code>db.properties</code>里配置的属性。</p>
+<h4 id="属性优先级"><a href="#属性优先级" class="headerlink" title="属性优先级"></a>属性优先级</h4><p>如果一个属性在不只一个地方进行了配置，那么，MyBatis 将按照下面的顺序来加载：</p>
 <ul>
-<li><p>由 FOREIGN KEY 约束引用的表。（您可以截断具有引用自身的外键的表。）</p>
-</li>
-<li><p>参与索引视图的表。</p>
-</li>
-<li><p>通过使用事务复制或合并复制发布的表。</p>
-</li>
-<li><p>对于具有以上一个或多个特征的表，请使用 DELETE 语句。</p>
-</li>
-<li><p>TRUNCATE TABLE 不能激活触发器，因为该操作不记录各个行删除。</p>
-</li>
+<li>首先读取在 properties 元素体内指定的属性。</li>
+<li>然后根据 properties 元素中的 resource 属性读取类路径下属性文件，或根据 url 属性指定的路径读取属性文件，并覆盖之前读取过的同名属性。</li>
+<li>最后读取作为方法参数传递的属性，并覆盖之前读取过的同名属性。</li>
 </ul>
-<h2 id="Truncate、Drop、Delete区别"><a href="#Truncate、Drop、Delete区别" class="headerlink" title="Truncate、Drop、Delete区别"></a><strong>Truncate、Drop、Delete区别</strong></h2><p>1.drop和delete只是删除表的数据(定义),drop语句将删除表的结构、被依赖的约束(constrain)、触发器 (trigger)、索引(index);依赖于该表的存储过程/函数将保留,但是变为invalid状态。</p>
-<p>2.delete语句是DML语言,这个操作会放在rollback segement中,事物提交后才生效;如果有相应的触发器(trigger),执行的时候将被触发。truncate、drop是DDL语言,操作后即生效,原数据不会放到rollback中,不能回滚,操作不会触发trigger。</p>
-<p>3.delete语句不影响表所占用的extent、高水线(high watermark)保持原位置不动。drop语句将表所占用的空间全部释放。truncate语句缺省情况下将空间释放到minextents的 extent,除非使用reuse storage。truncate会将高水线复位(回到最初)。</p>
-<p>4.<strong>效率方面:drop &gt; truncate &gt; delete</strong></p>
-<p>5.安全性:小心使用drop与truncate,尤其是在 没有备份的时候,想删除部分数据可使用delete需要带上where子句,回滚段要足够大,想删除表可以用drop,想保留表只是想删除表的所有数据、 如果跟事物无关可以使用truncate,如果和事物有关、又或者想触发 trigger,还是用delete,如果是整理表内部的碎片，可以用truncate跟上reuse stroage，再重新导入、插入数据。</p>
-<p>6.delete是DML语句,不会自动提交。drop/truncate都是DDL语句,执行后会自动提交。</p>
-<p>7、drop一般用于删除整体性数据 如表，模式，索引，视图，完整性限制等；delete用于删除局部性数据 如表中的某一元组</p>
-<p>8、DROP把表结构都删了；DELETE只是把数据清掉</p>
+<p>因此，<strong>通过方法参数传递的属性具有最高优先级，resource/url 属性中指定的配置文件次之，最低优先级的则是 properties 元素中指定的属性。</strong></p>
+<h4 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h4><p><img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200612225646.png" alt="img"></p>
+<p>若出现上图所示错误，说明<properties></propertises>的引入位置出错，<strong>理论上必须放在最上面，也就是紧跟``下面。</strong></p>
+<h3 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h3><p>别名用来减少类完全限定名的冗余，如：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUserList<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.skdjq.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        select * from mybatis.user;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p>中的<code>com.skdjq.pojo.User</code>就太过冗余了。</p>
+<p>起别名有两种方式：</p>
+<p>第一种：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>typeAliases</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>typeAlias</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.skdjq.pojo.User<span class="token punctuation">"</span></span> <span class="token attr-name">alias</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>User<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>typeAliases</span><span class="token punctuation">></span></span></code></pre>
+<p>第二种：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>typeAliases</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>package</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.skdjq.pojo<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>typeAliases</span><span class="token punctuation">></span></span></code></pre>
+<p>扫描实体类的包，默认别名为这个包下实体类的类名（首字母小写）。</p>
+<ul>
+<li>在实体类比较少的时候，使用第一种</li>
+<li>如果实体类比较多，使用第二种</li>
+</ul>
+<h2 id="属性名和字段名不一致的问题"><a href="#属性名和字段名不一致的问题" class="headerlink" title="属性名和字段名不一致的问题"></a>属性名和字段名不一致的问题</h2><p>当实体类中定义的属性和数据库里的字段不一致时，会发生冲突。</p>
+<p>如：</p>
+<p>实体类User属性为<code>id</code>,<code>name</code>,<code>password</code>：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String password<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>数据库里的字段名为<code>id</code>,<code>name</code>,<code>pwd</code>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200613194718.png" alt="img"></p>
+<p>这时候再执行sql操作就会出现问题，那么我们如何解决呢？</p>
+<p>解决方法一：</p>
+<ul>
+<li>起别名（不推荐）：</li>
+</ul>
+<p>由</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUserList<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    select * from mybatis.user;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<p>变为：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUserList<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    select id,name,pwd as password from mybatis.user;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="resultMap（推荐）"><a href="#resultMap（推荐）" class="headerlink" title="resultMap（推荐）"></a>resultMap（推荐）</h3><p>结果集映射：</p>
+<resultMap>
+
+
+
+<p>比如：</p>
+<p>将resultType改为resultMap：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--id任取,type是实体类--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resultMap</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UserMap<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.skdjq.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!--column数据库中的字段,property实体类中的属性--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>pwd<span class="token punctuation">"</span></span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--resultMap为上面的id--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUserList<span class="token punctuation">"</span></span> <span class="token attr-name">resultMap</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UserMap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    select * from mybatis.user;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
 
             </div>
             <hr/>
@@ -561,7 +627,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/06/08/MySQL%E4%B8%ADTruncate%E7%9A%84%E7%94%A8%E6%B3%95/">http://yoursite.com/2020/06/08/MySQL%E4%B8%ADTruncate%E7%9A%84%E7%94%A8%E6%B3%95/</a>
+                    <a href="http://yoursite.com/2020/06/13/Mybatis%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE/">http://yoursite.com/2020/06/13/Mybatis%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -599,8 +665,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/Mybatis/">
+                                    <span class="chip bg-color">Mybatis</span>
                                 </a>
                             
                         </div>
@@ -794,32 +860,34 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/09/MySQL%E4%B9%8B%E4%BA%8B%E5%8A%A1/">
+                <a href="/2020/06/13/Mybatis%EF%BC%88%E4%B8%89%EF%BC%89Log4j/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200609121159.jpg" class="responsive-img" alt="MySQL之事务">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200613225242.png" class="responsive-img" alt="Mybatis（三）Log4j">
                         
-                        <span class="card-title">MySQL之事务</span>
+                        <span class="card-title">Mybatis（三）Log4j</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MySQL 事务MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你既需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！
-
-在 MyS
+                            日志工厂配置日志：
+标准的日志工厂实现：
+在mybatis-config.xml文件中添加如下配置（在下面）：
+&lt;settings>
+    &lt;setting name="logImpl" value="STDOUT_LOGGI
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-13
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/Mybatis/" class="post-category">
+                                    Mybatis
                                 </a>
                             
                             
@@ -829,8 +897,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/Mybatis/">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>
@@ -844,31 +912,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/08/MySQL%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%84%E7%90%86/">
+                <a href="/2020/06/12/Mybatis%EF%BC%88%E4%B8%80%EF%BC%89%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8CCRUD/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200606223909.jpg" class="responsive-img" alt="MySQL插入中文数据报错问题的处理">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200613225242.png" class="responsive-img" alt="Mybatis（一）环境配置和CRUD">
                         
-                        <span class="card-title">MySQL插入中文数据报错问题的处理</span>
+                        <span class="card-title">Mybatis（一）环境配置和CRUD</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在MySQL插入中文数据信息常会出现报错提示：
-ERROR 1366 (HY000): Incorrect string value: '\xE6\x96\xB0\xE9\x97\xBB...' for column 'title' at 
+                            什么是 MyBatis？
+MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/categories/Mybatis/" class="post-category">
+                                    Mybatis
                                 </a>
                             
                             
@@ -878,8 +946,8 @@ ERROR 1366 (HY000): Incorrect string value: '\xE6\x96\xB0\xE9\x97\xBB...' for co
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/Mybatis/">
+                        <span class="chip bg-color">Mybatis</span>
                     </a>
                     
                 </div>
