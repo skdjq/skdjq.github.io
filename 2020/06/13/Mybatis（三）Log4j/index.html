@@ -330,7 +330,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200613225824.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200614224353.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    380
+                    388
                 </div>
                 
 
@@ -536,7 +536,7 @@
 <span class="token attr-name">log4j.logger.java.sql.Statement</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span>
 <span class="token attr-name">log4j.logger.java.sql.ResultSet</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span>
 <span class="token attr-name">log4j.logger.java.sql.PreparedStatement</span><span class="token punctuation">=</span><span class="token attr-value">DEBUG</span></code></pre>
-<p>3.配置log4j为日志的实现</p>
+<p>3.在核心配置文件中配置log4j为日志的实现</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>settings</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>logImpl<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>LOG4J<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>settings</span><span class="token punctuation">></span></span></code></pre>
@@ -802,33 +802,33 @@ logger<span class="token punctuation">.</span><span class="token function">error
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/13/Mybatis%EF%BC%88%E4%B8%89%EF%BC%89Log4j/">
+                <a href="/2020/06/14/Mybatis%EF%BC%88%E5%9B%9B%EF%BC%89/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200613225824.jpg" class="responsive-img" alt="Mybatis（三）Log4j">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200611195449.jpg" class="responsive-img" alt="Mybatis（四）">
                         
-                        <span class="card-title">Mybatis（三）Log4j</span>
+                        <span class="card-title">Mybatis（四）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            日志工厂配置日志：
-标准的日志工厂实现：
-在mybatis-config.xml文件中添加如下配置（在下面）：
-&lt;settings>
-    &lt;setting name="logImpl" value="STDOUT_LOGGI
+                            分页分页是为了减少数据处理量。
+Limit实现分页语法：
+select * from user limit startIndex,pageSize
+使用Mybatis实现分页：
+1.接口
+List&lt;User> getUserByLim
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -841,7 +841,6 @@ logger<span class="token punctuation">.</span><span class="token function">error
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -863,7 +862,7 @@ logger<span class="token punctuation">.</span><span class="token function">error
                 <a href="/2020/06/13/Mybatis%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200613225824.jpg" class="responsive-img" alt="Mybatis（一）属性配置">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200614224352.jpg" class="responsive-img" alt="Mybatis（一）属性配置">
                         
                         <span class="card-title">Mybatis（一）属性配置</span>
                     </div>
@@ -1083,7 +1082,7 @@ url=jdbc:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.4k</span>&nbsp;字
+                class="white-color">49k</span>&nbsp;字
             
             
             
