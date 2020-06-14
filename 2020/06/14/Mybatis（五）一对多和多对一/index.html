@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    559
+                    520
                 </div>
                 
 
@@ -569,8 +569,6 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">column</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tname<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>association</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resultMap</span><span class="token punctuation">></span></span></code></pre>
-<p><strong>注意：select里面的id必须是方法名！</strong></p>
-<p><resultMap>里的结果集映射如果有<strong>对象</strong>，比如上面的teacher，那么我们使用<association>来代替<result>。</p>
 <h2 id="一对多处理"><a href="#一对多处理" class="headerlink" title="一对多处理"></a>一对多处理</h2><p>比如：一个老师拥有多个学生，对于老师而言，就是一对多的关系。</p>
 <p>这是实体类：</p>
 <pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
