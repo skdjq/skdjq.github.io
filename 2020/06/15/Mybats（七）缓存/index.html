@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Mybatis（四）, ZY的小站">
+    <meta name="keywords" content="Mybats（七）缓存, ZY的小站">
     <meta name="description" content="专注于分享学习经验与技术">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mybatis（四） | ZY的小站</title>
+    <title>Mybats（七）缓存 | ZY的小站</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/skdjq/skdjq.github.io/libs/awesome/css/all.css">
@@ -330,12 +330,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200611195449.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200614224354.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mybatis（四）</h1>
+                    <h1 class="description center-align post-title">Mybats（七）缓存</h1>
                 </div>
             </div>
         </div>
@@ -477,7 +477,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-14
+                    2020-06-15
                 </div>
                 
 
@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    651
+                    901
                 </div>
                 
 
@@ -498,98 +498,67 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><p>分页是为了减少数据处理量。</p>
-<h3 id="Limit实现分页"><a href="#Limit实现分页" class="headerlink" title="Limit实现分页"></a>Limit实现分页</h3><p>语法：</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">limit</span> startIndex<span class="token punctuation">,</span>pageSize</code></pre>
-<p>使用Mybatis实现分页：</p>
-<p>1.接口</p>
-<pre class=" language-java"><code class="language-java">List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">getUserByLimit</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Integer<span class="token operator">></span> map<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>2.UserMapper.xml</p>
-<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUserByLimit<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>map<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.skdjq.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    select * from mybatis.user limit #{startIndex},#{pageSize};
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span></code></pre>
-<p>3.测试</p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getUserByLimit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    SqlSession sqlSession <span class="token operator">=</span> MybatisUtils<span class="token punctuation">.</span><span class="token function">getSqlSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    UserDao mapper <span class="token operator">=</span> sqlSession<span class="token punctuation">.</span><span class="token function">getMapper</span><span class="token punctuation">(</span>UserDao<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token operator">></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"startIndex"</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"pageSize"</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    List<span class="token operator">&lt;</span>User<span class="token operator">></span> userByLimit <span class="token operator">=</span> mapper<span class="token punctuation">.</span><span class="token function">getUserByLimit</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span>User user<span class="token operator">:</span>userByLimit<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<h2 id="使用注解开发"><a href="#使用注解开发" class="headerlink" title="使用注解开发"></a>使用注解开发</h2><p><strong>1.注解在接口上实现</strong></p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserDao</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"select * from mybatis.user"</span><span class="token punctuation">)</span>
-    List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">getUserList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p><strong>2.需要在核心配置文件中绑定接口：</strong></p>
-<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mappers</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapper</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.skdjq.Dao.UserDao<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mappers</span><span class="token punctuation">></span></span></code></pre>
-<p>3.测试：</p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
-<span class="token comment" spellcheck="true">//查</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//获取SqlSession对象</span>
-    SqlSession sqlSession <span class="token operator">=</span> MybatisUtils<span class="token punctuation">.</span><span class="token function">getSqlSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//getMapper</span>
-    UserDao userDao <span class="token operator">=</span> sqlSession<span class="token punctuation">.</span><span class="token function">getMapper</span><span class="token punctuation">(</span>UserDao<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    List<span class="token operator">&lt;</span>User<span class="token operator">></span> userList <span class="token operator">=</span> userDao<span class="token punctuation">.</span><span class="token function">getUserList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span>User user<span class="token operator">:</span>userList<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"    "</span> <span class="token operator">+</span> user<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"    "</span> <span class="token operator">+</span> user<span class="token punctuation">.</span><span class="token function">getPwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment" spellcheck="true">//关闭SqlSession</span>
-    sqlSession<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p><strong>注意：当方法存在多个参数时，必须在参数前加上@Param(“xxx”)，如：</strong></p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"select * from mybatis.user"</span><span class="token punctuation">)</span>
-    User <span class="token function">getUserID</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">,</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong>实际查询时的参数名与@Param中的保持一致。</strong></p>
-<p><strong>@Param()注解</strong></p>
-<ul>
-<li>基本类型的参数或String类型的参数，需要加上</li>
-<li>引用类型不需要加</li>
-<li>如果只有一个基本类型可以忽略，但是建议加上</li>
-<li>在SQL中引用的就是这里的@Param里面设定的属性名</li>
-</ul>
-<h2 id="Lombok使用"><a href="#Lombok使用" class="headerlink" title="Lombok使用"></a>Lombok使用</h2><blockquote>
-<p>Lombok是一个可以通过简单的注解形式来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，通过使用对应的注解，可以在编译源码的时候生成对应的方法。官方地址：<a href="https://link.jianshu.com?t=https%3A%2F%2Fprojectlombok.org%2F" target="_blank" rel="noopener">https://projectlombok.org/</a>，github地址：<a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Frzwitserloot%2Flombok" target="_blank" rel="noopener">https://github.com/rzwitserloot/lombok</a>。</p>
+                <h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h2 id="MyBatis缓存介绍"><a href="#MyBatis缓存介绍" class="headerlink" title="MyBatis缓存介绍"></a>MyBatis缓存介绍</h2><p>　　正如大多数持久层框架一样，MyBatis 同样提供了<strong>一级缓存</strong>和<strong>二级缓存</strong>的支持</p>
+<p>1.<strong>一级缓存</strong>: 基于PerpetualCache 的 HashMap本地缓存，其<strong>存储作用域为</strong> <strong>Session</strong>，当 <strong>Session flush</strong> <strong>或</strong> <strong>close</strong> 之后，该<strong>Session中的所有 Cache 就将清空</strong>。</p>
+<p>2.<strong>二级缓存</strong>与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap存储，不同在于其<strong>存储作用域为 Mapper(Namespace)</strong>，并且<strong>可自定义存储源</strong>，如 Ehcache。</p>
+<p>对于缓存数据更新机制，当某一个作用域(一级缓存Session/二级缓存Namespaces)的进行了 C/U/D 操作后，默认该作用域下所有 select 中的缓存将被clear。</p>
+<h2 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h2><blockquote>
+<p>在应用运行过程中，我们有可能在一次数据库会话中，执行多次查询条件完全相同的SQL，MyBatis提供了一级缓存的方案优化这部分场景，如果是相同的SQL语句，会优先命中一级缓存，避免直接对数据库进行查询，提高性能。具体执行过程如下图所示。</p>
 </blockquote>
-<p>简单来说，就是我们可以使用注解来替代那些杂乱的get,set,toString方法。</p>
-<p>首先安装Lombok插件，这个相信大家都会。</p>
-<p>然后导入maven对应的依赖：</p>
-<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.18.10<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>provided<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
-<p>常用的注解：</p>
-<p><code>@Data</code>: </p>
-<p>自动为所有字段添加@ToString, @EqualsAndHashCode, @Getter方法</p>
-<p>为非final字段添加@Setter,和@RequiredArgsConstructor!</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> lombok<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@Data</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> String pwd<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">,</span> String name<span class="token punctuation">,</span> String pwd<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>pwd <span class="token operator">=</span> pwd<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<p><img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200615113505.jpg" alt=""></p>
+<p>每个SqlSession中持有了Executor，每个Executor中有一个LocalCache。当用户发起查询时，MyBatis根据当前执行的语句生成<code>MappedStatement</code>，在Local Cache进行查询，如果缓存命中的话，直接返回结果给用户，如果缓存没有命中的话，查询数据库，结果写入<code>Local Cache</code>，最后返回结果给用户。具体实现类的类关系图如下图所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200615113546.jpg" alt=""></p>
+<ul>
+<li>一级缓存也叫本地缓存：SqlSession<ul>
+<li>与数据库同一次会话期间查询到的数据会放在本地缓存中</li>
+<li>以后如果需要获取相同的数据，<strong>直接从缓存中拿</strong>，没必要再去查数据库。</li>
+</ul>
+</li>
+</ul>
+<p>缓存失效的情况：</p>
+<ul>
+<li>查询不同的东西</li>
+<li>增、删、改操作，可能会改变原来的数据，必定刷新缓存！</li>
+<li>查询不同的Mapper.xml</li>
+<li>手动清理缓存！(<code>sqlSession.clearCache();</code>)</li>
+</ul>
+<p>小结：==一级缓存默认开启，只在一次SqlSession中有效！即在拿到连接到关闭连接这个区间！==</p>
+<h2 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h2><ul>
+<li>二级缓存也叫全局缓存，一级缓存的作用域太低了，所以诞生了二级缓存</li>
+<li>基于namespace级别的缓存，一个名称空间，对应一个二级缓存</li>
+<li>工作机制<ul>
+<li>一个会话查询一条数据，这个数据就会被放在当前会话的一级缓存中</li>
+<li>如果当前会话关闭了，这个会话对应的一级缓存就没了；但我们想要的是，会话关闭了，一级缓存中的数据就保存到二级缓存中</li>
+<li>新的会话查询信息，就可以从二级缓存中获取内容</li>
+<li>不同的mapper查出的数据会放在自己对应的缓存(map)中</li>
+</ul>
+</li>
+</ul>
+<p>步骤：</p>
+<p>1.在核心配置文件中开启全局缓存</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--显式的开启全局缓存--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cacheEnabled<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+<p>2.在要使用二级缓存的Mapper.xml中开启</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cache</span><span class="token punctuation">/></span></span></code></pre>
+<p>如果出现这个错误：</p>
+<pre class=" language-java"><code class="language-java">Caused by<span class="token operator">:</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>NotSerializableException<span class="token operator">:</span>xxxx</code></pre>
+<p>我们需要将实体类序列化：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">blog</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String  id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String title<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String author<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> Date createTime<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> views<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<p><code>@NoArgsConstructor</code>: 自动生成无参数构造函数。</p>
-<p><code>@AllArgsConstructor</code>: 自动生成全参数构造函数。</p>
-<p><strong><em>还有其他一些比如自动生成日志对象等等之类的注解可以到官方网站去了解，就不一一列举了。</em></strong></p>
-<p><strong>根据情况使用，但请不要依赖这个插件！</strong></p>
+<p>小结：</p>
+<ul>
+<li>只要开启了二级缓存，在同一个Mapper下就有效</li>
+<li><strong>所有的数据都会先放在一级缓存中</strong></li>
+<li><strong>只有当会话提交或者关闭的时候，才会提交到二级缓存中！</strong></li>
+</ul>
+<h2 id="查询顺序"><a href="#查询顺序" class="headerlink" title="查询顺序"></a>查询顺序</h2><p>1.先看二级缓存有没有</p>
+<p>2.再看一级缓存有没有</p>
+<p>3.查询数据库</p>
 
             </div>
             <hr/>
@@ -615,7 +584,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/06/14/Mybatis%EF%BC%88%E5%9B%9B%EF%BC%89/">http://yoursite.com/2020/06/14/Mybatis%EF%BC%88%E5%9B%9B%EF%BC%89/</a>
+                    <a href="http://yoursite.com/2020/06/15/Mybats%EF%BC%88%E4%B8%83%EF%BC%89%E7%BC%93%E5%AD%98/">http://yoursite.com/2020/06/15/Mybats%EF%BC%88%E4%B8%83%EF%BC%89%E7%BC%93%E5%AD%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -844,32 +813,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/06/14/Mybatis%EF%BC%88%E4%BA%94%EF%BC%89%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%92%8C%E5%A4%9A%E5%AF%B9%E4%B8%80/">
+                <a href="/2020/06/15/Mybats%EF%BC%88%E4%B8%83%EF%BC%89%E7%BC%93%E5%AD%98/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200612225745.jpg" class="responsive-img" alt="Mybatis（五）一对多和多对一">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200614224354.jpg" class="responsive-img" alt="Mybats（七）缓存">
                         
-                        <span class="card-title">Mybatis（五）一对多和多对一</span>
+                        <span class="card-title">Mybats（七）缓存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            多对一处理测试环境1.导入Lombok
-2.新建实体类Teacher，Student
-3.建立TeacherMapper，StudentMapper接口
-4.建立TeacherMapper.xml，StudentMapper.xml文件
-5
+                            缓存MyBatis缓存介绍　　正如大多数持久层框架一样，MyBatis 同样提供了一级缓存和二级缓存的支持
+1.一级缓存: 基于PerpetualCache 的 HashMap本地缓存，其存储作用域为 Session，当 Session f
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -882,6 +849,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -900,27 +868,27 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/13/Mybatis%EF%BC%88%E4%B8%89%EF%BC%89Log4j/">
+                <a href="/2020/06/14/Mybatis%EF%BC%88%E5%85%AD%EF%BC%89%E5%8A%A8%E6%80%81SQL/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200614224353.jpg" class="responsive-img" alt="Mybatis（三）Log4j">
+                        <img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200614224329.jpg" class="responsive-img" alt="Mybatis（六）动态SQL">
                         
-                        <span class="card-title">Mybatis（三）Log4j</span>
+                        <span class="card-title">Mybatis（六）动态SQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            日志工厂配置日志：
-标准的日志工厂实现：
-在mybatis-config.xml文件中添加如下配置（在下面）：
-&lt;settings>
-    &lt;setting name="logImpl" value="STDOUT_LOGGI
+                            什么是动态SQL？
+==动态SQL就是根据不同的条件生成不同的语句。==
+环境搭建数据库：
+mysql> select * from blog;
++----+-----------------+-----------------+-----
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
                             </span>
                         <span class="publish-author">
                             
@@ -1124,7 +1092,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">50k</span>&nbsp;字
+                class="white-color">51k</span>&nbsp;字
             
             
             
