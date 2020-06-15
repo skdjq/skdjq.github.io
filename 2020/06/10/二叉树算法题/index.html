@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    642
+                    1.4k
                 </div>
                 
 
@@ -549,16 +549,18 @@ class Node {
 <p><code>public E pop()</code>：<strong>删除并返回</strong>列表的<strong>第一个元素</strong>。</p>
 <h2 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a>101. 对称二叉树</h2><p>给定一个二叉树，检查它是否是<strong>镜像对称</strong>的。</p>
 <p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
-<pre><code>   1
-  / \
-  2   2
+<pre class=" language-java"><code class="language-java">    <span class="token number">1</span>
+   <span class="token operator">/</span> \
+  <span class="token number">2</span>   <span class="token number">2</span>
+ <span class="token operator">/</span> \ <span class="token operator">/</span> \
+<span class="token number">3</span>  <span class="token number">4</span> <span class="token number">4</span>  <span class="token number">3</span></code></pre>
+<p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+<pre class=" language-java"><code class="language-java">   <span class="token number">1</span>
+  <span class="token operator">/</span> \
+  <span class="token number">2</span>   <span class="token number">2</span>
    \   \
-   3    3</code></pre><p>思路：</p>
+   <span class="token number">3</span>    <span class="token number">3</span></code></pre>
+<p>思路：</p>
 <p>1.判断根节点是否为空——–空返回true<br>2.判断左右子树是否对称———对称就返回true<br>    2.1.当左子树的左节点等于右子树的右节点，且左子树的右节点等于右子树的左节点时对称<br>3.<strong>递归终止条件</strong>：<br>    3.1.左子树右子树均为null——–true<br>    3.2.左子树右子树只有一个为null——–false<br>    3.3.左子树的值不等于右子树的值——–false</p>
 <p><img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200612100942.gif" alt="递归流程图"></p>
 <p>题解：</p>
@@ -586,6 +588,104 @@ class Node {
         <span class="token keyword">if</span><span class="token punctuation">(</span>leftChild<span class="token punctuation">.</span>val <span class="token operator">!=</span> rightChild<span class="token punctuation">.</span>val<span class="token punctuation">)</span>     
             <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token function">LR</span><span class="token punctuation">(</span>leftChild<span class="token punctuation">.</span>left<span class="token punctuation">,</span>rightChild<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token function">LR</span><span class="token punctuation">(</span>leftChild<span class="token punctuation">.</span>right<span class="token punctuation">,</span>rightChild<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="面试题55-I-二叉树的深度"><a href="#面试题55-I-二叉树的深度" class="headerlink" title="面试题55 - I. 二叉树的深度"></a>面试题55 - I. 二叉树的深度</h2><p>输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。</p>
+<p>例如：</p>
+<p>给定二叉树 [3,9,20,null,null,15,7]，</p>
+<pre class=" language-java"><code class="language-java">    <span class="token number">3</span>
+   <span class="token operator">/</span> \
+  <span class="token number">9</span>  <span class="token number">20</span>
+    <span class="token operator">/</span>  \
+   <span class="token number">15</span>   <span class="token number">7</span></code></pre>
+<p>返回它的最大深度 3 。</p>
+<p>思路：本题可以使用递归的方法解决。二叉树的深度就是左右子树最大深度 + 1。</p>
+<p>1.递归的终止条件：root为空。</p>
+<p>2.递归工作： 本质上是对树做后序遍历。</p>
+<ul>
+<li>计算节点 root 的 左子树的深度 ，即调用 <code>maxDepth(root.left)</code></li>
+<li>计算节点 root 的 右子树的深度 ，即调用 <code>maxDepth(root.right)</code></li>
+</ul>
+<p>3.返回值： 返回 此树的深度 ，即 <code>max(maxDepth(root.left), maxDepth(root.right)) + 1</code></p>
+<p>题解：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> null<span class="token punctuation">)</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>本题进阶：</p>
+<h2 id="面试题55-II-平衡二叉树"><a href="#面试题55-II-平衡二叉树" class="headerlink" title="面试题55 - II. 平衡二叉树"></a>面试题55 - II. 平衡二叉树</h2><p>输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。</p>
+<p>示例 1:</p>
+<p>给定二叉树 [3,9,20,null,null,15,7]</p>
+<pre class=" language-java"><code class="language-java">  <span class="token number">3</span>
+ <span class="token operator">/</span> \
+  <span class="token number">9</span>  <span class="token number">20</span>
+    <span class="token operator">/</span>  \
+   <span class="token number">15</span>   <span class="token number">7</span></code></pre>
+<p>返回 true 。</p>
+<p>示例 2:</p>
+<p>给定二叉树 [1,2,2,3,3,null,null,4,4]</p>
+<pre class=" language-java"><code class="language-java">      <span class="token number">1</span>
+     <span class="token operator">/</span> \
+    <span class="token number">2</span>   <span class="token number">2</span>
+   <span class="token operator">/</span> \
+  <span class="token number">3</span>   <span class="token number">3</span>
+ <span class="token operator">/</span> \
+<span class="token number">4</span>   <span class="token number">4</span></code></pre>
+<p>返回 false 。</p>
+<p>限制：</p>
+<p>1 &lt;= 树的结点个数 &lt;= 10000</p>
+<p>本题思路：</p>
+<p><strong>后序遍历 + 剪枝 （从底至顶）</strong></p>
+<blockquote>
+<p>此方法为本题的最优解法，但剪枝的方法不易第一时间想到。</p>
+</blockquote>
+<p>思路是对二叉树做后序遍历，从底至顶返回子树深度，若判定某子树不是平衡树则 “剪枝” ，直接向上返回。</p>
+<p>算法流程：</p>
+<p><code>recur(root)</code> 函数：</p>
+<p><strong>返回值：</strong></p>
+<ul>
+<li>当节点root 左 / 右子树的深度差 ≤1 ：则返回当前子树的深度，即节点 root 的左 / 右子树的深度最大值+1（ <code>max(left, right) + 1</code>）；</li>
+<li>当节点root 左 / 右子树的深度差&gt;2 ：则返回−1，代表<strong>此子树不是平衡树</strong> 。</li>
+</ul>
+<p><strong>终止条件：</strong></p>
+<ul>
+<li>当 root 为空：说明越过叶节点，因此返回高度0 ；</li>
+<li>当左（右）子树深度为−1 ：代表此树的左（右）子树 不是平衡树，因此剪枝，直接返回 −1 ；</li>
+</ul>
+<p><code>isBalanced(root)</code>函数：</p>
+<p><strong>返回值</strong>： 若 <code>recur(root) != -1</code>，则说明此树平衡，返回true ； 否则返回false 。</p>
+<p>题解：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isBalanced</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">recur</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">recur</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> null<span class="token punctuation">)</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token function">recur</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>left <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token function">recur</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>right <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>left <span class="token operator">-</span> right<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token operator">?</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span>right<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 
@@ -1118,7 +1218,7 @@ JDBC（Java DataBase Connectivity）就是 Java 数据库连接，说白了就�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">49k</span>&nbsp;字
+                class="white-color">50k</span>&nbsp;字
             
             
             
