@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Dao层，Mapper层，controller层，service层，model层各自的作用</title>
+      <link href="/2020/07/03/Dao%E5%B1%82%EF%BC%8CMapper%E5%B1%82%EF%BC%8Ccontroller%E5%B1%82%EF%BC%8Cservice%E5%B1%82%EF%BC%8Cmodel%E5%B1%82%E5%90%84%E8%87%AA%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+      <url>/2020/07/03/Dao%E5%B1%82%EF%BC%8CMapper%E5%B1%82%EF%BC%8Ccontroller%E5%B1%82%EF%BC%8Cservice%E5%B1%82%EF%BC%8Cmodel%E5%B1%82%E5%90%84%E8%87%AA%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>本文参考自<a href="https://blog.csdn.net/qq_38129062/article/details/88967217" target="_blank" rel="noopener">呼卓宇的博客</a></p><hr><blockquote><p>SSM是 Sping+SpringMVC+Mybatis 集成的框架。<br>MVC即 Model View Controller。</p></blockquote><h2 id="Model层-Entity层"><a href="#Model层-Entity层" class="headerlink" title="Model层 = Entity层"></a>Model层 = Entity层</h2><p>存放我们的<strong>实体类</strong>，<strong>与数据库中的属性值基本保持一致</strong>。</p><h2 id="Service层"><a href="#Service层" class="headerlink" title="Service层"></a>Service层</h2><p>存放业务逻辑处理，也是一些关于数据库处理的操作，<em>但不是直接和数据库打交道</em>，<strong>他有接口还有接口的实现方法，在接口的实现方法中需要导入 Mapper 层，Mapper 层是直接跟数据库打交道的，<em>他也是个接口</em>，只有方法名字，具体实现在 Mapper.xml 文件里，Service 是供我们使用的方法。</strong></p><p>例如：</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200703190308.png" alt=""></p><p>在实际开发中的 Service 层可能被处理为实体 Service 层，而不是接口，业务逻辑直接写在 Service （Class，不是Interface）层中，Controller 直接调用Service，Service 调用Mapper。<br>当然了，Service 之间也是可以互相调用！</p><h2 id="Mapper层-Dao层"><a href="#Mapper层-Dao层" class="headerlink" title="Mapper层 = Dao层"></a>Mapper层 = Dao层</h2><p>现在用 Mybatis 逆向工程生成的 Mapper 层，其实就是 Dao 层。对数据库进行数据持久化操作，<strong>他的方法语句是直接针对数据库操作的，而 Service 层是针对我们 Controller，也就是针对我们使用者。</strong>Service 的 Impl 是把Mapper 和 Service 进行整合的文件。</p><p>（多说一句，数据持久化操作就是指，把数据放到持久化的介质中，同时提供增删改查操作，比如数据通过hibernate 插入到数据库中。）</p><h2 id="Controller层"><a href="#Controller层" class="headerlink" title="Controller层"></a>Controller层</h2><p>控制器，导入 Service 层，因为 Service 中的方法是我们使用到的，Controller 通过接收前端传过来的参数进行业务操作，在返回一个指定的路径或者数据表。   </p><hr><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200703190314.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring Boot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring Boot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IDEA编译java提示找不到符号</title>
       <link href="/2020/07/03/IDEA%E7%BC%96%E8%AF%91java%E6%8F%90%E7%A4%BA%E6%89%BE%E4%B8%8D%E5%88%B0%E7%AC%A6%E5%8F%B7/"/>
       <url>/2020/07/03/IDEA%E7%BC%96%E8%AF%91java%E6%8F%90%E7%A4%BA%E6%89%BE%E4%B8%8D%E5%88%B0%E7%AC%A6%E5%8F%B7/</url>
