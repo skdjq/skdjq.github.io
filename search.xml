@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>IDEA编译java提示找不到符号</title>
+      <link href="/2020/07/03/IDEA%E7%BC%96%E8%AF%91java%E6%8F%90%E7%A4%BA%E6%89%BE%E4%B8%8D%E5%88%B0%E7%AC%A6%E5%8F%B7/"/>
+      <url>/2020/07/03/IDEA%E7%BC%96%E8%AF%91java%E6%8F%90%E7%A4%BA%E6%89%BE%E4%B8%8D%E5%88%B0%E7%AC%A6%E5%8F%B7/</url>
+      
+        <content type="html"><![CDATA[<p>在维护一个新的项目时有时会出现这个情况，项目构建时一直报错”xxx包找不到”，但是引用的包和引用的类都是存在的。</p><p>解决方法：</p><ul><li>设置Maven：</li></ul><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200703113640.png" alt=""></p><ul><li>修改编码：</li></ul><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200703113706.png" alt=""></p><ul><li>Maven clean</li></ul><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200703113705.png" alt=""></p><ul><li>选中报错的模块：</li><li><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200703113704.png" alt=""></li></ul><p>经过以上几个步骤，错误就能解决了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Bug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二叉树的右视图</title>
       <link href="/2020/07/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE/"/>
       <url>/2020/07/02/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE/</url>
