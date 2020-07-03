@@ -69,12 +69,20 @@
           
           <category> LeetCode </category>
           
+          <category> BFS </category>
+          
+          <category> DFS </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> LeetCode </tag>
+            
+            <tag> BFS </tag>
+            
+            <tag> DFS </tag>
             
         </tags>
       
@@ -94,12 +102,16 @@
           
           <category> LeetCode </category>
           
+          <category> BFS </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> LeetCode </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
@@ -144,12 +156,16 @@
           
           <category> LeetCode </category>
           
+          <category> BFS </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> LeetCode </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
