@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>将有序数组转换为二叉搜索树</title>
+      <link href="/2020/07/11/%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+      <url>/2020/07/11/%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</url>
+      
+        <content type="html"><![CDATA[<h1 id="将有序数组转换为二叉搜索树"><a href="#将有序数组转换为二叉搜索树" class="headerlink" title="将有序数组转换为二叉搜索树"></a>将有序数组转换为二叉搜索树</h1><p>题目地址：<a href="https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/</a></p><hr><p>这一题不算太难，但结合了二分查找的一些特性，所以单独拿出来讲讲。</p><p>题目描述：</p><blockquote><p>将一个按照升序排列的有序数组，转换为一棵高度平衡二叉搜索树。</p></blockquote><p>我们知道<strong>二叉搜索树的中序遍历结果正是一个按照升序排列的序列</strong>，那么这一题的意思显然就是让我们由一个按照升序排列的有序数组<strong>还原</strong>出一个二叉搜索树，因此我们可以以升序序列中的任一个元素作为根节点，以该元素左边的升序序列构建左子树，以该元素右边的升序序列构建右子树，这样得到的树就是一棵二叉搜索树。又因为本题要求高度平衡，因此我们需要<strong>选择升序序列的中间元素作为根节点</strong>。这就又结合了上面提到的二分查找的特性了，即<strong>不断地找中间元素作为根节点</strong>。</p><hr><p>题解：</p><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> TreeNode <span class="token function">sortedArrayToBST</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">return</span> <span class="token function">recur</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>    <span class="token keyword">public</span> TreeNode <span class="token function">recur</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> lo<span class="token punctuation">,</span> <span class="token keyword">int</span> hi<span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>lo <span class="token operator">></span> hi<span class="token punctuation">)</span>     <span class="token keyword">return</span> null<span class="token punctuation">;</span>        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>lo <span class="token operator">+</span> hi<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>        TreeNode root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        root<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">recur</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> lo<span class="token punctuation">,</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        root<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token function">recur</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> hi<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">return</span> root<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>验证二叉搜索树</title>
       <link href="/2020/07/11/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
       <url>/2020/07/11/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</url>
@@ -22,9 +51,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
