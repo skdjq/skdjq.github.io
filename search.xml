@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>验证二叉搜索树</title>
+      <link href="/2020/07/11/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+      <url>/2020/07/11/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</url>
+      
+        <content type="html"><![CDATA[<h1 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h1><p>题目地址：<a href="https://leetcode-cn.com/problems/validate-binary-search-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/validate-binary-search-tree/</a></p><hr><p>题目我就不做描述了，说说思路：</p><p>本题为验证二叉搜索树（BST），那么我们应该联想到二叉搜索树的特性，那就是：</p><blockquote><ol><li><p>若它的左子树不为空，那么左子树上所有节点的 key 都小于根节点的 key。</p></li><li><p>若它的右子树不为空，那么右子树上所有节点的 key 都大于根节点的 key。</p></li><li><p>它的左右子树也分别为二叉搜索树。</p></li></ol></blockquote><p>发现了吗，BST 的节点大小顺序为：<code>left</code> &lt; <code>root</code> &lt; <code>right</code>。</p><p>利用这一特性，很自然的我们就会想到 <strong>BST 的中序遍历其实就是一个递增的序列</strong>。</p><p>那么我们该如何验证某棵树是不是 BST，采用中序遍历，只需要看当前节点是否大于已经遍历的上一个节点就行了。</p><p>题解：</p><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */</span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">long</span> pre <span class="token operator">=</span> Long<span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span>    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValidBST</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> null<span class="token punctuation">)</span>    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isValidBST</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val <span class="token operator">&lt;=</span> pre<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>        pre <span class="token operator">=</span> root<span class="token punctuation">.</span>val<span class="token punctuation">;</span>        <span class="token keyword">return</span> <span class="token function">isValidBST</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><hr><p><strong>总结</strong>：在我们看到<strong><em>二叉搜索树</em></strong>这几个字的时候，脑子里应该自然想到它的几个特点：</p><ul><li>节点值大小顺序：<strong><code>left</code> &lt; <code>root</code> &lt; <code>right</code></strong>；</li><li><strong>二叉搜索树的中序遍历的结果是递增的</strong>。 </li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于@RequestParam</title>
       <link href="/2020/07/09/%E5%85%B3%E4%BA%8E-RequestParam/"/>
       <url>/2020/07/09/%E5%85%B3%E4%BA%8E-RequestParam/</url>
