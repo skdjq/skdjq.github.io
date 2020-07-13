@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>环形链表</title>
+      <link href="/2020/07/13/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/"/>
+      <url>/2020/07/13/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h1><p>题目地址：<a href="https://leetcode-cn.com/problems/linked-list-cycle/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/linked-list-cycle/</a></p><hr><p>本题有两种解法，一种是使用哈希表的暴力解法，还有一种是使用快慢指针的巧妙解法。</p><p>下面将着重介绍快慢指针解法。</p><h2 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h2><p>当一个链表有环时，快慢指针都会陷入环中进行无限次移动，然后变成了追及问题。想象一下在操场跑步的场景，只要一直跑下去，快的总会追上慢的。当两个指针都进入环后，每轮移动使得慢指针到快指针的距离增加一，同时快指针到慢指针的距离也减少一，只要一直移动下去，快指针总会追上慢指针。</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200713104806.gif" alt=""></p><p>根据上面的原理得出，<strong>如果一个链表存在环，那么快慢指针必然会相遇。</strong></p><hr><p>题解：</p><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** * Definition for singly-linked list. * class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { *         val = x; *         next = null; *     } * } */</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>        ListNode fast <span class="token operator">=</span> head<span class="token punctuation">;</span>        ListNode slow <span class="token operator">=</span> head<span class="token punctuation">;</span>        <span class="token keyword">while</span><span class="token punctuation">(</span>fast <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>            fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">;</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>fast <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>                fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">;</span>            <span class="token punctuation">}</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>fast <span class="token operator">==</span> slow<span class="token punctuation">)</span><span class="token punctuation">{</span>                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>            slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>如果一个链表是环形链表，那么必然有若干个节点会被遍历多次。</p><blockquote><p>我们遍历所有结点并在哈希表中存储每个结点的引用（或内存地址）。</p><ol><li>如果当前结点为空结点 <code>null</code>（即已检测到链表尾部的下一个结点），那么我们已经遍历完整个链表，并且该链表不是环形链表。</li><li>如果当前结点的引用已经存在于哈希表中，那么返回 <code>true</code>（即该链表为环形链表）。</li></ol></blockquote><hr><p>题解：</p><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** * Definition for singly-linked list. * class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { *         val = x; *         next = null; *     } * } */</span><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">)</span> <span class="token punctuation">{</span>    Set<span class="token operator">&lt;</span>ListNode<span class="token operator">></span> nodesSeen <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">while</span> <span class="token punctuation">(</span>head <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>nodesSeen<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>            nodesSeen<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><hr><p><strong>总结</strong>：在环形链表问题上，使用快慢指针解法非常方便。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>反转部分链表</title>
       <link href="/2020/07/12/%E5%8F%8D%E8%BD%AC%E9%83%A8%E5%88%86%E9%93%BE%E8%A1%A8/"/>
       <url>/2020/07/12/%E5%8F%8D%E8%BD%AC%E9%83%A8%E5%88%86%E9%93%BE%E8%A1%A8/</url>
