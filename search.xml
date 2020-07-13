@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>相交链表</title>
+      <link href="/2020/07/13/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/"/>
+      <url>/2020/07/13/%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="相交链表"><a href="#相交链表" class="headerlink" title="相交链表"></a>相交链表</h1><p>题目地址：<a href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/intersection-of-two-linked-lists/</a></p><hr><p>本题仅用文字可能说不太明白，建议大家看<a href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/solution/jiao-ni-yong-lang-man-de-fang-shi-zhao-dao-liang-2/" target="_blank" rel="noopener">这里</a>的视频讲解。</p><hr><p>题解：</p><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { *         val = x; *         next = null; *     } * } */</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> ListNode <span class="token function">getIntersectionNode</span><span class="token punctuation">(</span>ListNode headA<span class="token punctuation">,</span> ListNode headB<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>headA <span class="token operator">==</span> null <span class="token operator">||</span> headB <span class="token operator">==</span> null<span class="token punctuation">)</span>  <span class="token keyword">return</span> null<span class="token punctuation">;</span>        ListNode pA <span class="token operator">=</span> headA<span class="token punctuation">;</span>        ListNode pB <span class="token operator">=</span> headB<span class="token punctuation">;</span>        <span class="token keyword">while</span><span class="token punctuation">(</span>pA <span class="token operator">!=</span> pB<span class="token punctuation">)</span><span class="token punctuation">{</span>            pA <span class="token operator">=</span> <span class="token punctuation">(</span>pA <span class="token operator">==</span> null <span class="token operator">?</span> headB <span class="token operator">:</span> pA<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>            pB <span class="token operator">=</span> <span class="token punctuation">(</span>pB <span class="token operator">==</span> null <span class="token operator">?</span> headA <span class="token operator">:</span> pB<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> pA<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>回文链表</title>
       <link href="/2020/07/13/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/"/>
       <url>/2020/07/13/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
