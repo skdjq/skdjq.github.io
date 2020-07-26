@@ -8,7 +8,7 @@
       <link href="/2020/07/26/Docker%E4%B8%89%E8%A6%81%E7%B4%A0/"/>
       <url>/2020/07/26/Docker%E4%B8%89%E8%A6%81%E7%B4%A0/</url>
       
-        <content type="html"><![CDATA[<h1 id="Docker三要素"><a href="#Docker三要素" class="headerlink" title="Docker三要素"></a>Docker三要素</h1><blockquote><ol><li><p>镜像(image)</p></li><li><p>容器(container)</p></li><li><p>仓库(repository)</p></li></ol></blockquote><hr><h3 id="镜像（Image）"><a href="#镜像（Image）" class="headerlink" title="镜像（Image）"></a>镜像（Image）</h3><p>Docker 镜像就是一个<strong>只读</strong>的模板。镜像可以用来创建 Docker 容器，<strong>一个镜像可以创建多个容器</strong>。</p><p>为了方便理解，我们这里可以把容器与镜像的关系类比于 Java 中的对象与类。</p><table><thead><tr><th>Docker</th><th>面向对象</th></tr></thead><tbody><tr><td>容器</td><td>对象</td></tr><tr><td>镜像</td><td>类</td></tr></tbody></table><h3 id="容器（Container）"><a href="#容器（Container）" class="headerlink" title="容器（Container）"></a>容器（Container）</h3><ul><li>Docker 利用容器（Container）独立运行一个或一组应用；</li><li>容器是使用镜像创建的运行实例；</li><li>容器可以被启动、开始、停止、删除，每个容器之间都是相互隔离的，保证平台的安全；</li><li>可以把容器看做是一个<strong>简易版的 Linux 环境</strong>（包括 root 用户权限、进程空间、用户空间和网络空间等）和运行在其中的应用程序；</li><li>容器的定义和镜像几乎一摸一样，也是一堆层的统一视角，唯一区别在于<strong>容器的最上面那一层是可读可写的</strong>。</li></ul><h3 id="仓库（Repository）"><a href="#仓库（Repository）" class="headerlink" title="仓库（Repository）"></a>仓库（Repository）</h3><ul><li><p><strong>仓库（Repository）是集中存放镜像文件的场所。</strong></p></li><li><p>仓库（Repository）和仓库注册服务器（Registry）是有区别的，<strong>仓库注册服务器上往往存放着多个仓库，每个仓库中又包含了多个镜像，每个镜像有不同的标签（tag）。</strong></p></li><li><p>仓库分为公开仓库（Public）和私有仓库（Private）两种形式。</p></li><li><p>最大的公开仓库是 Docker Hub（<a href="https://hub.docker.com/），存放了数量庞大的镜像供用户下载。" target="_blank" rel="noopener">https://hub.docker.com/），存放了数量庞大的镜像供用户下载。</a></p></li><li><p>国内的公开仓库包括阿里云、网易云等。</p></li></ul><h2 id="Docker与传统虚拟机的区别"><a href="#Docker与传统虚拟机的区别" class="headerlink" title="Docker与传统虚拟机的区别"></a>Docker与传统虚拟机的区别</h2><p>虚拟机的缺点：</p><ul><li>资源占用多</li><li>冗余步骤多</li><li>启动慢</li></ul><p>容器与虚拟机有着类似的资源隔离和分配的优点，但拥有不同的架构方法，容器架构更加便携，高效。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Docker三要素"><a href="#Docker三要素" class="headerlink" title="Docker三要素"></a>Docker三要素</h1><blockquote><ol><li><p>镜像(image)</p></li><li><p>容器(container)</p></li><li><p>仓库(repository)</p></li></ol></blockquote><hr><h3 id="镜像（Image）"><a href="#镜像（Image）" class="headerlink" title="镜像（Image）"></a>镜像（Image）</h3><p>Docker 镜像就是一个<strong>只读</strong>的模板。镜像可以用来创建 Docker 容器，<strong>一个镜像可以创建多个容器</strong>。</p><p>为了方便理解，我们这里可以把容器与镜像的关系类比于 Java 中的对象与类。</p><table><thead><tr><th>Docker</th><th>面向对象</th></tr></thead><tbody><tr><td>容器</td><td>对象</td></tr><tr><td>镜像</td><td>类</td></tr></tbody></table><h3 id="容器（Container）"><a href="#容器（Container）" class="headerlink" title="容器（Container）"></a>容器（Container）</h3><ul><li>Docker 利用容器（Container）独立运行一个或一组应用；</li><li>容器是使用镜像创建的运行实例；</li><li>容器可以被启动、开始、停止、删除，每个容器之间都是相互隔离的，保证平台的安全；</li><li>可以把容器看做是一个<strong>简易版的 Linux 环境</strong>（包括 root 用户权限、进程空间、用户空间和网络空间等）和运行在其中的应用程序；</li><li>容器的定义和镜像几乎一摸一样，也是一堆层的统一视角，唯一区别在于<strong>容器的最上面那一层是可读可写的</strong>。</li></ul><h3 id="仓库（Repository）"><a href="#仓库（Repository）" class="headerlink" title="仓库（Repository）"></a>仓库（Repository）</h3><ul><li><p><strong>仓库（Repository）是集中存放镜像文件的场所。</strong></p></li><li><p>仓库（Repository）和仓库注册服务器（Registry）是有区别的，<strong>仓库注册服务器上往往存放着多个仓库，每个仓库中又包含了多个镜像，每个镜像有不同的标签（tag）。</strong></p></li><li><p>仓库分为公开仓库（Public）和私有仓库（Private）两种形式。</p></li><li><p>最大的公开仓库是 <a href="https://hub.docker.com" target="_blank" rel="noopener">Docker Hub</a>，存放了数量庞大的镜像供用户下载。</p></li><li><p>国内的公开仓库包括阿里云、网易云等。</p></li></ul><h2 id="Docker与传统虚拟机的区别"><a href="#Docker与传统虚拟机的区别" class="headerlink" title="Docker与传统虚拟机的区别"></a>Docker与传统虚拟机的区别</h2><p>虚拟机的缺点：</p><ul><li>资源占用多</li><li>冗余步骤多</li><li>启动慢</li></ul><p>容器与虚拟机有着类似的资源隔离和分配的优点，但拥有不同的架构方法，容器架构更加便携，高效。</p>]]></content>
       
       
       <categories>
@@ -516,9 +516,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> BFS </tag>
-            
             <tag> DFS </tag>
+            
+            <tag> BFS </tag>
             
         </tags>
       
