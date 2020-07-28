@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux基础 | ZY的小站</title><meta name="description" content="肝了两天的 Linux，终于是把 Linux 最基础的一部分肝完了，虽然很简单，但为了以后复习还是先把这两天学到的写到这里吧。  Linux 目录结构 以下是对这些目录的解释：  &#x2F;bin：bin是Binary的缩写, 这个目录存放着最经常使用的命令。  &#x2F;boot：这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。  &#x2F;dev ：dev是Device(设备)的缩写,"><meta name="keywords" content="Linux"><meta name="author" content="skdjq"><meta name="copyright" content="skdjq"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/2020/07/27/Linux%E5%9F%BA%E7%A1%80/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Linux基础"><meta property="og:url" content="http://yoursite.com/2020/07/27/Linux%E5%9F%BA%E7%A1%80/"><meta property="og:site_name" content="ZY的小站"><meta property="og:description" content="肝了两天的 Linux，终于是把 Linux 最基础的一部分肝完了，虽然很简单，但为了以后复习还是先把这两天学到的写到这里吧。  Linux 目录结构 以下是对这些目录的解释：  &#x2F;bin：bin是Binary的缩写, 这个目录存放着最经常使用的命令。  &#x2F;boot：这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。  &#x2F;dev ：dev是Device(设备)的缩写,"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200724104433.jpg"><meta property="article:published_time" content="2020-07-27T14:25:25.000Z"><meta property="article:modified_time" content="2020-07-27T15:19:20.564Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux基础 | ZY的小站</title><meta name="description" content="肝了两天的 Linux，终于是把 Linux 最基础的一部分肝完了，虽然很简单，但为了以后复习还是先把这两天学到的写到这里吧。  Linux 目录结构 以下是对这些目录的解释：  &#x2F;bin：bin是Binary的缩写, 这个目录存放着最经常使用的命令。  &#x2F;boot：这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。  &#x2F;dev ：dev是Device(设备)的缩写,"><meta name="keywords" content="Linux"><meta name="author" content="skdjq"><meta name="copyright" content="skdjq"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/2020/07/27/Linux%E5%9F%BA%E7%A1%80/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Linux基础"><meta property="og:url" content="http://yoursite.com/2020/07/27/Linux%E5%9F%BA%E7%A1%80/"><meta property="og:site_name" content="ZY的小站"><meta property="og:description" content="肝了两天的 Linux，终于是把 Linux 最基础的一部分肝完了，虽然很简单，但为了以后复习还是先把这两天学到的写到这里吧。  Linux 目录结构 以下是对这些目录的解释：  &#x2F;bin：bin是Binary的缩写, 这个目录存放着最经常使用的命令。  &#x2F;boot：这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。  &#x2F;dev ：dev是Device(设备)的缩写,"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200724104433.jpg"><meta property="article:published_time" content="2020-07-27T14:25:25.000Z"><meta property="article:modified_time" content="2020-07-28T09:58:30.118Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
   document.documentElement.setAttribute('data-theme', 'dark')
   if (document.querySelector('meta[name="theme-color"]') !== null) {
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
@@ -95,7 +95,7 @@ if (autoChangeMode === '1') {
 .justified-gallery img{
   opacity: 1
 }
-</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">77</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">28</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">29</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-目录结构"><span class="toc-number">1.</span> <span class="toc-text">Linux 目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vi-和-vim"><span class="toc-number">2.</span> <span class="toc-text">vi 和 vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关机和重启"><span class="toc-number">3.</span> <span class="toc-text">关机和重启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户"><span class="toc-number">4.</span> <span class="toc-text">用户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户管理"><span class="toc-number">4.1.</span> <span class="toc-text">用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#添加用户"><span class="toc-number">4.1.1.</span> <span class="toc-text">添加用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指定或修改密码"><span class="toc-number">4.1.2.</span> <span class="toc-text">指定或修改密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除用户"><span class="toc-number">4.1.3.</span> <span class="toc-text">删除用户</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#仅删除用户不删除家目录"><span class="toc-number">4.1.3.1.</span> <span class="toc-text">仅删除用户不删除家目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#既删除用户又删除家目录"><span class="toc-number">4.1.3.2.</span> <span class="toc-text">既删除用户又删除家目录</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查询用户"><span class="toc-number">4.1.4.</span> <span class="toc-text">查询用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切换用户"><span class="toc-number">4.1.5.</span> <span class="toc-text">切换用户</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用户组"><span class="toc-number">4.2.</span> <span class="toc-text">用户组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#增加、删除组"><span class="toc-number">4.2.1.</span> <span class="toc-text">增加、删除组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增加用户时直接加上组"><span class="toc-number">4.2.2.</span> <span class="toc-text">增加用户时直接加上组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改用户的组"><span class="toc-number">4.2.3.</span> <span class="toc-text">修改用户的组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-passwd-文件（重要）"><span class="toc-number">4.3.</span> <span class="toc-text">&#x2F;etc&#x2F;passwd 文件（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-shadow-文件"><span class="toc-number">4.4.</span> <span class="toc-text">&#x2F;etc&#x2F;shadow 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-group-文件（重要）"><span class="toc-number">4.5.</span> <span class="toc-text">&#x2F;etc&#x2F;group 文件（重要）</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200724104433.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">ZY的小站</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Linux基础</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-27 22:25:25"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-07-27</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-27 23:19:20"><i class="fas fa-history fa-fw"></i> 更新于 2020-07-27</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta__icon"></i><span>字数总计:</span><span class="word-count">2k</span><span class="post-meta__separator">|</span><i class="far fa-clock fa-fw post-meta__icon"></i><span>阅读时长: 6 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>肝了两天的 Linux，终于是把 Linux 最基础的一部分肝完了，虽然很简单，但为了以后复习还是先把这两天学到的写到这里吧。</p>
+</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">77</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">28</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">29</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-目录结构"><span class="toc-number">1.</span> <span class="toc-text">Linux 目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vi-和-vim"><span class="toc-number">2.</span> <span class="toc-text">vi 和 vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关机和重启"><span class="toc-number">3.</span> <span class="toc-text">关机和重启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户"><span class="toc-number">4.</span> <span class="toc-text">用户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户管理"><span class="toc-number">4.1.</span> <span class="toc-text">用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#添加用户"><span class="toc-number">4.1.1.</span> <span class="toc-text">添加用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指定或修改密码"><span class="toc-number">4.1.2.</span> <span class="toc-text">指定或修改密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除用户"><span class="toc-number">4.1.3.</span> <span class="toc-text">删除用户</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#仅删除用户不删除家目录"><span class="toc-number">4.1.3.1.</span> <span class="toc-text">仅删除用户不删除家目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#既删除用户又删除家目录"><span class="toc-number">4.1.3.2.</span> <span class="toc-text">既删除用户又删除家目录</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查询用户"><span class="toc-number">4.1.4.</span> <span class="toc-text">查询用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切换用户"><span class="toc-number">4.1.5.</span> <span class="toc-text">切换用户</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用户组"><span class="toc-number">4.2.</span> <span class="toc-text">用户组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#增加、删除组"><span class="toc-number">4.2.1.</span> <span class="toc-text">增加、删除组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增加用户时直接加上组"><span class="toc-number">4.2.2.</span> <span class="toc-text">增加用户时直接加上组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改用户的组"><span class="toc-number">4.2.3.</span> <span class="toc-text">修改用户的组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-passwd-文件（重要）"><span class="toc-number">4.3.</span> <span class="toc-text">&#x2F;etc&#x2F;passwd 文件（重要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-shadow-文件"><span class="toc-number">4.4.</span> <span class="toc-text">&#x2F;etc&#x2F;shadow 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-group-文件（重要）"><span class="toc-number">4.5.</span> <span class="toc-text">&#x2F;etc&#x2F;group 文件（重要）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-实用指令（文件管理类）"><span class="toc-number">5.</span> <span class="toc-text">Linux 实用指令（文件管理类）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行级别"><span class="toc-number">5.1.</span> <span class="toc-text">运行级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建目录"><span class="toc-number">5.2.</span> <span class="toc-text">创建目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除目录"><span class="toc-number">5.3.</span> <span class="toc-text">删除目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#删除空目录"><span class="toc-number">5.3.1.</span> <span class="toc-text">删除空目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除非空目录"><span class="toc-number">5.3.2.</span> <span class="toc-text">删除非空目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建文件"><span class="toc-number">5.4.</span> <span class="toc-text">创建文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拷贝指令"><span class="toc-number">5.5.</span> <span class="toc-text">拷贝指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-和-mv"><span class="toc-number">5.6.</span> <span class="toc-text">rm 和 mv</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rm指令"><span class="toc-number">5.6.1.</span> <span class="toc-text">rm指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mv指令"><span class="toc-number">5.6.2.</span> <span class="toc-text">mv指令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat-指令"><span class="toc-number">5.7.</span> <span class="toc-text">cat 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#more"><span class="toc-number">5.8.</span> <span class="toc-text">more</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less"><span class="toc-number">5.9.</span> <span class="toc-text">less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gt-指令-和-gt-gt-指令"><span class="toc-number">5.10.</span> <span class="toc-text">&gt; 指令 和 &gt;&gt; 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#echo指令"><span class="toc-number">5.11.</span> <span class="toc-text">echo指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head指令"><span class="toc-number">5.12.</span> <span class="toc-text">head指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail指令"><span class="toc-number">5.13.</span> <span class="toc-text">tail指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history指令"><span class="toc-number">5.14.</span> <span class="toc-text">history指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-实用指令（日期类）"><span class="toc-number">6.</span> <span class="toc-text">Linux 实用指令（日期类）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#date指令"><span class="toc-number">6.1.</span> <span class="toc-text">date指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cal指令"><span class="toc-number">6.2.</span> <span class="toc-text">cal指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-实用指令（搜索查找类）"><span class="toc-number">7.</span> <span class="toc-text">Linux 实用指令（搜索查找类）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#find-指令"><span class="toc-number">7.1.</span> <span class="toc-text">find 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#locate-指令"><span class="toc-number">7.2.</span> <span class="toc-text">locate 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-指令和管道符号"><span class="toc-number">7.3.</span> <span class="toc-text">grep 指令和管道符号 |</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-实用指令（压缩和解压类）"><span class="toc-number">8.</span> <span class="toc-text">Linux 实用指令（压缩和解压类）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip-gunzip-指令"><span class="toc-number">8.1.</span> <span class="toc-text">gzip&#x2F;gunzip 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip-unzip-指令"><span class="toc-number">8.2.</span> <span class="toc-text">zip&#x2F;unzip 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-指令"><span class="toc-number">8.3.</span> <span class="toc-text">tar 指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何找回丢失的-root-密码？"><span class="toc-number">9.</span> <span class="toc-text">如何找回丢失的 root 密码？</span></a></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200724104433.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">ZY的小站</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Linux基础</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-27 22:25:25"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-07-27</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-28 17:58:30"><i class="fas fa-history fa-fw"></i> 更新于 2020-07-28</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta__icon"></i><span>字数总计:</span><span class="word-count">4.5k</span><span class="post-meta__separator">|</span><i class="far fa-clock fa-fw post-meta__icon"></i><span>阅读时长: 16 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>肝了两天的 Linux，终于是把 Linux 最基础的一部分肝完了，虽然很简单，但为了以后复习还是先把这两天学到的写到这里吧。</p>
 <hr>
 <h2 id="Linux-目录结构"><a href="#Linux-目录结构" class="headerlink" title="Linux 目录结构"></a>Linux 目录结构</h2><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200727225802.jpg" alt=""></p>
 <p>以下是对这些目录的解释：</p>
@@ -251,5 +251,322 @@ if (autoChangeMode === '1') {
 <h3 id="etc-group-文件（重要）"><a href="#etc-group-文件（重要）" class="headerlink" title="/etc/group 文件（重要）"></a>/etc/group 文件（重要）</h3><p><strong>组(group)的配置文件，记录 Linux 包含的组的信息。</strong></p>
 <p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200727231732.jpg" alt=""></p>
 <p>每行含义：<strong>组名：口令：组标识号：组内用户列表</strong></p>
+<h2 id="Linux-实用指令（文件管理类）"><a href="#Linux-实用指令（文件管理类）" class="headerlink" title="Linux 实用指令（文件管理类）"></a>Linux 实用指令（文件管理类）</h2><h3 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h3><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200728155335.png" alt=""></p>
+<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><p><code>mkdir [可选项] 要创建的目录名</code></p>
+<p>常用选项：<code>-p</code>，用于创建多级目录。</p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> /home/dog                创建一级目录
+<span class="token function">mkdir</span> -p /home/cat/tiger    创建多级目录</code></pre>
+<h3 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h3><h4 id="删除空目录"><a href="#删除空目录" class="headerlink" title="删除空目录"></a>删除空目录</h4><p><code>rmdir [选项] 要删除的空目录</code></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">rmdir</span> /home/dog/cat/tiger        删除tiger目录</code></pre>
+<p><strong><code>rmdir</code> 只能删除空目录！</strong></p>
+<h4 id="删除非空目录"><a href="#删除非空目录" class="headerlink" title="删除非空目录"></a>删除非空目录</h4><p>如果要删除非空目录，就使用 <code>rm -rf 要删除的目录名</code></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">rm</span> -rf /home/dog</code></pre>
+<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p><code>touch 文件名</code></p>
+<p>创建一个空文件。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">touch</span> aaa.txt</code></pre>
+<h3 id="拷贝指令"><a href="#拷贝指令" class="headerlink" title="拷贝指令"></a>拷贝指令</h3><p><code>cp [可选项] source dest</code></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cp aaa.txt bbb        </span>
+将当前目录的aaa.txt拷贝到当前目录的bbb文件夹下</code></pre>
+<p>常用选项：</p>
+<p><code>-r</code> ：递归复制<strong>整个文件夹</strong></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cp -r bbb ccc</span>
+将当前目录的bbb文件夹拷贝到当前目录的ccc文件夹下</code></pre>
+<h3 id="rm-和-mv"><a href="#rm-和-mv" class="headerlink" title="rm 和 mv"></a>rm 和 mv</h3><h4 id="rm指令"><a href="#rm指令" class="headerlink" title="rm指令"></a>rm指令</h4><p><code>rm</code> 指令移除文件或目录。</p>
+<p><code>rm  [可选项]  要删除的文件或目录</code></p>
+<p>常用选项</p>
+<p><code>-r</code> ：递归删除<strong>整个文件夹</strong></p>
+<p><code>-f</code>： 强制删除不提示</p>
+<p>例如，删除aaa.txt文件：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 bbb<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># rm aaa.txt</span>
+rm：是否删除普通空文件 <span class="token string">"aaa.txt"</span>？y</code></pre>
+<p>删除ccc文件夹：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># rm -r ccc</span>
+rm：是否进入目录<span class="token string">"ccc"</span>? y
+rm：是否进入目录<span class="token string">"ccc/bbb"</span>? y
+rm：是否删除普通空文件 <span class="token string">"ccc/bbb/aaa.txt"</span>？y
+rm：是否删除目录 <span class="token string">"ccc/bbb"</span>？y
+rm：是否删除目录 <span class="token string">"ccc"</span>？y</code></pre>
+<p>强制删除不提示：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># rm -rf ccc</span></code></pre>
+<h4 id="mv指令"><a href="#mv指令" class="headerlink" title="mv指令"></a>mv指令</h4><p><code>mv</code>移动文件与目录或重命名</p>
+<ul>
+<li><code>mv  oldNameFile  newNameFile</code>     (重命名)</li>
+<li><code>mv  /temp/movefile  /targetFolder</code>     (移动文件)</li>
+</ul>
+<p>例如，将aaa.txt重命名为bbb.txt：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> aaa.txt bbb.txt</code></pre>
+<p>将bbb文件夹下的bbb.txt移动到ccc文件夹下：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> bbb.txt /home/ccc</code></pre>
+<h3 id="cat-指令"><a href="#cat-指令" class="headerlink" title="cat 指令"></a>cat 指令</h3><p><code>cat</code>查看文件内容，是以<strong>只读</strong>的方式打开。</p>
+<p><code>cat [可选项] 要查看的文件</code></p>
+<p>常用选项：</p>
+<p><code>-n</code>：显示行号</p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cat -n /etc/profile</span></code></pre>
+<p>使用细节</p>
+<ul>
+<li><p>cat 只能浏览文件，而不能修改文件，为了浏览方便，一般会带上 管道命令 | more</p>
+</li>
+<li><p>cat 文件名 | more [分页浏览]</p>
+</li>
+</ul>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><p>more 指令是一个基于 VI 编辑器的文本过滤器，它<strong>以全屏幕的方式按页显示文本文件的内容</strong>。</p>
+<p><code>more 要查看的文件</code></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># more /etc/profile</span></code></pre>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200728155337.jpg" alt="more快捷键"></p>
+<h3 id="less"><a href="#less" class="headerlink" title="less"></a>less</h3><p>less 指令用来<strong>分屏查看文件内容</strong>，它的功能与 more 指令类似，但是比 more 指令更加强大，支持各种显示终端。less 指令在显示文件内容时，并不是一次将整个文件加载之后才显示，而是根据显示需要加载内容，<strong>对于显示大型文件具有较高的效率</strong>。</p>
+<p><code>less 要查看的文件</code></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># less /etc/profile</span></code></pre>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200728155336.jpg" alt="less快捷键"></p>
+<h3 id="gt-指令-和-gt-gt-指令"><a href="#gt-指令-和-gt-gt-指令" class="headerlink" title="&gt; 指令 和 &gt;&gt; 指令"></a>&gt; 指令 和 &gt;&gt; 指令</h3><ul>
+<li><code>&gt;</code>：输出重定向，会将原来的文件内容覆盖</li>
+<li><code>&gt;&gt;</code>：追加，不会覆盖原来文件的内容，而是追加到尾部</li>
+</ul>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l > /home/bbb/a.txt</span></code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l >> /home/bbb/a.txt</span></code></pre>
+<p><strong><em>注意，这里的路径必须为绝对路径！</em></strong></p>
+<hr>
+<p><code>cat 文件 1 &gt; 文件 2</code>（将文件1的内容覆盖到文件2）</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cat /home/bbb/a.txt >  /home/bbb/b.txt</span></code></pre>
+<p><code>cat 文件 1 &gt;&gt; 文件 2</code> （将文件1的内容追加到文件2末尾）</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cat /home/bbb/a.txt >>  /home/bbb/b.txt</span></code></pre>
+<hr>
+<p><code>echo 内容 &gt; 文件</code>（将内容覆盖到文件2）</p>
+<p><code>echo 内容 &gt;&gt; 文件</code>（将内容追加到文件2末尾）</p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "hello,world" >> /home/bbb/a.txt</span></code></pre>
+<h3 id="echo指令"><a href="#echo指令" class="headerlink" title="echo指令"></a>echo指令</h3><p>echo 输出内容到控制台。</p>
+<p><code>echo  [选项]  [输出内容]</code></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo $PATH</span>
+/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># echo "hello,world"</span>
+hello,world</code></pre>
+<h3 id="head指令"><a href="#head指令" class="headerlink" title="head指令"></a>head指令</h3><p><code>head</code> 用于<strong>显示文件的开头部分内容，默认情况下 <code>head</code> 指令显示文件的前 10 行内容</strong>。</p>
+<ul>
+<li><p><code>head 文件</code> (查看文件前10行内容)</p>
+</li>
+<li><p><code>head -n 5 文件</code>     (查看文件前5行内容，5可以是任意行数)</p>
+</li>
+</ul>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># head -n 1 /etc/profile</span>
+<span class="token comment" spellcheck="true"># /etc/profile</span></code></pre>
+<h3 id="tail指令"><a href="#tail指令" class="headerlink" title="tail指令"></a>tail指令</h3><p><code>tail</code> 用于<strong>输出文件中尾部的内容，默认情况下 <code>tail</code> 指令显示文件的后10行内容。</strong></p>
+<ul>
+<li><code>tail 文件</code>（查看文件后10行内容）</li>
+<li><code>head -n 5 文件</code>（查看文件后5行内容，5可以是任意行数）</li>
+<li><strong><code>tail -f 文件</code>（实时追踪该文档的所有更新，工作经常使用）</strong></li>
+</ul>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># tail -f /home/bbb/a.txt</span>
+26 27 28 29 30 31
+hello
+hello
+hello
+hello
+hello
+总用量 12
+-rw-r--r--. 1 root root 568 7月  28 21:51 a.txt
+-rw-r--r--. 1 root root 539 7月  28 21:37 a.txt~
+-rw-r--r--. 1 root root 746 7月  28 21:28 b.txt</code></pre>
+<h3 id="history指令"><a href="#history指令" class="headerlink" title="history指令"></a>history指令</h3><p><strong>查看已经执行过历史命令，也可以执行历史指令。</strong></p>
+<p><code>history</code> （查看已经执行过历史命令）</p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># history</span>
+    1  <span class="token function">cd</span> /opt
+    2  <span class="token function">ls</span>
+    3  <span class="token function">tar</span> -zxvf VMwareTools-10.0.5-3228253.tar.gz 
+    4  ll
+    5  <span class="token function">cd</span> vmware-tools-distrib/
+    6  <span class="token function">ls</span>
+    7  ./vmware-install.pl
+    8  <span class="token function">reboot</span></code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># !5</span>
+执行编号为5的指令</code></pre>
+<h2 id="Linux-实用指令（日期类）"><a href="#Linux-实用指令（日期类）" class="headerlink" title="Linux 实用指令（日期类）"></a>Linux 实用指令（日期类）</h2><h3 id="date指令"><a href="#date指令" class="headerlink" title="date指令"></a>date指令</h3><p><code>date</code>  显示当前日期</p>
+<p><code>date &quot;+%Y-%m-%d %H:%M:%S&quot;</code>（显示年月日时分秒）</p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># date</span>
+2020年 07月 28日 星期二 16:10:23 CST</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># date "+%Y-%m-%d %H:%M:%S"</span>
+2020-07-28 16:10:56</code></pre>
+<hr>
+<p><strong>设置日期</strong></p>
+<p><code>date -s 字符串时间</code></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># date -s "2020-07-28 16:03"</span>
+2020年 07月 28日 星期二 16:03:00 CST</code></pre>
+<h3 id="cal指令"><a href="#cal指令" class="headerlink" title="cal指令"></a>cal指令</h3><p><code>cal</code>：显示当前月日历</p>
+<p><code>cal 年份</code>：显示某年全年日历</p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cal</span>
+      七月 2020     
+日 一 二 三 四 五 六
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31</code></pre>
+<h2 id="Linux-实用指令（搜索查找类）"><a href="#Linux-实用指令（搜索查找类）" class="headerlink" title="Linux 实用指令（搜索查找类）"></a>Linux 实用指令（搜索查找类）</h2><h3 id="find-指令"><a href="#find-指令" class="headerlink" title="find 指令"></a>find 指令</h3><p>find 指令将从指定目录向下递归地遍历其各个子目录，将满足条件的文件或者目录显示在终端。</p>
+<p><code>find  [搜索范围]  [选项]</code></p>
+<p>选项：</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200728162103.jpg" alt=""></p>
+<p>例如，</p>
+<p>查找home目录下的a.txt文件：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># find /home -name a.txt</span>
+/home/bbb/a.txt</code></pre>
+<p>查找所有目录下用户名为skdjq的文件：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 /<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># find / -user skdjq</span></code></pre>
+<p>查找所有目录下文件大小大于20M的文件（+n 大于, -n 小于, n 等于）：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 /<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># find / -size +20M</span></code></pre>
+<h3 id="locate-指令"><a href="#locate-指令" class="headerlink" title="locate 指令"></a>locate 指令</h3><p><code>locate</code> 指令可以<strong>快速定位文件路径</strong>。<code>locate</code> 指令利用事先建立的系统中所有文件名称及路径的 <code>locate</code> 数据库实现快速定位给定的文件。<code>locate</code> 指令无需遍历整个文件系统，查询速度较快。为了保证查询结果的准确度，管理员必须定期更新 <code>locate</code> 时刻。</p>
+<p><code>locate 搜索文件</code></p>
+<p><strong>注意：</strong></p>
+<p>由于 <code>locate</code>指令基于数据库进行查询，所以<strong>第一次运行前，必须使用 <code>updatedb</code> 指令创建 <code>locate</code> 数据库。</strong></p>
+<p>例如：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 /<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># updatedb</span>
+<span class="token punctuation">[</span>root@hadoop1 /<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># locate a.txt</span></code></pre>
+<h3 id="grep-指令和管道符号"><a href="#grep-指令和管道符号" class="headerlink" title="grep 指令和管道符号 |"></a>grep 指令和管道符号 |</h3><p><code>grep</code> 过滤查找，管道符，<code>|</code>，表示<strong>将前一个命令的处理结果输出传递给后面的命令处理</strong>。</p>
+<p><code>grep [选项] 查找内容 源文件</code></p>
+<p>选项说明：</p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-n</td>
+<td align="center">显示匹配行及行号</td>
+</tr>
+<tr>
+<td align="center">-i</td>
+<td align="center">忽略字母大小写</td>
+</tr>
+</tbody></table>
+<p>例如，在hello.txt文件中找到yes文本，并显示行号：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cat hello.txt | grep -n yes</span>
+4:yes2
+5:yes4
+8:yes6
+9:yes8
+10:yes19010</code></pre>
+<h2 id="Linux-实用指令（压缩和解压类）"><a href="#Linux-实用指令（压缩和解压类）" class="headerlink" title="Linux 实用指令（压缩和解压类）"></a>Linux 实用指令（压缩和解压类）</h2><h3 id="gzip-gunzip-指令"><a href="#gzip-gunzip-指令" class="headerlink" title="gzip/gunzip 指令"></a>gzip/gunzip 指令</h3><p><code>gzip</code> 用于压缩文件， <code>gunzip</code> 用于解压文件。</p>
+<ul>
+<li><p><code>gzip 文件</code>（压缩文件，只能将文件压缩为*.gz 文件）</p>
+</li>
+<li><p><code>gunzip 文件.gz</code>（解压缩文件命令）</p>
+</li>
+</ul>
+<p>例如：</p>
+<p>压缩hello.txt：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># gzip hello.txt</span>
+<span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l</span>
+<span class="token punctuation">..</span>.
+-rw-r--r--. 1 root root      66 7月  28 16:49 hello.txt.gz
+<span class="token punctuation">..</span>.</code></pre>
+<p>解压缩hello.txt.gz：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># gunzip hello.txt.gz</span>
+<span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l</span>
+<span class="token punctuation">..</span>.
+-rw-r--r--. 1 root root      64 7月  28 16:49 hello.txt
+<span class="token punctuation">..</span>.</code></pre>
+<p><strong>注意：我们在使用 <code>gzip</code> 压缩文件后，不会保留原文件！</strong></p>
+<h3 id="zip-unzip-指令"><a href="#zip-unzip-指令" class="headerlink" title="zip/unzip 指令"></a>zip/unzip 指令</h3><p><code>zip</code> 用于压缩文件， <code>unzip</code> 用于解压的，这个在项目打包发布中很有用的。</p>
+<ul>
+<li><p><code>zip [选项] XXX.zip 将要压缩的内容</code>（压缩文件和目录的命令）</p>
+</li>
+<li><p><code>unzip [选项]  XXX.zip</code>（解压缩文件）</p>
+</li>
+</ul>
+<p>zip 常用选项：</p>
+<ul>
+<li><code>-r</code>：递归压缩，即<strong>压缩目录</strong></li>
+</ul>
+<p>unzip 的常用选项</p>
+<ul>
+<li><code>-d &lt;目录&gt;</code> ：指定解压后文件的存放目录</li>
+</ul>
+<p>例如，将home下的所有文件压缩成mypackage.zip文件：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># zip -r mypackage.zip /home</span>
+<span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l</span>
+<span class="token punctuation">..</span>.
+-rw-r--r--. 1 root root    7355 7月  28 17:18 mypackage.zip
+<span class="token punctuation">..</span>.</code></pre>
+<p>将mypackage.zip文件解压到/opt/tmp下：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># unzip -d /opt/tmp mypackage.zip</span></code></pre>
+<h3 id="tar-指令"><a href="#tar-指令" class="headerlink" title="tar 指令"></a>tar 指令</h3><p>tar 指令是<strong>打包指令</strong>，最后打包后的文件是 <code>.tar.gz</code> 的文件。</p>
+<p><code>tar  [选项]  XXX.tar.gz  打包的内容</code>(打包目录，压缩后的文件格式<code>.tar.gz</code>)</p>
+<p>选项说明：</p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-c</td>
+<td align="center">产生.tar打包文件</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">显示详细信息</td>
+</tr>
+<tr>
+<td align="center">-f</td>
+<td align="center">指定压缩后的文件名</td>
+</tr>
+<tr>
+<td align="center">-z</td>
+<td align="center">打包同时压缩</td>
+</tr>
+<tr>
+<td align="center">-x</td>
+<td align="center">解包.tar文件</td>
+</tr>
+</tbody></table>
+<p>例如：将a.txt和b.txt压缩成a.tar.gz：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># tar -zcvf a.tar.gz a.txt b.txt</span>
+a.txt
+b.txt
+<span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l</span>
+<span class="token punctuation">..</span>.
+-rw-r--r--. 1 root root     122 7月  28 17:28 a.tar.gz
+<span class="token punctuation">..</span>.</code></pre>
+<p>将home文件夹压缩成myhome.gar.gz：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># tar -zcvf myhome.gar.gz /home/</span>
+<span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls -l</span>
+<span class="token punctuation">..</span>.
+-rw-r--r--. 1 root root    5214 7月  28 17:43 myhome.gar.gz
+<span class="token punctuation">..</span>.</code></pre>
+<p>将a.tar.gz解压到当前目录：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># tar -zxvf a.tar.gz</span>
+a.txt
+b.txt</code></pre>
+<p>将a.tar.gz解压到/opt/tmp目录下：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@hadoop1 home<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># tar -zxvf a.tar.gz -C /opt/tmp</span>
+a.txt
+b.txt</code></pre>
+<p>注意：</p>
+<p><strong>压缩是 <code>-zcvf</code>，解压是 <code>-zxvf</code>，解压到某个目录下要在目录前加 <code>-C</code>。</strong></p>
+<hr>
+<h2 id="如何找回丢失的-root-密码？"><a href="#如何找回丢失的-root-密码？" class="headerlink" title="如何找回丢失的 root 密码？"></a>如何找回丢失的 root 密码？</h2><p>思路：进入<strong>单用户模式</strong>，修改密码。因为在单用户模式下，root 不需要密码就可以登陆。</p>
+<p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200728155335.png" alt="Linux运行级别"></p>
+<p>具体步骤：</p>
+<blockquote>
+<p>开机 -&gt; 在引导时输入 <code>Enter</code> -&gt; 看到一个界面输入 <code>e</code> -&gt; 看到一个新的界面，选中第二行（编辑内核）再输入 <code>e</code> -&gt; 在这行最后输入 <code>1</code> ,再输入 <code>Enter</code> -&gt; 再次输入 <code>b</code> ,这时就会进入到单用户模式。</p>
+</blockquote>
+<p>这时，我们就进入到单用户模式，使用 <code>passwd</code> 指令来修改 <code>root</code> 密码。</p>
 </div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">skdjq</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/07/27/Linux%E5%9F%BA%E7%A1%80/">http://yoursite.com/2020/07/27/Linux%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">ZY的小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200724104433.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.jpg" alt="微信" onclick="window.open('/img/wechat.jpg')"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.jpg" alt="支付宝" onclick="window.open('/img/alipay.jpg')"/><div class="post-qr-code__desc">支付宝</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/07/26/Docker%E4%B8%89%E8%A6%81%E7%B4%A0/"><img class="next-cover" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200726174516.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Docker三要素</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200724104433.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By skdjq</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://skdjq.github.io/" target="_blank" rel="noopener">blog</a>!</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">简</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
  <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script></body></html>
