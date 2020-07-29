@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux组管理和权限管理</title>
+      <link href="/2020/07/29/Linux%E7%BB%84%E7%AE%A1%E7%90%86%E5%92%8C%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
+      <url>/2020/07/29/Linux%E7%BB%84%E7%AE%A1%E7%90%86%E5%92%8C%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Linux-组基本介绍"><a href="#Linux-组基本介绍" class="headerlink" title="Linux 组基本介绍"></a>Linux 组基本介绍</h2><p>在 linux 中的每个用户必须属于一个组，不能独立于组外。在 linux 中每个文件有<strong>所有者</strong>、<strong>所在组</strong>、<strong>其它组</strong>的概念。</p><ul><li><p>所有者：一般为文件的创建者。</p><ul><li>查看文件的所有者：<code>ls -ahl</code></li><li>修改文件的所有者：<code>chown [-R] 用户名  文件名</code></li></ul></li><li><p>修改<strong>文件</strong>所在的组：<code>chgrp [-R] 组名 文件名</code></p></li><li><p>修改<strong>用户</strong>所在的组：<code>usermod -g 组名 用户名</code></p></li><li><p>其它组：除开文件的所有者和所在组的用户外，系统的其它用户都是文件的其它组</p></li></ul><h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200729101749.jpg" alt="图片出自CSDN"></p><p><code>ls -l</code> 中显示的内容如下：</p><pre class=" language-bash"><code class="language-bash">-rwxrw-r-- 1 root root 1213 Feb 2 09:39 abc</code></pre><ul><li><p>第一个字符代表<strong>文件（-）</strong>、<strong>目录（d）</strong>，<strong>链接（l）</strong></p></li><li><p>其余字符每3个一组（rwx），读（r）、写（w）、执行（x）</p></li><li><p>第一组 <code>rwx</code>：<strong>文件所有者的权限</strong>是读、写和执行</p></li><li><p>第二组 <code>rw-</code>：<strong>与文件所有者同一组的用户的权限</strong>是读、写，但不能执行</p></li><li><p>第三组 <code>r--</code>：<strong>文件其他组用户的权限</strong>是读，不能写和执行</p></li><li><p>数字 <code>1</code> ：如果是目录，表示目录的子目录数；如果是文件，表示文件硬链接的个数</p></li><li><p>两个 <code>root</code> 分别为<strong>用户名</strong>和<strong>组名</strong></p></li><li><p>数字 <code>1213</code>：表示文件的大小</p></li></ul><h3 id="rwx权限详解"><a href="#rwx权限详解" class="headerlink" title="rwx权限详解"></a>rwx权限详解</h3><p><code>rwx</code> 作用到文件和目录上是有区别的：</p><h4 id="rwx-作用到文件"><a href="#rwx-作用到文件" class="headerlink" title="rwx 作用到文件"></a>rwx 作用到文件</h4><ul><li><p><code>r</code> 代表可读(read)：可以读取，查看</p></li><li><p><code>w</code> 代表可写(write)：可以修改，但是不代表可以删除该文件，删除一个文件的前提条件是对该文件所在的目录有写权限，才能删除该文件.</p></li><li><p><code>x</code> 代表可执行(execute)：可以被执行</p></li></ul><h4 id="rwx-作用到目录"><a href="#rwx-作用到目录" class="headerlink" title="rwx 作用到目录"></a>rwx 作用到目录</h4><ul><li><p><code>r</code> 代表可读(read)：可以读取，ls 查看目录内容</p></li><li><p><code>w</code> 代表可写(write)：可以修改，目录内创建 + 删除 + 重命名目录</p></li><li><p><code>x</code> 代表可执行(execute)：可以进入该目录</p></li></ul><h3 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h3><p><code>u</code> ：所有者  <code>g</code> ：所有组  <code>o</code> ：其他人  <code>a</code> ：所有人(u、g、o 的总和)</p><ul><li><p><code>chmod   u=rwx,g=rx,o=x   文件目录名</code></p></li><li><p><code>chmod   o+w    文件目录名</code></p></li><li><p><code>chmod   a-x    文件目录名</code></p></li></ul><p>也可以使用数字修改权限，其中：</p><p><code>r</code> —- 4</p><p><code>w</code> —- 2</p><p><code>x</code> —- 1</p><p><code>chmod 640 a.txt</code>等价于<code>chmod u=rw-,g=r--,x=--- a.txt</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux基础</title>
       <link href="/2020/07/27/Linux%E5%9F%BA%E7%A1%80/"/>
       <url>/2020/07/27/Linux%E5%9F%BA%E7%A1%80/</url>
