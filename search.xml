@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>删除排序数组中的重复项</title>
+      <link href="/2020/07/30/%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/"/>
+      <url>/2020/07/30/%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</url>
+      
+        <content type="html"><![CDATA[<h1 id="删除排序数组中的重复项"><a href="#删除排序数组中的重复项" class="headerlink" title="删除排序数组中的重复项"></a>删除排序数组中的重复项</h1><p>题目地址：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array</a></p><hr><p>解题核心思想：<strong>双指针</strong>。</p><p>注意本题目的数组是有序的，这就说明重复的元素必然相邻。</p><p>题目要求<strong>不使用额外空间</strong>删除重复项，那么就说明这一题我们可以把不重复的元素都挪到数组的左边，最后返回不重复元素的个数即可。</p><p>解法：</p><ul><li>定义一个指针 <code>p</code> 指向数组第一个元素，定义一个指针 <code>q</code> 指向数组的第二个元素；</li><li>比较 <code>nums[p]</code> 和 <code>nums[q]</code>：<ul><li>如果 <code>nums[p] == nums[q]</code> ：<code>q</code> 向后移动一位；</li><li>如果 <code>nums[p] != nums[q]</code>：把 <code>nums[q]</code> 的值赋给 <code>nums[p + 1]</code>，<code>p</code> 和 <code>q</code> 都向后移动一位；</li></ul></li><li>返回 <code>p + 1</code>。</li></ul><p>优化：</p><p>考虑如下数组：</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200730224028.png" alt=""></p><p>此时数组中没有重复元素，按照上面的方法，每次比较时 <code>nums[p]</code> 都不等于 <code>nums[q]</code>，因此就会将 <code>q</code> 指向的元素原地复制一遍，这个操作其实是不必要的。</p><p>因此我们可以添加一个小判断，当 <code>q - p &gt; 1</code> 时，才进行复制。</p><hr><p>题解：</p><pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> length <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span><span class="token keyword">int</span> p <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> q <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token keyword">while</span><span class="token punctuation">(</span>q <span class="token operator">&lt;</span> length<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>p<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>q <span class="token operator">-</span> p <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            nums<span class="token punctuation">[</span>p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        p<span class="token operator">++</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    q<span class="token operator">++</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">return</span> p <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>      </code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>旋转链表</title>
       <link href="/2020/07/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
       <url>/2020/07/30/%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
