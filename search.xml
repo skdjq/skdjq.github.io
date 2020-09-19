@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MySQL45讲学习笔记</title>
+      <link href="/2020/09/19/mysql45-jiang-xue-xi-bi-ji/"/>
+      <url>/2020/09/19/mysql45-jiang-xue-xi-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<p>本篇为学习极客时间专栏《MySQL45讲》过程中所记录的笔记，如有学习需要可联系我获取课程资料。</p><hr><h2 id="MySQL基础架构"><a href="#MySQL基础架构" class="headerlink" title="MySQL基础架构"></a>MySQL基础架构</h2><p>首先给出MySQL的基础架构：</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200919185653.png" alt="MySQL的逻辑架构图"></p><p>整体来说：</p><blockquote><p>Server层包括连接器、查询缓存、分析器、优化器、执行器等，涵盖MySQL的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。</p><p>而<strong>存储引擎层负责数据的存储和提取</strong>。其架构模式是插件式的，支持InnoDB、MyISAM、Memory等多个存储引擎。现在最常用的存储引擎是<strong>InnoDB</strong>，它从MySQL 5.5.5版本开始成为了默认存储引擎。</p></blockquote><p>对于具体的我们从头到尾来简单梳理一遍。</p><p>以下分析均以下面的语句为例。</p><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> departments <span class="token keyword">where</span> department_id <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span></code></pre><h3 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h3><p>首先我们要使用数据库就必须要建立一个连接，这时候就连接器就起作用了。</p><blockquote><p>连接器负责跟客户端建立连接、获取权限、维持和管理连接。</p></blockquote><p>一般对于个人使用而言，我们的连接命令是这样的：</p><pre class=" language-sql"><code class="language-sql">mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>p123456</code></pre><blockquote><p>连接命令中的mysql是客户端工具，用来跟服务端建立连接。在完成经典的TCP握手后，连接器就要开始认证你的身份，这个时候用的就是你输入的用户名和密码。</p><ul><li>如果用户名或密码不对，你就会收到一个”Access denied for user”的错误，然后客户端程序结束执行。</li><li>如果用户名密码认证通过，连接器会到权限表里面查出你拥有的权限。之后，<strong>这个连接里面的权限判断逻辑，都将依赖于此时读到的权限。</strong></li></ul><p>这就意味着，<strong>一个用户成功建立连接后，即使你用管理员账号对这个用户的权限做了修改，也不会影响已经存在连接的权限。修改完成后，只有再新建的连接才会使用新的权限设置。</strong></p></blockquote><h3 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h3><p>在连接建立完成后，我们开始执行sql语句，这时会先查询一下缓存。</p><blockquote><p>MySQL拿到一个查询请求后，会先到查询缓存看看，之前是不是执行过这条语句。之前执行过的语句及其结果可能会以<strong>key-value对</strong>的形式，被直接缓存在内存中。<strong>key是查询的语句，value是查询的结果</strong>。如果你的查询能够直接在这个缓存中找到key，那么这个value就会被直接返回给客户端。</p><p>如果语句不在查询缓存中，就会继续后面的执行阶段。执行完成后，执行结果会被存入查询缓存中。你可以看到，如果查询命中缓存，MySQL不需要执行后面的复杂操作，就可以直接返回结果，这个效率会很高。</p></blockquote><p>但查询缓存弊大于利，因为一旦一个表进行更新，这个表上的查询缓存就会全部清除。</p><p>值得一提的是，MySQL 8.0版本直接将查询缓存的整块功能删掉了，也就是说8.0开始彻底没有这个功能了。</p><h3 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h3><p>如果没有命中到缓存，那么就要真正开始执行语句了。</p><blockquote><p>分析器先会做 “<strong>词法分析</strong>”。你输入的是由多个字符串和空格组成的一条SQL语句，MySQL需要识别出里面的字符串分别是什么，代表什么。MySQL从你输入的 “select” 这个关键字识别出来，这是一个查询语句。它也要把字符串 “departments” 识别成 “表名departments”，把字符串 “department_id” 识别成 “列department_id”。</p><p>做完了这些识别以后，就要做 “<strong>语法分析</strong>”。根据词法分析的结果，语法分析器会根据语法规则，判断你输入的这个SQL语句是否满足MySQL语法。</p></blockquote><p>比如，在语句</p><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> elect <span class="token operator">*</span> <span class="token keyword">from</span> departments <span class="token keyword">where</span> department_id <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> </code></pre><p>中，”select” 写成 “elect”，这时分析器就会检查出来这个错误。</p><h3 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h3><p>一句话，优化器是选择一个最优方案。具体的过程后面会再说。</p><h3 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h3><p>MySQL通过分析器知道了你要做什么，通过优化器知道了该怎么做，于是就进入了执行器阶段，开始执行语句。</p><p>在执行器开始执行的时候，会先查询用户有没有相应的权限，如果没有则会返回没有权限的错误，如下所示；如果是命中查询缓存，会在查询缓存放回结果的时候，做权限验证。</p><pre class=" language-sql"><code class="language-sql">mysql<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> departments <span class="token keyword">where</span> department_id <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>ERROR <span class="token number">1142</span> <span class="token punctuation">(</span><span class="token number">42000</span><span class="token punctuation">)</span>: <span class="token keyword">SELECT</span> command denied <span class="token keyword">to</span> <span class="token keyword">user</span> <span class="token string">'b'</span>@'localhost<span class="token string">' for table '</span>departments'</code></pre><p>以上就是一条SQL语句基本的执行流程，可以先做了解。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>双指针算法相关题目</title>
       <link href="/2020/09/06/shuang-zhi-zhen-suan-fa-xiang-guan-ti-mu/"/>
       <url>/2020/09/06/shuang-zhi-zhen-suan-fa-xiang-guan-ti-mu/</url>
