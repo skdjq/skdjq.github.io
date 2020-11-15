@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>KMP算法</title>
+      <link href="/2020/11/15/kmp-suan-fa/"/>
+      <url>/2020/11/15/kmp-suan-fa/</url>
+      
+        <content type="html"><![CDATA[<h1 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h1><p>在学习KMP算法之前，我们先来明确子序列和子串（子数组）的区别：</p><p>假如有一个字符串<code>abc123def</code></p><ul><li>子序列不一定是连续的，如<code>ab1d</code></li><li>子串一定是连续的，如<code>abc</code></li></ul><p>KMP算法是一个字符串匹配算法，即匹配str2是否是str1的一个子串。</p><h2 id="暴力解法"><a href="#暴力解法" class="headerlink" title="暴力解法"></a>暴力解法</h2><p>对于这种匹配，暴力解法是从str1的0位置开始和str2配，如果配不上就从1位置开始重新配，假设str1长度为N，str2长度为M，时间复杂度O(N * M)。</p><h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><p>前缀不能到最后一个字符，后缀也不能到第一个字符。</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20201115114126.png" alt="img"></p><p>如上图，当前缀为3后缀为3的时候，<strong>最大公共前后缀</strong>长度是3，那么<code>d</code>的信息就是3。</p><p>以此类推，第一个字符信息人为记作-1，第二个字符人为记作0，然后把要匹配的str2的所有字符串匹配信息放入一个next数组中。</p><p>next数组中存放的就是最大公共前后缀长度。</p><p>那么我们如何获得这个next数组呢？</p><h3 id="next数组"><a href="#next数组" class="headerlink" title="next数组"></a>next数组</h3><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20201115114157.png" alt="img"></p><p>next[0] =  -1</p><p>next[1] = 0</p><p>这两个是已经确定的。</p><p>然后我们在判断<code>i</code>位置的最大公共前后缀长度时，先看<code>i -  1</code>位置的前缀的后一位是否与<code>i - 1</code>位置的字符相等，若相等，next[i] = next[i - 1] + 1，若不等，继续看<code>i - 1</code>位置的前缀的后一位的前缀的后一位（套娃就完事了）……，总之都是和<code>i - 1</code>位置的字符比较，如上图所示。</p><h3 id="KMP-1"><a href="#KMP-1" class="headerlink" title="KMP"></a>KMP</h3><p>如下图，str1 从<code>i</code>位置到<code>x - 1</code>位置与 str2 从<code>0</code>位置到<code>y - 1</code>位置匹配，如果按照暴力解法，我们应该从str1的<code>i + 1</code>位置开始重新与str2的<code>0</code>位置匹配。</p><p>但KMP算法会从图中的<code>j</code>位置开始和<code>z</code>位置开始往下配，这个<code>j</code>位置就是<code>x</code>的最大公共前后缀长度，比如为3，那么<code>j</code>位置就是3，<strong>即数组的第四个元素</strong>。</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20201115114233.png" alt="img"></p><p>整个过程相当于把str2往右推。</p><p>举个例子：</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20201115114301.png" alt="img"></p><p>str2的最大后缀从<code>3</code>位置开始，那么str2往右推，推到str1的<code>3</code>位置，且由于前后缀相等，只需比较<code>t</code>所在的6位置和<code>a</code>所在的3位置是否相等即可。</p><pre><code>public class KMP {    public static int getIndexOf(String str1, String str2) {        if(str1 == null || str2 == null || str1.length() &lt; 1 || str2.length() &lt; 1 || str1.length() &lt; str2.length()) {            return -1;        }        char[] s1 = str1.toCharArray();        char[] s2 = str2.toCharArray();        int m = 0;        int n = 0;        int[] next = getNextArray(s2);        while(m &lt; s1.length &amp;&amp; n &lt; s2.length) {            if(s1[m] == s2[n]) {                m++;                n++;            } else if(next[n] == -1) {                m++;            } else {                n = next[n];            }        }        return n == s2.length ? m - n : -1;    }    private static int[] getNextArray(char[] str) {        if(str.length == 1) {            return new int[] {-1};        }        int[] next = new int[str.length];        next[0] = -1;        next[1] = 0;        int pos = 2;        int cn = 0;        while(pos &lt; str.length) {            if(str[pos - 1] == str[cn]) {                next[pos++] = ++cn;            } else if (cn &gt; 0) {                cn = next[cn];            } else {                next[pos++] = 0;            }        }        return next;    }    public static void main(String[] args) {        String str = &quot;abcabcababaccc&quot;;        String match = &quot;ababa&quot;;        System.out.println(getIndexOf(str, match));    }}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>固定数组实现栈和队列</title>
       <link href="/2020/10/31/gu-ding-shu-zu-shi-xian-zhan-he-dui-lie/"/>
       <url>/2020/10/31/gu-ding-shu-zu-shi-xian-zhan-he-dui-lie/</url>
