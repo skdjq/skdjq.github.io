@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Flood Fill算法</title>
+      <link href="/2021/01/15/flood-fill-suan-fa/"/>
+      <url>/2021/01/15/flood-fill-suan-fa/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Flood-Fill算法"><a href="#Flood-Fill算法" class="headerlink" title="Flood Fill算法"></a>Flood Fill算法</h1><p>Flood Fill算法又叫洪水填充算法，一般用于图像处理。用于题目上的话一般就是海上的陆地一类的题目。</p><p>这里以<a href="https://www.acwing.com/problem/content/1115/" target="_blank" rel="noopener">本题</a>为例对Flood Fill算法进行讲解。</p><hr><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有一间长方形的房子，地上铺了红色、黑色两种颜色的正方形瓷砖。</p><p>你站在其中一块黑色的瓷砖上，只能向相邻（上下左右四个方向）的黑色瓷砖移动。</p><p>请写一个程序，计算你总共能够到达多少块黑色的瓷砖。</p><blockquote><p>输入格式</p></blockquote><p>输入包括多个数据集合。</p><p>每个数据集合的第一行是两个整数 WW 和 HH，分别表示 xx 方向和 yy 方向瓷砖的数量。</p><p>在接下来的 HH 行中，每行包括 WW 个字符。每个字符表示一块瓷砖的颜色，规则如下</p><p>1）‘.’：黑色的瓷砖；<br>2）‘#’：红色的瓷砖；<br>3）‘@’：黑色的瓷砖，并且你站在这块瓷砖上。该字符在每个数据集合中唯一出现一次。</p><p>当在一行中读入的是两个零时，表示输入结束。</p><blockquote><p>输出格式</p></blockquote><p>对每个数据集合，分别输出一行，显示你从初始位置出发能到达的瓷砖数(记数时包括初始位置的瓷砖)。</p><blockquote><p>数据范围</p></blockquote><p>1≤W,H≤201≤W,H≤20</p><blockquote><p>输入样例：</p></blockquote><pre><code>6 9 ....#. .....# ...... ...... ...... ...... ...... #@...# .#..#. 0 0</code></pre><blockquote><p>输出样例：</p></blockquote><pre><code>45</code></pre><hr><p>本题我们采用DFS写法，具体流程如下：</p><p><img src= "/img/loading.gif" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20210115171134.png" alt="By zy"></p><p>伪代码：</p><pre class=" language-c++"><code class="language-c++">int dfs(int x, int y) {    标记此位置为已走过的点    枚举四个偏移量    if(邻格可走) {        dfs(邻格坐标);    }}</code></pre><hr><p>代码实现：</p><pre class=" language-C++"><code class="language-C++">#include <iostream>using namespace std;const int N = 25;int m, n;int dx[] = {-1, 0, 1, 0}, dy[] = {0, 1, 0, -1};char arr[N][N];int dfs(int x, int y) {    arr[x][y] = '#';    int res = 1;    for(int i = 0; i < 4; i++) {        int a = x + dx[i];        int b = y + dy[i];        if(a >= 0 && a < n && b >= 0 && b < m && arr[a][b] == '.') {            res += dfs(a, b);        }    }    return res;}int main() {    while(cin >> m >> n, n || m) {        for(int i = 0; i < n; i++) {            cin >> arr[i];        }        int x, y;        for(int i = 0; i < n; i++) {            for(int j = 0; j < m; j++) {                if(arr[i][j] == '@') {                    x = i;                    y = j;                }            }        }        cout << dfs(x, y) << endl;    }    return 0;}</code></pre><p>这题还是用到了偏移法，即<code>dx[] = {-1, 0, 1, 0}</code>和<code>dy[] = {0, 1, 0, -1}</code>，这两个偏移数组可以记住，顺序是上、右、下、左。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>蛇形矩阵</title>
       <link href="/2021/01/13/she-xing-ju-zhen/"/>
       <url>/2021/01/13/she-xing-ju-zhen/</url>
