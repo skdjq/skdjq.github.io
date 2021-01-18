@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>双指针算法相关题目 | ZY的小站</title><meta name="description" content="题目列表   题目名称 难度    16.最接近的三数之和 Medium   167. 两数之和 II - 输入有序数组 Easy   658. 找到 K 个最接近的元素 Medium   42. 接雨水 Hard   这几个题目都是非常经典的双指针算法题目，需要好好掌握~~ 16. 最接近的三数之和题目链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;3sum-closes"><meta name="keywords" content="算法"><meta name="author" content="skdjq"><meta name="copyright" content="skdjq"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/2020/09/06/shuang-zhi-zhen-suan-fa-xiang-guan-ti-mu/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="双指针算法相关题目"><meta property="og:url" content="http://yoursite.com/2020/09/06/shuang-zhi-zhen-suan-fa-xiang-guan-ti-mu/"><meta property="og:site_name" content="ZY的小站"><meta property="og:description" content="题目列表   题目名称 难度    16.最接近的三数之和 Medium   167. 两数之和 II - 输入有序数组 Easy   658. 找到 K 个最接近的元素 Medium   42. 接雨水 Hard   这几个题目都是非常经典的双指针算法题目，需要好好掌握~~ 16. 最接近的三数之和题目链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;3sum-closes"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200801162238.jpeg"><meta property="article:published_time" content="2020-09-06T13:25:04.000Z"><meta property="article:modified_time" content="2020-10-02T08:35:25.138Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>双指针算法 | ZY的小站</title><meta name="description" content="双指针算法双指针算法模板： for(int i &#x3D; 0, j &#x3D; 0; i &lt; n; i++) {     while(j &lt; i &amp;&amp; check(i, j)) {         j++;     }        &#x2F;&#x2F; 题目具体逻辑 } 基本上双指针算法的模板就是这样，check()函数指j满足某种条件。 核心思想双指针的算法的核心思想在于把复杂度为O(n ^ 2"><meta name="keywords" content="算法"><meta name="author" content="skdjq"><meta name="copyright" content="skdjq"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/2020/09/06/shuang-zhi-zhen-suan-fa-xiang-guan-ti-mu/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="双指针算法"><meta property="og:url" content="http://yoursite.com/2020/09/06/shuang-zhi-zhen-suan-fa-xiang-guan-ti-mu/"><meta property="og:site_name" content="ZY的小站"><meta property="og:description" content="双指针算法双指针算法模板： for(int i &#x3D; 0, j &#x3D; 0; i &lt; n; i++) {     while(j &lt; i &amp;&amp; check(i, j)) {         j++;     }        &#x2F;&#x2F; 题目具体逻辑 } 基本上双指针算法的模板就是这样，check()函数指j满足某种条件。 核心思想双指针的算法的核心思想在于把复杂度为O(n ^ 2"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200801162238.jpeg"><meta property="article:published_time" content="2020-09-06T13:25:04.000Z"><meta property="article:modified_time" content="2021-01-18T05:47:38.720Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
   document.documentElement.setAttribute('data-theme', 'dark')
   if (document.querySelector('meta[name="theme-color"]') !== null) {
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
@@ -95,7 +95,22 @@ if (autoChangeMode === '1') {
 .justified-gallery img{
   opacity: 1
 }
-</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">70</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">27</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">26</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目列表"><span class="toc-number">1.</span> <span class="toc-text">题目列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#16-最接近的三数之和"><span class="toc-number">1.1.</span> <span class="toc-text">16. 最接近的三数之和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#167-两数之和-II-输入有序数组"><span class="toc-number">1.2.</span> <span class="toc-text">167. 两数之和 II - 输入有序数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#658-找到-K-个最接近的元素"><span class="toc-number">1.3.</span> <span class="toc-text">658. 找到 K 个最接近的元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-接雨水"><span class="toc-number">1.4.</span> <span class="toc-text">42. 接雨水</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200801162238.jpeg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">ZY的小站</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">双指针算法相关题目</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-09-06 21:25:04"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-09-06</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-10-02 16:35:25"><i class="fas fa-history fa-fw"></i> 更新于 2020-10-02</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta__icon"></i><span>字数总计:</span><span class="word-count">932</span><span class="post-meta__separator">|</span><i class="far fa-clock fa-fw post-meta__icon"></i><span>阅读时长: 3 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h1><table>
+</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">70</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">27</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">26</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#双指针算法"><span class="toc-number">1.</span> <span class="toc-text">双指针算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#核心思想"><span class="toc-number">1.1.</span> <span class="toc-text">核心思想</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题目列表"><span class="toc-number">2.</span> <span class="toc-text">题目列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#800-数组元素的目标和"><span class="toc-number">2.1.</span> <span class="toc-text">800. 数组元素的目标和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#799-最长连续不重复子序列"><span class="toc-number">2.2.</span> <span class="toc-text">799. 最长连续不重复子序列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2816-判断子序列"><span class="toc-number">2.3.</span> <span class="toc-text">2816. 判断子序列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-最接近的三数之和"><span class="toc-number">2.4.</span> <span class="toc-text">16. 最接近的三数之和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#167-两数之和-II-输入有序数组"><span class="toc-number">2.5.</span> <span class="toc-text">167. 两数之和 II - 输入有序数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#658-找到-K-个最接近的元素"><span class="toc-number">2.6.</span> <span class="toc-text">658. 找到 K 个最接近的元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-接雨水"><span class="toc-number">2.7.</span> <span class="toc-text">42. 接雨水</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200801162238.jpeg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">ZY的小站</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">双指针算法</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-09-06 21:25:04"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-09-06</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2021-01-18 13:47:38"><i class="fas fa-history fa-fw"></i> 更新于 2021-01-18</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta__icon"></i><span>字数总计:</span><span class="word-count">861</span><span class="post-meta__separator">|</span><i class="far fa-clock fa-fw post-meta__icon"></i><span>阅读时长: 3 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="双指针算法"><a href="#双指针算法" class="headerlink" title="双指针算法"></a>双指针算法</h1><p>双指针算法模板：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>j <span class="token operator">&lt;</span> i <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        j<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+       <span class="token comment" spellcheck="true">// 题目具体逻辑</span>
+<span class="token punctuation">}</span></code></pre>
+<p>基本上双指针算法的模板就是这样，<code>check()</code>函数指<code>j</code>满足某种条件。</p>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>双指针的算法的核心思想在于把复杂度为<code>O(n ^ 2)</code>的朴素算法优化到<code>O(n)</code>：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+将上面的朴素算法优化到<span class="token function">O</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span></code></pre>
+<h1 id="题目列表"><a href="#题目列表" class="headerlink" title="题目列表"></a>题目列表</h1><table>
 <thead>
 <tr>
 <th>题目名称</th>
@@ -103,7 +118,7 @@ if (autoChangeMode === '1') {
 </tr>
 </thead>
 <tbody><tr>
-<td>16.最接近的三数之和</td>
+<td>16. 最接近的三数之和</td>
 <td>Medium</td>
 </tr>
 <tr>
@@ -118,8 +133,129 @@ if (autoChangeMode === '1') {
 <td>42. 接雨水</td>
 <td>Hard</td>
 </tr>
+<tr>
+<td>Acwing 800. 数组元素的目标和</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>AcWing 799.最长连续不重复子序列</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>AcWing 2816. 判断子序列</td>
+<td>Easy</td>
+</tr>
 </tbody></table>
 <p>这几个题目都是非常经典的双指针算法题目，需要好好掌握~~</p>
+<h2 id="800-数组元素的目标和"><a href="#800-数组元素的目标和" class="headerlink" title="800. 数组元素的目标和"></a>800. 数组元素的目标和</h2><p>题目链接：<a href="https://www.acwing.com/problem/content/802/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/802/</a></p>
+<hr>
+<p>思路：采用双指针算法，定义两个指针<code>i</code>和<code>j</code>，其中<code>i</code>在<code>A</code>数组开始位置，<code>j</code>在<code>B</code>数组结束位置。</p>
+<p><code>A[i] + B[j] &gt; x</code>：<code>j--</code></p>
+<p>可套上述模板解决：</p>
+<pre class=" language-C++"><code class="language-C++">#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+const int N = 100010;
+int n;
+int m;
+int x;
+int A[N], B[N];
+
+int main() {
+    // 处理输入输出
+    cin >> n >> m >> x;
+    for(int i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+    for(int i = 0; i < m; i++) {
+        cin >> B[i];
+    }
+    // 双指针算法
+    for(int i = 0, j = m - 1; i < n; i++) {
+        while(j >= 0 && A[i] + B[j] > x) {
+            j--;
+        }
+        if(A[i] + B[j] == x) {
+            cout << i << " " << j << endl;
+            break;
+        }
+    }
+    return 0;
+}</code></pre>
+<h2 id="799-最长连续不重复子序列"><a href="#799-最长连续不重复子序列" class="headerlink" title="799. 最长连续不重复子序列"></a>799. 最长连续不重复子序列</h2><p>题目链接：<a href="https://www.acwing.com/problem/content/801/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/801/</a></p>
+<hr>
+<p>思路：不断枚举<code>i</code>，<code>i</code>前<code>j</code>后，当发现某个数出现次数大于一时，<code>j</code>往前移动一位。</p>
+<p>代码直接套模板即可：</p>
+<pre class=" language-C++"><code class="language-C++">#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+const int N = 100010;
+int n;
+int arr[N], s[N];
+
+int main() {
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    int res = 0;
+    for(int i = 0, j = 0; i < n; i++) {
+        s[arr[i]]++;
+        while(s[arr[i]] > 1) {
+            // j所在的位置次数减一
+            s[arr[j]]--;
+            // j往右移动一位
+            j++;
+        }
+        res = max(res, i - j + 1);
+    }
+    cout << res << endl;
+    return 0;
+}</code></pre>
+<h2 id="2816-判断子序列"><a href="#2816-判断子序列" class="headerlink" title="2816. 判断子序列"></a>2816. 判断子序列</h2><p>题目链接：<a href="https://www.acwing.com/problem/content/2818/" target="_blank" rel="noopener">https://www.acwing.com/problem/content/2818/</a></p>
+<hr>
+<p>思路：两个数组，采用双指针，定义两个指针<code>i</code>和<code>j</code>，<code>i</code>指向<code>a</code>数组，<code>j</code>指向<code>b</code>数组，由于<code>b.length &gt;= a.length</code>，所以我们经过每次循环，不论结果如何<code>j++</code>，而<code>i</code>只有匹配时再<code>i++</code>。</p>
+<p>代码：</p>
+<pre class=" language-C++"><code class="language-C++">#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+const int N = 100010;
+int n, m;
+int a[N], b[N];
+
+int main() {
+    cin >> n >> m;
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    for(int i = 0; i < m; i++) {
+        cin >> b[i];
+    }
+    int i = 0, j = 0;
+    while(i < n && j < m) {
+        if(a[i] == b[j]) {
+            i++;
+        }
+        j++;
+    }
+    if(i == n) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+    return 0;
+}</code></pre>
+<p><strong>注意</strong>：</p>
+<blockquote>
+<p>为什么这题没有用模板？</p>
+</blockquote>
+<p>当我们遇到像 <a href="https://www.acwing.com/problem/content/801/" target="_blank" rel="noopener">AcWing 799.最长连续不重复子序列</a>，<a href="https://www.acwing.com/problem/content/802/" target="_blank" rel="noopener">AcWing 800.数组元素的目标和</a> 这种问题，我们需要<strong>先固定一个指针</strong>，<strong>然后另一个指针去连续的判断一段区间，需要while()循环</strong>。换句话说，<font color="red"><strong>while()循环用来解决连续一段区间的判断问题</strong></font>；而这道题中我们需要对<code>a</code>数组和<code>b</code>数组的每一位，逐位去进行比较判断，<code>i</code>指针不断后移，而<code>j</code>指针只有当匹配成功时才后移一位，它不是连续一段区间的判断。</p>
 <h2 id="16-最接近的三数之和"><a href="#16-最接近的三数之和" class="headerlink" title="16. 最接近的三数之和"></a>16. 最接近的三数之和</h2><p>题目链接：<a href="https://leetcode-cn.com/problems/3sum-closest" target="_blank" rel="noopener">https://leetcode-cn.com/problems/3sum-closest</a></p>
 <hr>
 <p>思路：</p>
