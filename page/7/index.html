@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZY的小站 - ZY的小站</title><meta name="description" content="专注于分享学习经验与技术"><meta name="author" content="skdjq"><meta name="copyright" content="skdjq"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/page/7/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="ZY的小站"><meta property="og:url" content="http://yoursite.com/page/7/"><meta property="og:site_name" content="ZY的小站"><meta property="og:description" content="专注于分享学习经验与技术"><meta property="og:image" content="http://yoursite.com/img/avatar.png"><meta property="article:published_time" content="2022-04-29T14:01:01.226Z"><meta property="article:modified_time" content="2022-04-29T14:01:01.226Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">69</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">26</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200701083541.png)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">ZY的小站</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">ZY的小站</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/skdjq" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/724520362@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/05/16/eclipse/" title="Eclipse">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200617101346.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Eclipse"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/16/eclipse/" title="Eclipse">Eclipse</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-16 20:43:01"><i class="far fa-calendar-alt"></i>2020-05-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/IDE/">IDE</a></span></div><div class="content">Eclipse 使用过程中的一些问题1.右键 
+run as 时只显示 Run Configurations 。
+原因：主函数写错，正确的写法应该是：
+public static void main (String[] args){
+
+}
+如果出现以上问题，应对照上面正确的写法，一般来说我们容易将 main 写成 mian ，或者省略 String[] args ，应多多注意。
+2.常用快捷键：
+1.格式化： ctrl + shift + f
+2.导包：ctrl + shitf + o
+3.移动代码：选中代码，alt + 上/下
+4.看源码：ctrl + 鼠标
+5.自动生成各种各样的重写等方法：alt + shift + s
+3.jar包
+什么是jar包？
+
+jar 是多个 class 文件的压缩包。
+
+jar 包有什么用？
+
+使用别人写好的东西
+
+打 jar 包：
+
+选中项目—-右键—-Export—-Java—-Jar—-自己指定一个路径和一个名称—-Finish
+
+使用 jar 包：
+
+复制到项目路径下并添加至构建路径（右键—-Build Path —-Add to Build  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/05/16/list-ji-he/" title="List集合">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626143919.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="List集合"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/16/list-ji-he/" title="List集合">List集合</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-16 20:39:44"><i class="far fa-calendar-alt"></i>2020-05-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">List集合
+List 是一个接口，是有序的 collection，此接口的用户可以对列表中每个元素的插入位置进行精确的控制，用户可以根据元素的整数索引访问元素，并搜索列表中的元素。List 接口允许存放重复的元素，并且元素都是有序的（Set 接口不允许存放重复元素，元素是无序的）
+
+List 接口特点
+它是一个有序的集合
+他是一个带索引的集合，通过索引就可以精确地操作集合中的元素（与数组的索引是一个道理）
+集合中可以有重复的元素，可以通过 equals 方法来比较是否为重复的元素
+List 接口常用的子类有：ArrayList 集合、LinkedList 集合
+
+List 接口中常用的方法
+boolean add(Object e)：向集合末尾添加指定元素
+void add(int index，Object e)：向集合指定索引处添加指定元素，原有元素依次后移
+remove(Object e)：将指定元素对象从集合中删除，返回被删除的元素
+remove(int index)：将指定索引处的元素从集合中删除，返回被删除的元素
+set(int index，Object e)：将指定索引处 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/05/16/java-ji-he-gai-shu/" title="Java集合概述">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626143920.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java集合概述"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/16/java-ji-he-gai-shu/" title="Java集合概述">Java集合概述</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-16 20:37:06"><i class="far fa-calendar-alt"></i>2020-05-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">集合为什么会出现集合——为了满足变化的需求。
+数组和集合的区别
+长度区别
+​    数组的长度固定
+​    集合的长度可变
+
+内容不同
+​    数组存储的是同一种类型的元素
+​    集合存储的可以是不同类型的元素
+
+元素的数据类型问题
+​    数组既可以存储基本数据类型，也可以存储引用数据类型
+​    集合只能存储引用类型
+
+
+集合返回长度的方法是 size() 而不是 length() ！
+数组有 length 属性，但没有 length 方法！
+如： arr.length 返回的是该数组的长度。
+字符串有 length() 方法！
+如：str.length() 返回的是该字符串的长度。
+集合继承关系
+Collection接口Collection 集合的创建不能是：
+Collection c = new Collection();        //error,因为接口不能实例化。可以这样创建：
+//方法一：
+Collection&lt;元素类型&gt; 变量名 = new ArrayList&lt;元素类型&gt;();   ==&gt;只能存储&lt;&gt;中指定的元 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/05/16/java-chang-yong-lei/" title="Java常用类">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626143917.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java常用类"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/16/java-chang-yong-lei/" title="Java常用类">Java常用类</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-16 20:32:41"><i class="far fa-calendar-alt"></i>2020-05-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">Java常用类Object类toString方法源码分析：
+public String toString() {
+    return getClass().getName() + "@" + Integer.toHexString(hashCode());
+}
+toString 用于返回该对象的字符串表示，它的值等于：getClass()+’@’+Interger.toHexString(hashCode()) 。
+由于 toString 方法返回的是内存的地址，实际开发中没太大意义，所以我们需要重写 toString 方法。
+我们可以使用快捷键 alt + shift + s 自动生成 toString 重写方法：
+@Override
+    public String toString() {
+        return "Student [age=" + age + ", name=" + name + "]";
+    }
+也可以按照这个格式自己写。
+注意事项：(1) 重写 Object 类中的 toString 方法，让其返回成员信息(2) 在输出语句中，直接写入一个对象 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/05/16/set-ji-he/" title="Set集合">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626144657.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Set集合"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/16/set-ji-he/" title="Set集合">Set集合</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-16 20:29:03"><i class="far fa-calendar-alt"></i>2020-05-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">Set集合
+Set 集合里面存储的是无序的不重复元素，没有索引，可以采用迭代器和增强for来获取元素，Set 常用的子类有 HashSet、LinkedHashSet 集合，可以通过 equals 方法来判断是否为重复元素。
+
+HashSet 集合HashSet 类实现 Set 接口，由哈希表支持（实际上是一个 HashMap 集合），HashSet 集合不能保证迭代顺序与元素存储顺序相同，采用哈希表结构存储数据结构，保证元素唯一性的方式依赖于：hashCode() 和 equals() 方法。
+
+特点：无序集合，存储和取出的顺序不同，没有索引，不存储重复元素
+在代码编写上和 ArrayList 完全一致
+存储、取出数据都比较快
+线程不安全，运行速度快
+底层数据结构为哈希表（链表数组结合体）
+
+public class demo6 {
+    public static void main(String[] args) {
+        Set&lt;String> S = new HashSet&lt;String>();
+        S.add("abc");
+        ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/05/16/map-ji-he/" title="Map集合">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626143923.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Map集合"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/16/map-ji-he/" title="Map集合">Map集合</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-16 08:53:20"><i class="far fa-calendar-alt"></i>2020-05-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">Map集合Map集合的特点
+每个元素成对存在，由键和值两部分组成，通过键可以找到对应的值
+
+键（key值）不可重复，值（value）可以重复，一个value值可以和
+很多key值形成对应关系，每个建最多只能映射到一个值
+
+两个 Map 接口的重要实现类：HashMap 类、LinkedHashMap 类
+
+
+以学生学号为例，学号就是键，姓名就是值：
+
+学号1                     姓名1
+学号2                     姓名2
+学号1（不行）      姓名3
+学号3                      姓名2（可以）
+
+Map集合和Collection集合的区别：
+
+Map集合存储元素是成对出现的，Map集合的键是唯一的，值是可重复的。
+Collection集合存储元素是单独出现的，Collection的儿子Set是唯一的，List是可重复的。
+
+注意：
+
+Map集合的数据结构只针对键有效，和值无关。
+Collection集合的数据结构是针对元素有效。
+
+Map接口中的常用方法
+get(Object key)：获取指定键(key)所对应的值(v ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/05/15/fan-xing-de-jiang-jie/" title="泛型的讲解">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626144659.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="泛型的讲解"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/15/fan-xing-de-jiang-jie/" title="泛型的讲解">泛型的讲解</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-15 16:02:13"><i class="far fa-calendar-alt"></i>2020-05-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">泛型泛型是一种把类型明确的工作推迟到创建对象或者调用方法的时候才去明确的特殊的类型。是参数化类型。
+参数化类型:
+
+把类型当作是参数一样传递
+&lt;数据类型&gt; 只能是引用类型
+
+ArrayList&lt;String> list = new ArrayList&lt;String>();
+Iterator&lt;String> it = list.iterator();
+泛型的好处：
+1.避免了强制类型转换；
+2.把运行期间的问题提前到了编译期间；
+3.优化了程序设计，解决了黄色警告线。
+泛型类泛型类就是把泛型定义在类上，用户使用该类的时候，才把类型明确下来….这样的话，用户明确了什么类型，该类就代表着什么类型…用户在使用的时候就不用担心强转的问题，运行时转换异常的问题了。
+public class ObjectTool&lt;T> {
+    private T obj;
+    public T getObj() {
+        return obj;
+    }
+    public void setObj(T obj) {
+        this.obj = ob ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/05/14/bing-fa-xiu-gai-yi-chang-chu-xian-de-yuan-yin-he-jie-jue-fang-fa/" title="并发修改异常出现的原因和解决方法">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626144658.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="并发修改异常出现的原因和解决方法"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/14/bing-fa-xiu-gai-yi-chang-chu-xian-de-yuan-yin-he-jie-jue-fang-fa/" title="并发修改异常出现的原因和解决方法">并发修改异常出现的原因和解决方法</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-14 15:17:44"><i class="far fa-calendar-alt"></i>2020-05-14</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">关于并发修改异常问题的剖析迭代器遍历元素的过程中，通过集合是不能修改元素的，否则会出现并发修改异常。（java.util.ConcurrentModificationException）
+案例：
+public class demo2 {
+    public static void main(String[] args)
+    {
+        List list = new ArrayList();
+        list.add("hello");
+        list.add("world");
+        list.add("java");
+        list.add(1, "HELLO");
+        Iterator it = list.iterator();
+        while(it.hasNext()) {
+            String s = (String) it.next();
+            if("hello".equals(s)) {
+                list.add("test");
+    ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/05/06/java-mian-xiang-dui-xiang/" title="Java面向对象">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626143922.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java面向对象"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/06/java-mian-xiang-dui-xiang/" title="Java面向对象">Java面向对象</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-06 22:11:07"><i class="far fa-calendar-alt"></i>2020-05-06</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">Java 和 C++ 的区别？
+都是面向对象的语言，都支持封装、继承和多态
+Java 不提供指针来直接访问内存，程序内存更加安全
+Java 的类是单继承的，C++ 支持多重继承；虽然 Java 的类不可以多继承，但是接口可以多继承。
+Java 有自动内存管理机制，不需要程序员手动释放无用内存
+在 C 语言中，字符串或字符数组最后都会有一个额外的字符‘\0’来表示结束。但是，Java 语言中没有结束符这一概念。 这是一个值得深度思考的问题，具体请看这篇文章。
+
+面向对象构造器构造器类似于C++语言中的构造函数，
+构造器的结构：
+​    1.和类名相同
+​    2.没有返回值
+作用：
+1. new 的本质是在调用构造方法
+ 2. 初始化对象的值注意：在定义了有参构造之后，若想使用无参构造，必须显式的定义一个无参的构造（和C++中的有参构造函数和无参构造函数基本相同）。
+public class demo1 {
+    String name;
+    //无参构造
+    public demo1() {
+
+    }
+    //有参构造
+    public demo1(Strin ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">skdjq</div><div class="author-info__description">专注于分享学习经验与技术</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">69</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">26</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">25</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/skdjq" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/724520362@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本网站的主要功能是用来记录学习的总结以及一些经验。终身学习，共同进步，Peace! （由于服务器部署于国外，晚上访问速度较慢）<img src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20201222211742.gif"></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2022/04/29/er-fen-cha-zhao/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com//skdjq/image/raw/master/img/32.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="二分查找" alt="二分查找"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2022/04/29/er-fen-cha-zhao/" title="二分查找">二分查找</div><time class="aside-post_meta post-meta__date" title="发表于 2022-04-29 21:54:48">2022-04-29</time></div></a></div><div class="aside-recent-post"><a href="/2021/01/15/flood-fill-suan-fa/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200626143919.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Flood Fill算法" alt="Flood Fill算法"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/01/15/flood-fill-suan-fa/" title="Flood Fill算法">Flood Fill算法</div><time class="aside-post_meta post-meta__date" title="发表于 2021-01-15 16:59:28">2021-01-15</time></div></a></div><div class="aside-recent-post"><a href="/2021/01/13/she-xing-ju-zhen/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200703113804.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="蛇形矩阵" alt="蛇形矩阵"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/01/13/she-xing-ju-zhen/" title="蛇形矩阵">蛇形矩阵</div><time class="aside-post_meta post-meta__date" title="发表于 2021-01-13 22:47:07">2021-01-13</time></div></a></div><div class="aside-recent-post"><a href="/2020/12/01/tan-tan-min-gan-ci-guo-lu-de-shi-xian/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20201201210746.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="谈谈敏感词过滤的实现" alt="谈谈敏感词过滤的实现"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/12/01/tan-tan-min-gan-ci-guo-lu-de-shi-xian/" title="谈谈敏感词过滤的实现">谈谈敏感词过滤的实现</div><time class="aside-post_meta post-meta__date" title="发表于 2020-12-01 21:00:32">2020-12-01</time></div></a></div><div class="aside-recent-post"><a href="/2020/11/15/kmp-suan-fa/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200928225115.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="KMP算法" alt="KMP算法"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/11/15/kmp-suan-fa/" title="KMP算法">KMP算法</div><time class="aside-post_meta post-meta__date" title="发表于 2020-11-15 11:54:16">2020-11-15</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Bug/"><span class="card-category-list-name">Bug</span><span class="card-category-list-count">4</span></a></li><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Bug/IDEA/"><span class="card-category-list-name">IDEA</span><span class="card-category-list-count">1</span></a></li></ul><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C++</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/IDE/"><span class="card-category-list-name">IDE</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">12</span></a></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href='/tags/Bug/' style='font-size:19px; color:rgb(14, 1, 119)'>Bug</a><a href='/tags/C/' style='font-size:20px; color:rgb(171, 92, 94)'>C++</a><a href='/tags/Docker/' style='font-size:20px; color:rgb(0, 177, 92)'>Docker</a><a href='/tags/Git/' style='font-size:21px; color:rgb(88, 199, 198)'>Git</a><a href='/tags/Hexo/' style='font-size:20px; color:rgb(180, 144, 139)'>Hexo</a><a href='/tags/IDE/' style='font-size:20px; color:rgb(44, 53, 26)'>IDE</a><a href='/tags/IDEA/' style='font-size:19px; color:rgb(23, 53, 70)'>IDEA</a><a href='/tags/Java/' style='font-size:21px; color:rgb(72, 99, 34)'>Java</a><a href='/tags/Java-Web/' style='font-size:21px; color:rgb(32, 189, 171)'>Java Web</a><a href='/tags/LeetCode/' style='font-size:16px; color:rgb(102, 188, 45)'>LeetCode</a><a href='/tags/Linux/' style='font-size:19px; color:rgb(46, 175, 156)'>Linux</a><a href='/tags/Maven/' style='font-size:17px; color:rgb(36, 156, 48)'>Maven</a><a href='/tags/Mybatis/' style='font-size:17px; color:rgb(78, 101, 158)'>Mybatis</a><a href='/tags/PAT/' style='font-size:16px; color:rgb(144, 11, 124)'>PAT</a><a href='/tags/SSM/' style='font-size:20px; color:rgb(172, 37, 43)'>SSM</a><a href='/tags/Spring/' style='font-size:21px; color:rgb(38, 40, 190)'>Spring</a><a href='/tags/Spring-Boot/' style='font-size:20px; color:rgb(19, 99, 98)'>Spring Boot</a><a href='/tags/SpringMVC/' style='font-size:18px; color:rgb(173, 101, 193)'>SpringMVC</a><a href='/tags/%E5%85%B6%E4%BB%96/' style='font-size:16px; color:rgb(166, 11, 30)'>其他</a><a href='/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/' style='font-size:18px; color:rgb(169, 14, 163)'>数据库</a><a href='/tags/%E6%BA%90%E7%A0%81/' style='font-size:16px; color:rgb(81, 34, 90)'>源码</a><a href='/tags/%E7%AE%97%E6%B3%95/' style='font-size:18px; color:rgb(64, 82, 161)'>算法</a><a href='/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/' style='font-size:16px; color:rgb(191, 106, 37)'>计算机网络</a><a href='/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/' style='font-size:21px; color:rgb(59, 121, 176)'>设计模式</a><a href='/tags/%E9%9D%A2%E8%AF%95/' style='font-size:21px; color:rgb(36, 86, 28)'>面试</a><a href='/tags/%E9%A1%B9%E7%9B%AE/' style='font-size:16px; color:rgb(83, 110, 111)'>项目</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/04/"><span class="card-archive-list-date">四月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
+              <span>查看更多</span><i class="fas fa-angle-right"  ></i></a></li></ul></div></div><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fa fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//clustrmaps.com/globe.js?d=8m9s-89Hn8Va6GTMedS3PWZy3P8HaQ3ewPB0JPywf80"></script></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">69</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" publish_date="4/12/2020 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">85.4k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/skdjq/PicgoImg/img/20200701083541.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By skdjq</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://skdjq.github.io/" target="_blank" rel="noopener">blog</a>!</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">简</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: "且视他人之疑目如盏盏鬼火&#44;大胆地去走自己的路,Regarding the suspicion of others&#44;like ghosts&#44;go boldly in your own way".split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: true,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = '且视他人之疑目如盏盏鬼火&#44;大胆地去走自己的路'
+}</script></body></html>
